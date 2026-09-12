@@ -96,6 +96,8 @@
   .esito h2{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.5rem;color:var(--verde);margin:0 0 8px}
   .esito p{color:var(--ink-2);font-size:.92rem;margin:0 auto;max-width:44ch}
 
+  .manuale{max-width:360px;margin:26px auto 0;text-align:left}
+  .manuale label{margin-top:14px}
   .azioni-rif{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:22px}
   .az-rif{display:inline-flex;align-items:center;text-decoration:none;font-size:.8rem;font-weight:600;
     color:var(--verde);border:1px solid var(--filo-2);border-radius:100px;padding:9px 18px}
@@ -228,8 +230,16 @@
       <div class="esito" id="senza-rif">
         <div class="segno">?</div>
         <h2>Manca il riferimento del preventivo</h2>
-        <p>Questa pagina si apre dal collegamento che trova nel preventivo che le abbiamo inviato: è quel collegamento a portare con sé numero, oggetto e importo da accettare.<br><br>
-        Se non riesce a trovarlo, ci scriva o ci chiami e glielo rimandiamo subito.</p>
+        <p>Di norma questa pagina si apre dal collegamento che trova nel preventivo, ed è quel collegamento a portare con sé numero, oggetto e importo.<br><br>
+        Può indicare a mano il numero del preventivo che sta accettando e proseguire.</p>
+        <div class="manuale">
+          <label for="m-num">Numero del preventivo</label>
+          <input type="text" id="m-num" placeholder="2026/014">
+          <label for="m-ogg">Oggetto (facoltativo)</label>
+          <input type="text" id="m-ogg" placeholder="Disinfestazione zanzare">
+          <button type="button" class="acc-btn" id="b-manuale" style="width:100%;justify-content:center;margin-top:18px">Prosegui →</button>
+        </div>
+        <p style="font-size:.82rem;margin-top:22px">Se preferisce, ci scriva e le rimandiamo il collegamento diretto.</p>
         <div class="azioni-rif">
           <a class="az-rif" href="https://wa.me/393287217116">WhatsApp 328 7217116</a>
           <a class="az-rif" href="mailto:giglioverdefirenze@gmail.com">giglioverdefirenze@gmail.com</a>
@@ -263,18 +273,20 @@
     tot: q.get("t") || "",
     mail: q.get("e") || ""
   };
-  /* senza riferimento del preventivo il modulo non si apre:
-     la pagina ha senso solo se raggiunta dal collegamento nel documento */
+  function mostraRif(){
+    $("r-num").textContent = P.num || "—";
+    $("r-ogg").textContent = P.ogg || "—";
+    $("r-cli").textContent = P.cli || "—";
+    $("r-tot").textContent = P.tot || "—";
+  }
+
+  /* senza riferimento nel collegamento il modulo resta chiuso,
+     ma si può indicare il numero a mano e proseguire */
   if (!P.num && !P.ogg) {
     $("modulo").style.display = "none";
     $("senza-rif").classList.add("on");
-    return;
   }
-
-  $("r-num").textContent = P.num || "—";
-  $("r-ogg").textContent = P.ogg || "—";
-  $("r-cli").textContent = P.cli || "—";
-  $("r-tot").textContent = P.tot || "—";
+  mostraRif();
   if (P.mail) $("f-email").value = P.mail;
 
   /* ---------- data di oggi ---------- */
@@ -307,6 +319,20 @@
     $(id).addEventListener("input", aggiorna);
   });
   $("f-ok").addEventListener("change", aggiorna);
+  var bManuale = $("b-manuale");
+  if (bManuale) bManuale.addEventListener("click", function(){
+    var n = $("m-num").value.trim();
+    if (!n) { $("m-num").focus(); return; }
+    P.num = n;
+    var o = $("m-ogg").value.trim();
+    if (o) P.ogg = o;
+    mostraRif();
+    $("senza-rif").classList.remove("on");
+    $("modulo").style.display = "";
+    aggiorna();
+    window.scrollTo({ top:0, behavior:"smooth" });
+  });
+
   $("f-hastudio").addEventListener("change", function(){
     var on = $("f-hastudio").checked;
     $("box-studio").hidden = !on;
@@ -528,7 +554,7 @@
 
       fetch("/", { method:"POST", body: fd })
         .then(function(r){
-          if(!r.ok) throw new Error("risposta " + r.status);
+          if(!r.ok) { var err = new Error("risposta " + r.status); err.stato = r.status; throw err; }
           if (blob) {
             var u = URL.createObjectURL(blob);
             var a = document.createElement("a");
@@ -542,9 +568,10 @@
             : "Grazie. L'accettazione è stata registrata. Il Giglio Verde la ricontatterà a breve.";
           window.scrollTo({ top:0, behavior:"smooth" });
         })
-        .catch(function(){
+        .catch(function(e){
           b.disabled = false; b.textContent = "Firma e invia l'accettazione";
-          messaggio("Non è stato possibile inviare l'accettazione. Controlli la connessione e riprovi, oppure ci scriva a giglioverdefirenze@gmail.com indicando il numero del preventivo.", true);
+          var codice = e && e.stato ? " (codice " + e.stato + ")" : "";
+          messaggio("Non è stato possibile inviare l'accettazione" + codice + ". Riprovi fra un momento, oppure ci scriva a giglioverdefirenze@gmail.com indicando il numero del preventivo: registriamo noi l'accettazione.", true);
         });
     }
   });
