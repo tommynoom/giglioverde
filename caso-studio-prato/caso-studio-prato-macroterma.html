@@ -15,6 +15,23 @@
   gtag('config', 'G-GYQ426DJKF');
 </script>
 
+<link rel="canonical" href="https://www.giglioverde.com/caso-studio-prato/caso-studio-prato-macroterma.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Il Giglio Verde">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://www.giglioverde.com/caso-studio-prato/caso-studio-prato-macroterma.html">
+<meta property="og:title" content="Conversione a prato macroterma — Caso studio | Il Giglio Verde">
+<meta property="og:description" content="Come abbiamo convertito 150 m² di prato a stagione fredda in un tappeto macroterma Bermuda, documentato giorno per giorno: preparazione, semina, primo taglio, diagnosi di un imprevisto e calendario di manutenzione.">
+<meta property="og:image" content="https://www.giglioverde.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Il giglio del marchio e il nome Il Giglio Verde">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/Sito-favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/Sito-favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/Sito-icona-iPhone-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#101d14">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,7 +47,7 @@
 <!-- ===== HEADER DEL SITO ===== -->
 <header class="site-head">
   <div class="container site-head-inner">
-    <a class="site-logo" href="https://www.giglioverde.com"><span class="mark"></span>Il Giglio <em>Verde</em></a>
+    <a class="site-logo" href="https://www.giglioverde.com"><svg class="giglio" viewBox="4 4 52 58" aria-hidden="true" focusable="false"><g fill="#f3eee2"><path d="M30 4C33.8 13 35.8 20 35.8 26.5C35.8 31.5 33.6 35.5 30 38C26.4 35.5 24.2 31.5 24.2 26.5C24.2 20 26.2 13 30 4Z"/><path d="M24.6 28.5C19 25.5 12.5 25 8.5 28.5C4 32.5 4 40.5 8.5 44C10.5 45.5 13 45.8 14.8 45C11.5 42.5 10.5 38 12.5 34.5C14.3 31.4 19 29.6 24.6 28.5Z"/><path d="M35.4 28.5C41 25.5 47.5 25 51.5 28.5C56 32.5 56 40.5 51.5 44C49.5 45.5 47 45.8 45.2 45C48.5 42.5 49.5 38 47.5 34.5C45.7 31.4 41 29.6 35.4 28.5Z"/><path d="M27.6 44.3H32.4C33.8 51 35.8 57 38.4 62H21.6C24.2 57 26.2 51 27.6 44.3Z"/></g><rect x="18.6" y="39.4" width="22.8" height="5" rx="2.5" fill="#e0bd74"/></svg><span>Il Giglio <em>Verde</em></span></a>
 
     <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
     <label for="nav-toggle" class="nav-toggle-btn" aria-label="Apri il menu">
@@ -848,6 +865,7 @@
         <span class="v">Preventivo gratuito</span>
       </a>
     </div>
+    <p class="cta-servizio"><a href="/manutenzione-giardini-firenze.html">Il nostro servizio di manutenzione giardini a Bagno a Ripoli e Firenze Sud →</a></p>
   </div>
 </div>
 
@@ -858,11 +876,11 @@
       <div class="foot-rule"></div>
       <div class="foot-brand">Il Giglio <em>Verde</em></div>
       <div class="foot-tag">L'arte di curare i tuoi spazi verdi · Firenze dal 2011</div>
-      <div class="foot-tag">© 2026 Il Giglio Verde · Tommaso Batini · Firenze, Firenze Sud, Bagno a Ripoli</div>
+      <div class="foot-tag">© <span class="anno">2026</span> Il Giglio Verde SRLS · P.IVA 18448341000 · Tommaso Batini · Bagno a Ripoli, Firenze Sud, Firenze</div>
     </div>
     <div class="foot-contacts">
       <a class="foot-link" href="https://www.giglioverde.com">www.giglioverde.com</a>
-      <a class="foot-link" href="tel:3287217116">328 7217116</a>
+      <a class="foot-link" href="tel:+393287217116">328 7217116</a>
       <a class="foot-link" href="mailto:giglioverdefirenze@gmail.com">giglioverdefirenze@gmail.com</a>
       <div class="foot-social">
         <a class="foot-link" href="https://www.instagram.com/giglioverdegiardini" target="_blank" aria-label="Instagram">IG</a>
@@ -872,5 +890,18 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  document.querySelectorAll('.anno').forEach(function(el){ el.textContent = new Date().getFullYear(); });
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a || typeof gtag !== 'function') return;
+    var h = a.getAttribute('href') || '';
+    if (h.indexOf('tel:') === 0) gtag('event', 'clic_telefono');
+    else if (h.indexOf('wa.me') > -1) gtag('event', 'clic_whatsapp');
+    else if (h.indexOf('mailto:') === 0) gtag('event', 'clic_email');
+  });
+})();
+</script>
 </body>
 </html>

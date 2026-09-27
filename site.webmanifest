@@ -1,0 +1,13 @@
+{
+  "name": "Il Giglio Verde",
+  "short_name": "Giglio Verde",
+  "description": "Cura del verde, edilizia e campagna a Bagno a Ripoli e Firenze",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#101d14",
+  "theme_color": "#101d14",
+  "icons": [
+    { "src": "/Sito-icona-Android-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/Sito-icona-Android-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

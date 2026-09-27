@@ -126,10 +126,8 @@ h2 { font-size: clamp(26px, 4.4vw, 38px); }
   align-items: center;
   gap: 10px;
 }
-.site-logo .mark {
-  width: 26px; height: 26px; border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, var(--sage), var(--sage-deep));
-  box-shadow: 0 0 14px rgba(164,196,143,0.4);
+.site-logo .giglio {
+  width: 22px; height: 25px;
   flex-shrink: 0;
 }
 .site-logo em { font-style: italic; color: var(--gold); }
@@ -779,3 +777,8 @@ footer.site-foot {
   background: var(--gold); color: var(--bg); padding: 10px 16px; z-index: 100;
 }
 .skip-link:focus { left: 10px; top: 10px; }
+
+/* collegamento alla pagina del servizio, sotto i riquadri di contatto */
+.cta .cta-servizio { margin-top: 30px; text-align: center; font-size: 0.95rem; }
+.cta-servizio a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(224,189,116,0.4); padding-bottom: 2px; }
+.cta-servizio a:hover { border-bottom-color: var(--gold); }

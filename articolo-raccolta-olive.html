@@ -16,6 +16,20 @@
 <meta name="keywords" content="raccolta olive Firenze, gestione oliveto Toscana, quando raccogliere olive, olio toscano, manutenzione oliveto Firenze, Il Giglio Verde">
 <meta property="og:title" content="La raccolta delle olive: quando e come farla | Il Giglio Verde">
 <meta property="og:description" content="Guida professionale alla raccolta delle olive e gestione degli oliveti in Toscana, a cura de Il Giglio Verde di Firenze.">
+<link rel="canonical" href="https://www.giglioverde.com/articolo-raccolta-olive.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Il Giglio Verde">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://www.giglioverde.com/articolo-raccolta-olive.html">
+<meta property="og:image" content="https://www.giglioverde.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/Sito-favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/Sito-favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/Sito-icona-iPhone-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#101d14">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -27,7 +41,8 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--cream); -webkit-font-smoothing: antialiased; }
   nav { position: sticky; top: 0; z-index: 100; padding: 18px 6%; display: flex; justify-content: space-between; align-items: center; background: rgba(16,29,20,0.9); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
-  .logo { font-family: 'Instrument Serif', serif; font-size: 1.4rem; text-decoration: none; color: var(--cream); }
+  .logo { font-family: 'Instrument Serif', serif; font-size: 1.4rem; text-decoration: none; color: var(--cream); display: flex; align-items: center; gap: 10px; }
+  .logo .giglio { width: 22px; height: 25px; flex-shrink: 0; }
   .logo i { font-style: italic; color: var(--gold); }
   .back-btn { font-size: 0.82rem; color: var(--cream-dim); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.25s; }
   .back-btn:hover { color: var(--gold); }
@@ -53,7 +68,13 @@
   .btn { display: inline-block; padding: 14px 32px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.3s; }
   .btn-fill { background: var(--gold); color: var(--bg); }
   .btn-fill:hover { background: var(--gold-soft); transform: translateY(-2px); }
+  .btn-ghost { border: 1px solid rgba(243,238,226,0.18); color: var(--cream); margin-left: 8px; }
+  .btn-ghost:hover { border-color: var(--cream); }
+  @media screen and (max-width: 560px) { .article-cta .btn { display: block; margin: 10px 0 0; } }
   footer { border-top: 1px solid var(--line); padding: 30px 6%; text-align: center; }
+  .foot-servizi { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin-bottom: 16px; }
+  .foot-servizi a { color: var(--cream-dim); font-size: 0.84rem; }
+  .foot-servizi a:hover { color: var(--gold); }
   footer p { font-size: 0.8rem; color: var(--cream-dim); }
   footer a { color: var(--gold); text-decoration: none; }
 </style>
@@ -61,7 +82,7 @@
 <body>
 
 <nav>
-  <a href="index.html" class="logo">Il Giglio <i>Verde</i></a>
+  <a href="/" class="logo"><svg class="giglio" viewBox="4 4 52 58" aria-hidden="true" focusable="false"><g fill="#f3eee2"><path d="M30 4C33.8 13 35.8 20 35.8 26.5C35.8 31.5 33.6 35.5 30 38C26.4 35.5 24.2 31.5 24.2 26.5C24.2 20 26.2 13 30 4Z"/><path d="M24.6 28.5C19 25.5 12.5 25 8.5 28.5C4 32.5 4 40.5 8.5 44C10.5 45.5 13 45.8 14.8 45C11.5 42.5 10.5 38 12.5 34.5C14.3 31.4 19 29.6 24.6 28.5Z"/><path d="M35.4 28.5C41 25.5 47.5 25 51.5 28.5C56 32.5 56 40.5 51.5 44C49.5 45.5 47 45.8 45.2 45C48.5 42.5 49.5 38 47.5 34.5C45.7 31.4 41 29.6 35.4 28.5Z"/><path d="M27.6 44.3H32.4C33.8 51 35.8 57 38.4 62H21.6C24.2 57 26.2 51 27.6 44.3Z"/></g><rect x="18.6" y="39.4" width="22.8" height="5" rx="2.5" fill="#e0bd74"/></svg><span>Il Giglio <i>Verde</i></span></a>
   <a href="index.html#blog" class="back-btn">← Torna al blog</a>
 </nav>
 
@@ -188,13 +209,33 @@
     <h3>Hai un oliveto in <i>campagna fiorentina?</i></h3>
     <p>Il Giglio Verde gestisce oliveti, esegue la raccolta delle olive e rivende olio di qualità nella zona di Firenze, Firenze Sud e tutta l'area metropolitana. Contattaci per una consulenza gratuita.</p>
     <a href="index.html#contatti" class="btn btn-fill">Richiedi un preventivo gratuito →</a>
+    <a href="/oliveti-raccolta-olive-firenze.html" class="btn btn-ghost">Il servizio per gli oliveti →</a>
   </div>
 
 </div>
 
 <footer>
-  <p>© 2025 <a href="index.html">Il Giglio Verde</a> · Tommaso Batini · Firenze · <a href="tel:3287217116">328 7217116</a></p>
+  <div class="foot-servizi">
+    <a href="/manutenzione-giardini-firenze.html">Manutenzione giardini</a>
+    <a href="/antizanzare-firenze.html">Antizanzare</a>
+    <a href="/facciate-cotto-pietra-firenze.html">Facciate, cotto e pietra</a>
+    <a href="/oliveti-raccolta-olive-firenze.html">Oliveti e raccolta olive</a>
+  </div>
+  <p>© <span class="anno">2026</span> <a href="/">Il Giglio Verde</a> SRLS · P.IVA 18448341000 · Bagno a Ripoli, Firenze · <a href="tel:+393287217116">328 7217116</a></p>
 </footer>
 
+<script>
+(function(){
+  document.querySelectorAll('.anno').forEach(function(el){ el.textContent = new Date().getFullYear(); });
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a || typeof gtag !== 'function') return;
+    var h = a.getAttribute('href') || '';
+    if (h.indexOf('tel:') === 0) gtag('event', 'clic_telefono');
+    else if (h.indexOf('wa.me') > -1) gtag('event', 'clic_whatsapp');
+    else if (h.indexOf('mailto:') === 0) gtag('event', 'clic_email');
+  });
+})();
+</script>
 </body>
 </html>
