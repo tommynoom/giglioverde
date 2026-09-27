@@ -415,7 +415,16 @@
   .form-alt { width: 100%; margin-top: 10px; background: none; border: 1px solid var(--line-2); color: var(--cream-dim); padding: 13px; border-radius: 10px; font-family: 'Manrope', sans-serif; font-size: 0.86rem; cursor: pointer; transition: all 0.3s; }
   .form-alt:hover { border-color: var(--cream); color: var(--cream); }
   .form-nota { font-size: 0.8rem; color: var(--cream-dim); margin-top: 14px; line-height: 1.5; font-weight: 300; }
-  .form-err { color: #f0b49a; font-size: 0.86rem; margin: -4px 0 14px; }
+  .form-err { color: #f0b49a; font-size: 0.86rem; margin: -4px 0 14px; line-height: 1.5; }
+  .form-err a, .form-nota a, .form-ok a { color: var(--gold); }
+  .form-submit:disabled { opacity: 0.65; cursor: wait; }
+  .form-privacy { margin-top: 12px; font-size: 0.78rem; color: var(--cream-dim); }
+  .form-privacy summary { cursor: pointer; color: var(--sage); }
+  .form-privacy p { margin-top: 8px; line-height: 1.55; font-weight: 300; }
+  .form-ok { text-align: center; padding: 34px 6px; }
+  .form-ok-ico { width: 58px; height: 58px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 18px; }
+  .form-ok h3 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 2rem; margin-bottom: 10px; }
+  .form-ok p { color: var(--cream-dim); font-weight: 300; line-height: 1.6; }
 
   /* ===== FOOTER ===== */
   footer { position: relative; z-index: 2; border-top: 1px solid var(--line); padding: 80px 6% 36px; text-align: center; }
@@ -637,29 +646,41 @@
       <a href="https://www.giglioverde.com" class="c-item"><div class="ci-ico">🌐</div><div><div class="ci-label">Sito web</div><div class="ci-val">www.giglioverde.com</div></div></a>
       <a href="https://share.google/BkS3udBZDlnNuC22n" target="_blank" class="c-item"><div class="ci-ico">📍</div><div><div class="ci-label">Google Maps · Foto e Recensioni</div><div class="ci-val">Vedi la nostra scheda →</div></div></a>
     </div>
-    <form class="form-card rv" id="form-preventivo" novalidate>
-      <label for="f-nome">Nome e cognome</label>
-      <input id="f-nome" name="nome" type="text" placeholder="Mario Rossi" autocomplete="name">
-      <div class="form-grid2">
-        <div><label for="f-tel">Telefono</label><input id="f-tel" name="tel" type="tel" placeholder="328 0000000" autocomplete="tel"></div>
-        <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="nome@email.it" autocomplete="email"></div>
+    <form class="form-card rv" id="form-preventivo" name="richieste-preventivo" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <p class="hp" hidden><label>Lascia vuoto questo campo <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <div class="form-campi">
+        <label for="f-nome">Nome e cognome</label>
+        <input id="f-nome" name="nome" type="text" placeholder="Mario Rossi" autocomplete="name">
+        <div class="form-grid2">
+          <div><label for="f-tel">Telefono</label><input id="f-tel" name="telefono" type="tel" placeholder="328 0000000" autocomplete="tel"></div>
+          <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="nome@email.it" autocomplete="email"></div>
+        </div>
+        <label for="f-servizio">Servizio richiesto</label>
+        <select id="f-servizio" name="servizio">
+          <option value="">Seleziona…</option>
+          <option>Verde e Giardini</option>
+          <option>Antizanzare</option>
+          <option>Edilizia e Facciate</option>
+          <option>Campagna e Oliveti</option>
+          <option>Luci Natalizie</option>
+          <option>Rivendita Prodotti</option>
+        </select>
+        <label for="f-msg">Messaggio</label>
+        <textarea id="f-msg" name="messaggio" placeholder="Che lavoro serve e dove (es. potatura siepi, Grassina)"></textarea>
+        <p class="form-err" id="form-err" role="alert" hidden></p>
+        <button class="form-submit" type="submit" value="modulo">Invia la richiesta →</button>
+        <button class="form-alt" type="submit" value="whatsapp">Oppure mandala su WhatsApp</button>
+        <p class="form-nota">La richiesta ci arriva per email e ti rispondiamo al più presto. I tuoi dati servono solo a risponderti.</p>
+        <details class="form-privacy">
+          <summary>Come usiamo i tuoi dati</summary>
+          <p>Titolare del trattamento: Il Giglio Verde SRLS, P.IVA 18448341000, giglioverdefirenze@gmail.com. Usiamo nome, recapiti e messaggio solo per rispondere alla tua richiesta e preparare l'eventuale preventivo (base giuridica: la tua richiesta, art. 6.1.b del GDPR). Il modulo è gestito da Netlify, il servizio che ospita questo sito, che ci inoltra la richiesta per email. Non usiamo i dati per altri scopi e non li cediamo a nessuno. Li conserviamo per il tempo necessario a gestire la richiesta e, se diventi cliente, per quanto richiesto dalla legge. Puoi chiedere in ogni momento di vederli, correggerli o cancellarli scrivendo a giglioverdefirenze@gmail.com, e hai diritto di presentare reclamo al Garante per la protezione dei dati personali.</p>
+        </details>
       </div>
-      <label for="f-servizio">Servizio richiesto</label>
-      <select id="f-servizio" name="servizio">
-        <option value="">Seleziona…</option>
-        <option>Verde e Giardini</option>
-        <option>Antizanzare</option>
-        <option>Edilizia e Facciate</option>
-        <option>Campagna e Oliveti</option>
-        <option>Luci Natalizie</option>
-        <option>Rivendita Prodotti</option>
-      </select>
-      <label for="f-msg">Messaggio</label>
-      <textarea id="f-msg" name="messaggio" placeholder="Che lavoro serve e dove (es. potatura siepi, Grassina)"></textarea>
-      <p class="form-err" id="form-err" role="alert" hidden></p>
-      <button class="form-submit" type="submit" value="whatsapp">Invia su WhatsApp →</button>
-      <button class="form-alt" type="submit" value="email">Preferisci l'email? Invia per email</button>
-      <p class="form-nota">Si apre WhatsApp, o la tua email, con il messaggio già scritto: ti basta premere Invia.</p>
+      <div class="form-ok" id="form-ok" role="status" hidden>
+        <div class="form-ok-ico">✓</div>
+        <h3>Richiesta inviata</h3>
+        <p>Grazie! Ti ricontattiamo al più presto. Se è urgente chiamaci al <a href="tel:+393287217116">328 7217116</a>.</p>
+      </div>
     </form>
   </div>
 </section>
@@ -743,23 +764,45 @@
 <script>
   function tm() { document.getElementById('mm').classList.toggle('open'); }
   const fp = document.getElementById('form-preventivo');
-  fp.addEventListener('submit', (ev) => {
+  const errBox = document.getElementById('form-err');
+  const inviaBtn = fp.querySelector('.form-submit');
+  const linkWA = (d) => {
+    const g = k => (d.get(k) || '').toString().trim();
+    const righe = ['Buongiorno, sono ' + g('nome') + '.'];
+    if (g('servizio')) righe.push('Servizio: ' + g('servizio'));
+    if (g('messaggio')) righe.push(g('messaggio'));
+    if (g('telefono')) righe.push('Telefono: ' + g('telefono'));
+    if (g('email')) righe.push('Email: ' + g('email'));
+    return 'https://wa.me/393287217116?text=' + encodeURIComponent(righe.join('\n'));
+  };
+  fp.addEventListener('submit', async (ev) => {
     ev.preventDefault();
     const d = new FormData(fp), g = k => (d.get(k) || '').toString().trim();
-    const nome = g('nome'), tel = g('tel'), email = g('email'), serv = g('servizio'), msg = g('messaggio');
-    const err = document.getElementById('form-err');
-    if (!nome || (!tel && !email)) { err.textContent = "Scrivi il tuo nome e almeno un telefono o un'email, così possiamo risponderti."; err.hidden = false; return; }
-    err.hidden = true;
-    const righe = ['Buongiorno, sono ' + nome + '.'];
-    if (serv) righe.push('Servizio: ' + serv);
-    if (msg) righe.push(msg);
-    if (tel) righe.push('Telefono: ' + tel);
-    if (email) righe.push('Email: ' + email);
-    const testo = righe.join('\n');
-    const via = (ev.submitter && ev.submitter.value) || 'whatsapp';
-    if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: via });
-    if (via === 'email') location.href = 'mailto:giglioverdefirenze@gmail.com?subject=' + encodeURIComponent('Richiesta preventivo' + (serv ? ' - ' + serv : '')) + '&body=' + encodeURIComponent(testo);
-    else window.open('https://wa.me/393287217116?text=' + encodeURIComponent(testo), '_blank', 'noopener');
+    if (g('bot-field')) return;
+    if (!g('nome') || (!g('telefono') && !g('email'))) { errBox.textContent = "Scrivi il tuo nome e almeno un telefono o un'email, così possiamo risponderti."; errBox.hidden = false; return; }
+    errBox.hidden = true;
+    const via = (ev.submitter && ev.submitter.value) || 'modulo';
+    if (via === 'whatsapp') {
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'whatsapp' });
+      window.open(linkWA(d), '_blank', 'noopener');
+      return;
+    }
+    inviaBtn.disabled = true; inviaBtn.textContent = 'Invio in corso…';
+    try {
+      const corpo = new URLSearchParams();
+      d.forEach((v, k) => corpo.append(k, v));
+      corpo.set('form-name', 'richieste-preventivo');
+      const r = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: corpo.toString() });
+      if (!r.ok) throw new Error('risposta ' + r.status);
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'modulo' });
+      fp.querySelector('.form-campi').hidden = true;
+      const ok = document.getElementById('form-ok'); ok.hidden = false;
+      ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (e) {
+      errBox.innerHTML = 'Non siamo riusciti a inviare la richiesta. Chiamaci al <a href="tel:+393287217116">328 7217116</a> oppure <a href="' + linkWA(d) + '" target="_blank" rel="noopener">mandala su WhatsApp</a>.';
+      errBox.hidden = false;
+      inviaBtn.disabled = false; inviaBtn.textContent = 'Invia la richiesta →';
+    }
   });
 
   window.addEventListener('scroll', () => {
