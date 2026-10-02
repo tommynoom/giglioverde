@@ -165,664 +165,927 @@
   gtag('js', new Date());
   gtag('config', 'G-GYQ426DJKF');
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/img/home/apertura-1400.webp" imagesrcset="/img/home/apertura-820.webp 820w, /img/home/apertura-1400.webp 1400w" imagesizes="(max-width: 900px) 100vw, 54vw">
 <style>
-  :root {
-    --bg: #101d14;
-    --bg-2: #14241a;
-    --bg-soft: #1a2e20;
-    --bg-card: #1f3526;
-    --cream: #f3eee2;
-    --cream-dim: #bcc1ad;
-    --sage: #a4c48f;
-    --sage-deep: #7ba265;
-    --gold: #e0bd74;
-    --gold-soft: #efd9a3;
-    --line: rgba(243,238,226,0.1);
-    --line-2: rgba(243,238,226,0.18);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Manrope', sans-serif;
-    background: var(--bg);
-    color: var(--cream);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.5;
-  }
-  ::selection { background: var(--gold); color: var(--bg); }
-  img { max-width: 100%; display: block; }
+:root {
+  --bosco: #101d14;
+  --bosco-2: #14241a;
+  --notte: #0c1610;
+  --crema: #f3eee2;
+  --crema-2: #bcc1ad;
+  --salvia: #a4c48f;
+  --oro: #e0bd74;
+  --oro-scuro: #9a7a30;
+  --linea: rgba(243, 238, 226, 0.14);
+  --linea-forte: rgba(243, 238, 226, 0.3);
+  --serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --hh: 72px;
+  --pad: clamp(20px, 5.5vw, 88px);
+  --max: 1280px;
+  --sez: clamp(84px, 10vw, 148px);
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-padding-top: calc(var(--hh) + 16px); -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: var(--bosco); color: var(--crema-2); font: 400 17px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; color: var(--crema); margin: 0; letter-spacing: -0.006em; }
+h2 { font-size: clamp(38px, 4.8vw, 64px); line-height: 1.02; }
+h3 { font-size: clamp(24px, 2vw, 28px); line-height: 1.12; }
+p { margin: 0; }
+a { color: inherit; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+:focus-visible { outline: 2px solid var(--oro); outline-offset: 3px; border-radius: 4px; }
+.salta { position: absolute; left: 12px; top: -60px; background: var(--oro); color: var(--bosco); padding: 10px 16px; border-radius: 6px; font-weight: 600; z-index: 100; text-decoration: none; }
+.salta:focus { top: 12px; }
 
-  /* grain + ambient light */
-  .grain {
-    position: fixed; inset: 0; z-index: 1; pointer-events: none;
-    opacity: 0.5; mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
-  }
-  .ambient {
-    position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    background:
-      radial-gradient(60vw 50vh at 12% -5%, rgba(123,162,101,0.16), transparent 60%),
-      radial-gradient(50vw 40vh at 95% 30%, rgba(224,189,116,0.1), transparent 55%),
-      radial-gradient(70vw 60vh at 50% 110%, rgba(123,162,101,0.08), transparent 60%);
-  }
+.wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--pad); }
+.sez { padding-block: var(--sez); }
+.intro { max-width: 36em; margin-top: 20px; font-size: 18px; }
+.link { color: var(--oro); font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+.link:hover { text-decoration-thickness: 2px; }
 
-  /* ===== NAV ===== */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    padding: 20px 6%;
-    display: flex; justify-content: space-between; align-items: center;
-    background: rgba(16,29,20,0.7);
-    backdrop-filter: blur(16px) saturate(120%);
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.4s, padding 0.4s;
-  }
-  nav.scrolled { border-bottom-color: var(--line); padding: 14px 6%; }
-  .logo { font-family: 'Instrument Serif', serif; font-size: 1.75rem; letter-spacing: 0.005em; display: flex; align-items: center; gap: 11px; color: var(--cream); text-decoration: none; }
-  .logo .giglio { width: 25px; height: 28px; flex-shrink: 0; }
-  .logo i { font-style: italic; color: var(--gold); }
-  .nav-links { display: flex; gap: 32px; align-items: center; list-style: none; }
-  .nav-links a { text-decoration: none; color: var(--cream-dim); font-size: 0.86rem; letter-spacing: 0.02em; transition: color 0.25s; }
-  .nav-links a:not(.cta):hover { color: var(--gold); }
-  .nav-links a.cta { border: 1px solid var(--gold); color: var(--gold); padding: 9px 22px; border-radius: 100px; transition: all 0.3s; }
-  .nav-links a.cta:hover { background: var(--gold); color: var(--bg); box-shadow: 0 8px 24px rgba(224,189,116,0.25); }
-  .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
-  .burger span { width: 26px; height: 2px; background: var(--cream); border-radius: 4px; }
-  .mobile-menu { display: none; position: fixed; inset: 0; background: var(--bg-2); z-index: 200; flex-direction: column; justify-content: center; align-items: center; gap: 18px; }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a { font-family: 'Instrument Serif', serif; font-size: 2.3rem; color: var(--cream); text-decoration: none; }
-  .mobile-menu a:hover { color: var(--gold); font-style: italic; }
-  .m-close { position: absolute; top: 26px; right: 7%; background: none; border: none; color: var(--cream); font-size: 1.9rem; cursor: pointer; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px; border: 1px solid transparent; font: 600 16px/1.1 var(--sans); text-decoration: none; cursor: pointer; transition: background-color .2s, border-color .2s, color .2s; }
+.btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+.btn-oro { background: var(--oro); color: var(--bosco); }
+.btn-oro:hover { background: #ecd08f; }
+.btn-linea { border-color: var(--linea-forte); color: var(--crema); background: transparent; }
+.btn-linea:hover { border-color: var(--crema); }
 
-  /* ===== HERO ===== */
-  .hero { position: relative; z-index: 2; padding: 90px 6% 60px; max-width: 1280px; margin: 0 auto; text-align: center; }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 14px;
-    font-size: 0.74rem; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--sage); margin-bottom: 36px;
-    opacity: 0; animation: fade 1s 0.1s forwards;
-  }
-  .hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 30px; height: 1px; background: var(--sage); opacity: 0.5; }
-  .hero h1 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(3.2rem, 9.5vw, 8rem);
-    font-weight: 400; line-height: 0.98; letter-spacing: -0.015em;
-    margin-bottom: 32px;
-  }
-  .hero h1 span { display: inline-block; opacity: 0; transform: translateY(40px); animation: rise 1s forwards; }
-  .hero h1 .l1 { animation-delay: 0.2s; }
-  .hero h1 .l2 { animation-delay: 0.35s; }
-  .hero h1 i { font-style: italic; color: var(--gold); }
-  .hero-lead {
-    font-size: clamp(1rem, 1.9vw, 1.22rem); color: var(--cream-dim);
-    line-height: 1.65; font-weight: 300; max-width: 600px; margin: 0 auto 42px;
-    opacity: 0; animation: fade 1s 0.6s forwards;
-  }
-  .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fade 1s 0.8s forwards; }
-  .btn { padding: 16px 34px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.3s; display: inline-block; }
-  .btn-fill { background: var(--gold); color: var(--bg); }
-  .btn-fill:hover { background: var(--gold-soft); transform: translateY(-3px); box-shadow: 0 14px 34px rgba(224,189,116,0.3); }
-  .btn-ghost { border: 1px solid var(--line-2); color: var(--cream); }
-  .btn-ghost:hover { border-color: var(--cream); background: rgba(243,238,226,0.06); }
+/* stagione */
+.stagione { background: var(--notte); border-bottom: 1px solid var(--linea); font-size: 14.5px; }
+.stagione .wrap { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 4px 16px; padding-block: 11px; text-align: center; }
+.stagione p { color: var(--crema); }
 
-  /* hero showcase frame */
-  .hero-frame {
-    position: relative; z-index: 2; max-width: 1280px; margin: 60px auto 0; padding: 0 6%;
-    opacity: 0; animation: fade 1.2s 1s forwards;
-  }
-  .hero-frame-inner {
-    border-radius: 26px; overflow: hidden; position: relative;
-    height: clamp(280px, 42vh, 460px);
-    border: 1px solid var(--line-2);
-    background:
-      radial-gradient(120% 100% at 0% 0%, rgba(164,196,143,0.22), transparent 55%),
-      radial-gradient(120% 120% at 100% 100%, rgba(224,189,116,0.18), transparent 50%),
-      linear-gradient(155deg, #1c3122, #14241a 70%, #0e1a12);
-    display: flex; align-items: flex-end; padding: 40px;
-  }
-  .hero-frame-inner::before {
-    content: ''; position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 5 C46 22 46 38 40 55 C34 38 34 22 40 5 Z M40 30 C52 26 64 30 72 40 M40 30 C28 26 16 30 8 40' stroke='rgba(243,238,226,0.06)' stroke-width='1' fill='none'/%3E%3C/svg%3E");
-    background-size: 120px;
-  }
-  .hero-frame-tag {
-    position: absolute; top: 36px; left: 40px;
-    font-family: 'Instrument Serif', serif; font-style: italic;
-    font-size: clamp(1.4rem, 3vw, 2.4rem); color: rgba(243,238,226,0.85);
-    max-width: 60%;
-  }
-  .hero-frame-meta { display: flex; gap: 40px; flex-wrap: wrap; position: relative; z-index: 2; }
-  .hfm .n { font-family: 'Instrument Serif', serif; font-size: clamp(1.8rem, 3.5vw, 3rem); line-height: 1; color: var(--gold); }
-  .hfm .l { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cream-dim); margin-top: 6px; }
-  .scroll-hint { position: absolute; bottom: -18px; right: 50px; width: 44px; height: 44px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--bg); font-size: 1.1rem; animation: bob 2.4s ease-in-out infinite; }
+/* testata */
+.testata { position: sticky; top: 0; z-index: 50; background: rgba(16, 29, 20, 0.95); border-bottom: 1px solid transparent; transition: border-color .25s; }
+.testata.scesa { border-bottom-color: var(--linea); }
+@supports (backdrop-filter: blur(8px)) { .testata { background: rgba(16, 29, 20, 0.86); backdrop-filter: blur(10px) saturate(1.2); } }
+.testata .wrap { height: var(--hh); display: flex; align-items: center; gap: 28px; }
+.marchio { display: inline-flex; align-items: center; gap: 11px; font-family: var(--serif); font-size: 25px; line-height: 1; color: var(--crema); text-decoration: none; white-space: nowrap; }
+.marchio svg { width: 23px; height: 26px; flex-shrink: 0; }
+.testata nav { margin-left: auto; }
+.menu { display: flex; gap: 26px; }
+.menu a { font-size: 15px; color: var(--crema-2); text-decoration: none; padding-block: 8px; }
+.menu a:hover { color: var(--crema); }
+.testata-tel { font-weight: 600; font-size: 15px; color: var(--crema); text-decoration: none; white-space: nowrap; }
+.testata .btn { min-height: 42px; padding: 0 18px; font-size: 14.5px; }
+.apri-menu { display: none; margin-left: auto; background: none; border: 1px solid var(--linea-forte); color: var(--crema); font: 600 15px/1 var(--sans); border-radius: 999px; padding: 11px 18px; cursor: pointer; }
 
-  /* ===== MARQUEE ===== */
-  .marquee { position: relative; z-index: 2; margin-top: 70px; padding: 26px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; white-space: nowrap; }
-  .marquee-track { display: inline-block; animation: scroll-x 30s linear infinite; }
-  .marquee-track span { font-family: 'Instrument Serif', serif; font-size: 1.6rem; margin: 0 26px; color: var(--cream); }
-  .marquee-track i { font-style: italic; color: var(--gold); }
-  .marquee-track .dot { color: var(--sage); }
+.pannello-menu { position: fixed; inset: 0; z-index: 90; background: var(--bosco); display: flex; flex-direction: column; padding: 0 var(--pad) 32px; overflow-y: auto; }
+.pm-testa { height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.pannello-menu ul { margin: 28px 0 36px; display: grid; gap: 4px; }
+.pannello-menu ul a { display: block; font-family: var(--serif); font-size: 38px; line-height: 1.25; color: var(--crema); text-decoration: none; padding: 6px 0; }
+.pannello-menu .btn { width: 100%; margin-top: 10px; }
 
-  /* ===== COUNTER ===== */
-  .counter { position: relative; z-index: 2; padding: 70px 6%; }
-  .counter-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
-  .counter-item { padding: 0 10px; border-right: 1px solid var(--line); }
-  .counter-item:last-child { border-right: none; }
-  .counter-num { font-family: 'Instrument Serif', serif; font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1; color: var(--gold); text-shadow: 0 0 30px rgba(224,189,116,0.2); }
-  .counter-num .sym { color: var(--sage); }
-  .counter-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--cream-dim); margin-top: 14px; }
+/* apertura */
+.apertura { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: min(calc(100svh - var(--hh) - 44px), 880px); }
+.apertura-testo { display: flex; flex-direction: column; justify-content: center; padding: clamp(48px, 8vh, 104px) clamp(28px, 4vw, 64px) clamp(48px, 8vh, 96px) max(var(--pad), calc((100vw - var(--max)) / 2 + var(--pad))); }
+.apertura h1 { font-size: clamp(48px, 6.1vw, 100px); line-height: 0.95; letter-spacing: -0.014em; }
+.apertura .lead { margin: 28px 0 36px; font-size: clamp(17px, 1.3vw, 19.5px); max-width: 30em; }
+.azioni { display: flex; flex-wrap: wrap; gap: 12px; }
+.fiducia { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 34px; font-size: 14.5px; }
+.fiducia a { display: inline-flex; align-items: center; gap: 7px; color: var(--crema); text-decoration: none; }
+.fiducia a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.fiducia li { display: inline-flex; align-items: center; gap: 8px; }
+.fiducia svg { width: 15px; height: 15px; color: var(--oro); }
+.apertura-foto { margin: 0; position: relative; min-height: 420px; }
+.apertura-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 38% 55%; }
 
-  /* ===== SECTION HEAD ===== */
-  .sec { position: relative; z-index: 2; padding: 100px 6%; max-width: 1280px; margin: 0 auto; }
-  .eyebrow { font-size: 0.74rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--sage); margin-bottom: 18px; }
-  .sec-c { text-align: center; }
-  .sec-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.3rem, 5.2vw, 4.2rem); font-weight: 400; line-height: 1.04; letter-spacing: -0.01em; }
-  .sec-title i { font-style: italic; color: var(--gold); }
-  .sec-sub { color: var(--cream-dim); font-size: 1.02rem; line-height: 1.6; font-weight: 300; max-width: 560px; margin: 16px auto 0; }
+/* dal seme al giardino */
+.crescita { background: var(--notte); border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
+.crescita-pin { max-width: var(--max); margin: 0 auto; padding: var(--sez) var(--pad); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "pianta testa" "pianta passi"; grid-template-rows: auto 1fr; column-gap: clamp(24px, 5vw, 88px); }
+.crescita-testa { grid-area: testa; align-self: end; }
+.crescita-testa p { margin-top: 16px; max-width: 28em; }
+.pianta-box { grid-area: pianta; display: flex; align-items: flex-end; justify-content: center; min-height: 0; }
+.pianta { display: block; width: auto; height: 600px; max-width: 100%; overflow: visible; }
+.passi { grid-area: passi; margin-top: 34px; display: grid; gap: 20px; align-content: start; }
+.passo { display: grid; grid-template-columns: 46px minmax(0, 1fr); column-gap: 14px; transition: opacity .4s; }
+.passo .n { grid-row: span 2; font-family: var(--serif); font-size: 34px; line-height: 1; color: var(--oro); }
+.passo h3 { font-size: 26px; }
+.passo p { margin-top: 6px; font-size: 16px; max-width: 30em; }
+.crescita.anima { height: 290vh; }
+.crescita.anima .crescita-pin { position: sticky; top: var(--hh); height: calc(100vh - var(--hh)); height: calc(100svh - var(--hh)); padding-block: 28px; }
+.crescita.anima .pianta { height: 100%; max-height: 700px; }
+.crescita.anima .passo { opacity: 0.3; }
+.crescita.anima .passo.attivo { opacity: 1; }
 
-  /* ===== SERVICES ===== */
-  .srv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 60px; }
-  .srv-card {
-    background: linear-gradient(160deg, var(--bg-card), var(--bg-soft));
-    border: 1px solid var(--line); border-radius: 18px;
-    padding: 40px 32px; transition: all 0.4s cubic-bezier(0.2,0.8,0.2,1);
-    position: relative; overflow: hidden;
-  }
-  .srv-card .idx { position: absolute; top: 24px; right: 28px; font-family: 'Instrument Serif', serif; font-size: 1.1rem; color: var(--line-2); transition: color 0.4s; }
-  .srv-card::after { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; background: radial-gradient(120% 80% at 50% 120%, rgba(164,196,143,0.14), transparent 60%); opacity: 0; transition: opacity 0.4s; }
-  .srv-card:hover { transform: translateY(-10px); border-color: rgba(224,189,116,0.45); box-shadow: 0 24px 50px rgba(0,0,0,0.3); }
-  .srv-card:hover::after { opacity: 1; }
-  .srv-card:hover .idx { color: var(--gold); }
-  .srv-card .ico { font-size: 1.7rem; width: 62px; height: 62px; display: flex; align-items: center; justify-content: center; background: rgba(164,196,143,0.1); border: 1px solid var(--line); border-radius: 16px; margin-bottom: 24px; transition: all 0.4s; }
-  .srv-card:hover .ico { background: rgba(224,189,116,0.14); transform: rotate(-6deg) scale(1.05); }
-  .srv-card h3 { font-family: 'Instrument Serif', serif; font-size: 1.65rem; font-weight: 400; margin-bottom: 12px; position: relative; z-index: 2; }
-  .srv-card p { font-size: 0.9rem; color: var(--cream-dim); line-height: 1.65; font-weight: 300; position: relative; z-index: 2; }
-  a.srv-card { display: block; color: inherit; text-decoration: none; }
-  .srv-more { display: inline-block; margin-top: 18px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; color: var(--gold); position: relative; z-index: 2; }
+/* prima e dopo */
+.pd-griglia { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 84px); align-items: center; }
+.pd { position: relative; aspect-ratio: 685 / 384; overflow: hidden; border-radius: 3px; touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: ew-resize; --pos: 50%; }
+.pd img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.pd-prima { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.pd-et { position: absolute; top: 14px; padding: 5px 11px; background: rgba(12, 22, 16, 0.82); color: var(--crema); font-size: 13.5px; font-weight: 600; border-radius: 3px; pointer-events: none; }
+.pd-et-prima { left: 14px; }
+.pd-et-dopo { right: 14px; }
+.pd-linea { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: var(--crema); pointer-events: none; }
+.pd-maniglia { position: absolute; top: 50%; left: 50%; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; background: var(--crema); color: var(--bosco); display: flex; align-items: center; justify-content: center; }
+.pd-maniglia svg { width: 22px; height: 22px; }
+.pd-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+.pd:has(.pd-range:focus-visible) .pd-maniglia { outline: 2px solid var(--oro); outline-offset: 3px; }
+.pd-testo p { margin: 20px 0 24px; }
 
-  /* ===== SPLIT / WHY ===== */
-  .split { position: relative; z-index: 2; background: linear-gradient(180deg, transparent, var(--bg-2) 30%, var(--bg-2) 70%, transparent); }
-  .split-inner { max-width: 1280px; margin: 0 auto; padding: 110px 6%; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 70px; align-items: center; }
-  .split-left .sec-title { margin-bottom: 22px; }
-  .split-left .sec-sub { margin: 0; max-width: none; }
-  .why-list { list-style: none; }
-  .why-row { display: flex; gap: 20px; padding: 26px 0; border-bottom: 1px solid var(--line); transition: padding 0.3s; }
-  .why-row:last-child { border-bottom: none; }
-  .why-row:hover { padding-left: 8px; }
-  .why-ico { font-size: 1.4rem; flex-shrink: 0; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: rgba(224,189,116,0.1); border: 1px solid var(--line); border-radius: 14px; }
-  .why-row h4 { font-family: 'Instrument Serif', serif; font-size: 1.25rem; font-weight: 400; margin-bottom: 5px; }
-  .why-row p { font-size: 0.9rem; color: var(--cream-dim); line-height: 1.55; font-weight: 300; }
+/* servizi */
+.servizi-griglia { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(20px, 2.4vw, 32px); margin-top: 56px; }
+.servizio a { display: block; text-decoration: none; color: inherit; }
+.servizio img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 3px; }
+.servizio h3 { margin: 20px 0 8px; }
+.servizio p { font-size: 16px; margin-bottom: 14px; }
+.servizio a:hover h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
+.anche { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--linea); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px clamp(24px, 4vw, 64px); }
+.anche p { margin-top: 8px; font-size: 16px; }
 
-  /* ===== ZONE ===== */
-  .zone { position: relative; z-index: 2; text-align: center; padding: 90px 6%; }
-  .zone .deco { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--sage); font-size: 1.3rem; opacity: 0.6; margin-bottom: 8px; }
-  .zone h2 { font-family: 'Instrument Serif', serif; font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 400; margin-bottom: 30px; }
-  .zone h2 i { font-style: italic; color: var(--gold); }
-  .zone-pills { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-  .pill { border: 1px solid var(--line-2); padding: 12px 26px; border-radius: 100px; font-size: 0.88rem; color: var(--cream-dim); transition: all 0.3s; }
-  .pill:hover { border-color: var(--sage); color: var(--sage); transform: translateY(-2px); }
-  .zone-note { color: var(--cream-dim); font-weight: 300; font-size: 0.95rem; margin-top: 26px; }
+/* per chi */
+.perchi { background: var(--bosco-2); }
+.perchi-griglia { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 52px; border-top: 1px solid var(--linea); }
+.perchi-griglia li { padding: 30px clamp(18px, 2vw, 30px) 8px 0; display: flex; flex-direction: column; gap: 12px; }
+.perchi-griglia li + li { padding-left: clamp(18px, 2vw, 30px); border-left: 1px solid var(--linea); }
+.perchi-griglia svg { width: 30px; height: 30px; color: var(--salvia); }
+.perchi-griglia h3 { font-size: 26px; }
+.perchi-griglia p { font-size: 16px; flex-grow: 1; }
 
-  /* ===== PRODOTTI ===== */
-  .prod { position: relative; z-index: 2; }
-  .prod-inner { max-width: 1280px; margin: 0 auto; padding: 100px 6%; display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
-  .prod-visual {
-    height: 420px; border-radius: 22px; position: relative; overflow: hidden;
-    border: 1px solid var(--line-2);
-    background: radial-gradient(circle at 32% 28%, rgba(164,196,143,0.3), transparent 55%), radial-gradient(circle at 72% 76%, rgba(224,189,116,0.24), transparent 55%), linear-gradient(160deg, var(--bg-card), var(--bg));
-    display: flex; align-items: center; justify-content: center;
-  }
-  .prod-visual .big { font-size: 6.5rem; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4)); }
-  .prod-visual::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(243,238,226,0.06)'/%3E%3C/svg%3E"); }
-  .prod-text .sec-title { margin-bottom: 20px; }
-  .prod-text > p { color: var(--cream-dim); font-size: 0.98rem; line-height: 1.7; font-weight: 300; margin-bottom: 28px; }
-  .prod-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-  .prod-tag { background: var(--bg-card); border: 1px solid var(--line); padding: 11px 20px; border-radius: 100px; font-size: 0.86rem; display: flex; gap: 8px; align-items: center; transition: all 0.3s; }
-  .prod-tag:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+/* lavori */
+.testa-riga { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 32px; }
+.lavori-griglia { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(70px, 8.4vw, 112px); gap: 14px; margin-top: 48px; }
+.lavori-griglia li { position: relative; overflow: hidden; border-radius: 3px; background: var(--bosco-2); }
+.lavori-griglia a, .lavori-griglia figure { display: block; height: 100%; margin: 0; color: inherit; text-decoration: none; }
+.lavori-griglia img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.lavori-griglia a:hover img { transform: scale(1.025); }
+.lavori-griglia .l1 { grid-column: span 4; grid-row: span 4; }
+.lavori-griglia .l2 { grid-column: span 2; grid-row: span 4; }
+.lavori-griglia .l3, .lavori-griglia .l4, .lavori-griglia .l5 { grid-column: span 2; grid-row: span 3; }
+.didascalia { position: absolute; left: 12px; bottom: 12px; right: 12px; width: fit-content; max-width: calc(100% - 24px); padding: 6px 11px; background: rgba(12, 22, 16, 0.84); color: var(--crema); font-size: 13.5px; line-height: 1.4; border-radius: 3px; }
 
-  /* ===== QUOTE STRIP ===== */
-  .quote { position: relative; z-index: 2; text-align: center; padding: 90px 8%; max-width: 1000px; margin: 0 auto; }
-  .quote p { font-family: 'Instrument Serif', serif; font-size: clamp(1.6rem, 4vw, 2.8rem); font-weight: 400; line-height: 1.3; }
-  .quote p i { font-style: italic; color: var(--gold); }
-  .quote .author { margin-top: 26px; font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); }
+/* recensioni */
+.rec-griglia { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.5fr); gap: clamp(36px, 6vw, 96px); align-items: start; }
+.voto { display: flex; align-items: baseline; gap: 18px; margin-top: 26px; }
+.voto-num { font-family: var(--serif); font-size: clamp(110px, 11vw, 168px); line-height: 0.8; color: var(--crema); }
+.stelle { display: inline-flex; gap: 3px; color: var(--oro); }
+.stelle svg { width: 20px; height: 20px; }
+.voto-box > p { margin-top: 18px; }
+.link-riga { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 22px !important; }
+.citazioni { display: grid; gap: 18px; }
+.citazione { margin: 0; padding: 26px 28px; border: 1px solid var(--linea); border-radius: 3px; }
+.citazione blockquote { margin: 0; font-family: var(--serif); font-style: italic; font-size: 24px; line-height: 1.35; color: var(--crema); }
+.citazione figcaption { margin-top: 14px; font-size: 14.5px; }
+.citazione.segnaposto { border-style: dashed; border-color: var(--linea-forte); }
+.citazione.segnaposto blockquote { font-family: var(--sans); font-style: normal; font-size: 16px; color: var(--crema-2); }
 
-  /* ===== CONTACT ===== */
-  .contact { position: relative; z-index: 2; background: linear-gradient(180deg, transparent, var(--bg-2)); }
-  .contact-inner { max-width: 1280px; margin: 0 auto; padding: 100px 6%; display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
-  .contact-left .sec-title { margin-bottom: 20px; }
-  .contact-left > p { color: var(--cream-dim); line-height: 1.65; font-weight: 300; margin-bottom: 40px; max-width: 420px; }
-  .c-item { display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--cream); transition: padding 0.3s; }
-  .c-item:hover { padding-left: 8px; }
-  .c-item .ci-ico { font-size: 1.2rem; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: rgba(164,196,143,0.1); border-radius: 12px; }
-  .c-item .ci-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cream-dim); }
-  .c-item .ci-val { font-size: 1.02rem; }
-  .form-card { background: linear-gradient(160deg, var(--bg-card), var(--bg-soft)); border: 1px solid var(--line-2); padding: 42px; border-radius: 22px; }
-  .form-card label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sage); margin-bottom: 7px; }
-  .form-card input, .form-card textarea, .form-card select {
-    width: 100%; padding: 13px 16px; margin-bottom: 18px;
-    background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
-    color: var(--cream); font-family: 'Manrope', sans-serif; font-size: 0.95rem;
-    transition: border-color 0.25s; appearance: none;
-  }
-  .form-card input::placeholder, .form-card textarea::placeholder { color: rgba(188,193,173,0.4); }
-  .form-card input:focus, .form-card textarea:focus, .form-card select:focus { outline: none; border-color: var(--gold); }
-  .form-card select option { background: var(--bg-2); }
-  .form-card textarea { height: 100px; resize: vertical; }
-  .form-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .form-submit { width: 100%; background: var(--gold); color: var(--bg); border: none; padding: 16px; border-radius: 10px; font-family: 'Manrope', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.3s; }
-  .form-submit:hover { background: var(--gold-soft); box-shadow: 0 10px 28px rgba(224,189,116,0.25); }
-  .form-alt { width: 100%; margin-top: 10px; background: none; border: 1px solid var(--line-2); color: var(--cream-dim); padding: 13px; border-radius: 10px; font-family: 'Manrope', sans-serif; font-size: 0.86rem; cursor: pointer; transition: all 0.3s; }
-  .form-alt:hover { border-color: var(--cream); color: var(--cream); }
-  .form-nota { font-size: 0.8rem; color: var(--cream-dim); margin-top: 14px; line-height: 1.5; font-weight: 300; }
-  .form-err { color: #f0b49a; font-size: 0.86rem; margin: -4px 0 14px; line-height: 1.5; }
-  .form-err a, .form-nota a, .form-ok a { color: var(--gold); }
-  .form-submit:disabled { opacity: 0.65; cursor: wait; }
-  .form-privacy { margin-top: 12px; font-size: 0.78rem; color: var(--cream-dim); }
-  .form-privacy summary { cursor: pointer; color: var(--sage); }
-  .form-privacy p { margin-top: 8px; line-height: 1.55; font-weight: 300; }
-  .form-ok { text-align: center; padding: 34px 6px; }
-  .form-ok-ico { width: 58px; height: 58px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 18px; }
-  .form-ok h3 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 2rem; margin-bottom: 10px; }
-  .form-ok p { color: var(--cream-dim); font-weight: 300; line-height: 1.6; }
+/* zone e olio */
+.zone-olio { background: var(--bosco-2); }
+.zo-griglia { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(40px, 7vw, 120px); }
+.elenco-zone { margin: 26px 0 22px; font-family: var(--serif); font-size: clamp(27px, 2.5vw, 36px); line-height: 1.28; color: var(--crema); }
+.olio p { margin: 22px 0 28px; }
 
-  /* ===== FOOTER ===== */
-  footer { position: relative; z-index: 2; border-top: 1px solid var(--line); padding: 80px 6% 36px; text-align: center; }
-  .foot-logo { font-family: 'Instrument Serif', serif; font-size: clamp(2.8rem, 8vw, 6rem); line-height: 1; margin-bottom: 16px; }
-  .foot-logo i { font-style: italic; color: var(--gold); }
-  .foot-tagline { color: var(--cream-dim); font-weight: 300; margin-bottom: 30px; }
-  .foot-giglio .giglio { width: 46px; height: 51px; display: block; margin: 0 auto 18px; }
-  .foot-servizi { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 26px; margin-bottom: 44px; }
-  .foot-servizi a { color: var(--cream-dim); text-decoration: none; font-size: 0.88rem; transition: color 0.25s; }
-  .foot-servizi a:hover { color: var(--gold); }
-  .foot-bottom { max-width: 1280px; margin: 0 auto; border-top: 1px solid var(--line); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
-  .foot-bottom p { font-size: 0.8rem; color: var(--cream-dim); }
-  .foot-social { display: flex; gap: 10px; }
-  .foot-social a { width: 40px; height: 40px; border: 1px solid var(--line-2); border-radius: 100px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--cream-dim); font-size: 0.76rem; font-weight: 600; transition: all 0.3s; }
-  .foot-social a:hover { border-color: var(--gold); color: var(--gold); }
+/* contatti */
+.ct-griglia { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr); gap: clamp(36px, 6vw, 104px); align-items: start; }
+.ct-testo > svg { width: 40px; height: 45px; margin-bottom: 26px; }
+.ct-testo > p { margin-top: 20px; max-width: 30em; }
+.tel-grande { display: inline-block; margin-top: 34px; font-family: var(--serif); font-size: clamp(42px, 4.4vw, 60px); line-height: 1; color: var(--crema); text-decoration: none; white-space: nowrap; }
+.tel-grande:hover { color: var(--oro); }
+.ct-vie { margin-top: 26px; border-top: 1px solid var(--linea); }
+.ct-vie a { display: block; padding: 15px 0; border-bottom: 1px solid var(--linea); color: var(--crema); text-decoration: none; font-weight: 500; overflow-wrap: anywhere; }
+.ct-vie a:hover { color: var(--oro); }
+.ct-vie span { display: block; font-size: 13.5px; color: var(--crema-2); font-weight: 400; }
 
-  /* ===== WHATSAPP ===== */
-  .wa { position: fixed; bottom: 24px; right: 24px; z-index: 99; width: 58px; height: 58px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 22px rgba(37,211,102,0.4); transition: transform 0.25s; }
-  .wa:hover { transform: scale(1.1); }
-  .wa svg { width: 28px; height: 28px; fill: #fff; }
+.form-card { background: var(--bosco-2); border: 1px solid var(--linea); border-radius: 6px; padding: clamp(24px, 3.4vw, 44px); }
+.form-campi label { display: block; margin: 0 0 8px; font-size: 14.5px; font-weight: 600; color: var(--crema); }
+.form-campi input, .form-campi select, .form-campi textarea { width: 100%; margin-bottom: 20px; padding: 14px 16px; background: var(--notte); color: var(--crema); border: 1px solid var(--linea-forte); border-radius: 6px; font: 400 16px/1.4 var(--sans); }
+.form-campi input, .form-campi select { height: 52px; padding-block: 0; }
+.form-campi select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23bcc1ad' stroke-width='1.6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 44px; }
+.form-campi textarea { min-height: 132px; resize: vertical; }
+.form-campi input::placeholder, .form-campi textarea::placeholder { color: rgba(188, 193, 173, 0.6); }
+.form-campi input:focus, .form-campi select:focus, .form-campi textarea:focus { outline: none; border-color: var(--oro); box-shadow: 0 0 0 3px rgba(224, 189, 116, 0.22); }
+.form-grid2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 16px; }
+.form-err { color: #f0b49a; font-size: 15px; line-height: 1.5; margin: -4px 0 16px; }
+.form-err a, .form-nota a, .form-ok a { color: var(--oro); }
+.form-submit, .form-alt { width: 100%; }
+.form-alt { margin-top: 10px; }
+.form-submit:disabled { opacity: 0.65; cursor: wait; }
+.form-nota { margin-top: 16px; font-size: 14px; }
+.form-privacy { margin-top: 12px; font-size: 13.5px; }
+.form-privacy summary { cursor: pointer; color: var(--salvia); }
+.form-privacy p { margin-top: 8px; line-height: 1.6; }
+.form-ok { text-align: center; padding: 30px 6px; }
+.form-ok-ico { width: 58px; height: 58px; border-radius: 50%; border: 1px solid var(--oro); color: var(--oro); display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 18px; }
+.form-ok h3 { font-size: 34px; margin-bottom: 10px; }
 
-  /* ===== ANIMATIONS ===== */
-  @keyframes fade { to { opacity: 1; } }
-  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
-  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
-  @keyframes scroll-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .rv { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2,0.8,0.2,1); }
-  .rv.in { opacity: 1; transform: translateY(0); }
+/* blog */
+.blog-lista { margin-top: 44px; border-top: 1px solid var(--linea); }
+.blog-lista a { display: grid; grid-template-columns: 180px minmax(0, 1fr) auto; gap: 8px 32px; align-items: baseline; padding: 26px 0; border-bottom: 1px solid var(--linea); text-decoration: none; color: inherit; }
+.blog-lista .cat { font-size: 14.5px; color: var(--salvia); }
+.blog-lista h3 { font-size: clamp(24px, 2vw, 29px); }
+.blog-lista .riassunto { display: block; margin-top: 6px; font-size: 16px; }
+.blog-lista .leggi { font-weight: 600; color: var(--oro); font-size: 15px; white-space: nowrap; }
+.blog-lista a:hover h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
 
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .burger { display: flex; }
-    .srv-grid { grid-template-columns: 1fr 1fr; }
-    .split-inner, .prod-inner, .contact-inner { grid-template-columns: 1fr; gap: 46px; padding-top: 80px; padding-bottom: 80px; }
-    .prod-visual { height: 280px; order: -1; }
-    .counter-inner { grid-template-columns: 1fr 1fr; gap: 40px 18px; }
-    .counter-item:nth-child(2) { border-right: none; }
-    .hero-frame-tag { max-width: 80%; }
-  }
-  @media (max-width: 560px) {
-    .srv-grid { grid-template-columns: 1fr; }
-    .form-grid2 { grid-template-columns: 1fr; }
-    .marquee-track span { font-size: 1.3rem; }
-    footer { padding-bottom: 96px; }
-  }
-  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv, .hero-eyebrow, .hero h1 span, .hero-lead, .hero-actions, .hero-frame { opacity: 1; transform: none; } }
+/* piede */
+.piede { background: var(--notte); border-top: 1px solid var(--linea); padding-top: 72px; font-size: 15.5px; }
+.piede-griglia { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); gap: 40px; }
+.piede-griglia > div > p { margin-top: 18px; max-width: 24em; }
+.piede-t { font-family: var(--sans); font-size: 14.5px; font-weight: 600; color: var(--crema); margin-bottom: 14px; letter-spacing: 0; }
+.piede ul { display: grid; gap: 8px; }
+.piede ul a { text-decoration: none; color: var(--crema-2); }
+.piede ul a:hover { color: var(--crema); text-decoration: underline; text-underline-offset: 4px; }
+.piede-legale { display: flex; flex-wrap: wrap; gap: 4px 28px; margin-top: 56px; padding: 24px 0 40px; border-top: 1px solid var(--linea); font-size: 14px; }
+
+/* barra in basso, solo telefono */
+.barra { display: none; }
+
+@media screen and (max-width: 1140px) {
+  .menu { display: none; }
+  .apri-menu { display: inline-flex; margin-left: 0; }
+  .testata-tel { margin-left: auto; }
+  .lavori-griglia { grid-auto-rows: clamp(60px, 8vw, 100px); }
+}
+
+@media screen and (max-width: 900px) {
+  :root { --hh: 60px; }
+  body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
+  .testata .wrap { gap: 12px; }
+  .marchio { font-size: 22px; }
+  .marchio svg { width: 20px; height: 23px; }
+  .testata-tel, .testata .btn { display: none; }
+  .apri-menu { margin-left: auto; }
+
+  .apertura { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .apertura-foto { order: -1; min-height: 0; height: 40svh; max-height: 420px; }
+  .apertura-testo { padding: 32px var(--pad) 56px; }
+  .apertura .lead { margin: 20px 0 28px; }
+  .azioni .btn { flex: 1 1 auto; }
+
+  .crescita-pin { grid-template-columns: minmax(0, 1fr); grid-template-areas: "testa" "pianta" "passi"; grid-template-rows: auto auto auto; }
+  .crescita-testa { align-self: start; }
+  .pianta-box { margin-top: 24px; }
+  .pianta { height: 420px; }
+  .crescita.anima { height: 250vh; }
+  .crescita.anima .crescita-pin { grid-template-rows: auto minmax(0, 1fr) auto; padding: 18px var(--pad) calc(82px + env(safe-area-inset-bottom)); }
+  .crescita.anima .crescita-testa h2 { font-size: 34px; }
+  .crescita.anima .crescita-testa p { margin-top: 6px; font-size: 15.5px; }
+  .crescita.anima .pianta-box { margin-top: 8px; }
+  .crescita.anima .pianta { max-height: 100%; }
+  .crescita.anima .passi { position: relative; margin-top: 10px; min-height: 124px; display: block; }
+  .crescita.anima .passo { position: absolute; inset: 0 0 auto 0; opacity: 0; transition: none; }
+  .crescita.anima .passo.attivo { opacity: 1; transition: opacity .35s; }
+  .passo h3 { font-size: 24px; }
+  .passo p { font-size: 15.5px; }
+
+  .pd-griglia { grid-template-columns: minmax(0, 1fr); }
+  .servizi-griglia { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 16px; margin-top: 40px; }
+  .servizio h3 { font-size: 23px; margin-top: 14px; }
+  .servizio p { font-size: 15px; }
+  .anche { grid-template-columns: minmax(0, 1fr); }
+
+  .perchi-griglia { grid-template-columns: minmax(0, 1fr); }
+  .perchi-griglia li, .perchi-griglia li + li { padding: 26px 0; border-left: 0; border-bottom: 1px solid var(--linea); }
+
+  .lavori-griglia { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 120px; gap: 10px; margin-top: 36px; }
+  .lavori-griglia .l1 { grid-column: span 2; grid-row: span 2; }
+  .lavori-griglia .l2, .lavori-griglia .l3, .lavori-griglia .l4, .lavori-griglia .l5 { grid-column: span 1; grid-row: span 2; }
+  .didascalia { left: 8px; bottom: 8px; max-width: calc(100% - 16px); font-size: 12.5px; padding: 5px 8px; }
+
+  .rec-griglia, .zo-griglia, .ct-griglia { grid-template-columns: minmax(0, 1fr); }
+  .blog-lista a { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .blog-lista .leggi { display: none; }
+  .piede-griglia { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+
+  .barra { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); background: var(--notte); border-top: 1px solid var(--linea); }
+  .barra a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 52px; border-radius: 12px; color: var(--crema); text-decoration: none; font-size: 13px; font-weight: 600; border: 1px solid var(--linea); }
+  .barra a svg { width: 20px; height: 20px; }
+  .barra .barra-chiama { background: var(--oro); color: var(--bosco); border-color: var(--oro); }
+}
+
+@media screen and (max-width: 520px) {
+  .form-grid2 { grid-template-columns: minmax(0, 1fr); }
+  .stagione { font-size: 14px; }
+  .servizi-griglia { gap: 28px 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
 </style>
 </head>
 <body>
+<a class="salta" href="#contenuto">Vai al contenuto</a>
 
-<div class="ambient"></div>
-<div class="grain"></div>
-
-<!-- NAV -->
-<nav id="nav">
-  <a href="/" class="logo"><svg class="giglio" viewBox="4 4 52 58" aria-hidden="true" focusable="false"><g fill="#f3eee2"><path d="M30 4C33.8 13 35.8 20 35.8 26.5C35.8 31.5 33.6 35.5 30 38C26.4 35.5 24.2 31.5 24.2 26.5C24.2 20 26.2 13 30 4Z"/><path d="M24.6 28.5C19 25.5 12.5 25 8.5 28.5C4 32.5 4 40.5 8.5 44C10.5 45.5 13 45.8 14.8 45C11.5 42.5 10.5 38 12.5 34.5C14.3 31.4 19 29.6 24.6 28.5Z"/><path d="M35.4 28.5C41 25.5 47.5 25 51.5 28.5C56 32.5 56 40.5 51.5 44C49.5 45.5 47 45.8 45.2 45C48.5 42.5 49.5 38 47.5 34.5C45.7 31.4 41 29.6 35.4 28.5Z"/><path d="M27.6 44.3H32.4C33.8 51 35.8 57 38.4 62H21.6C24.2 57 26.2 51 27.6 44.3Z"/></g><rect x="18.6" y="39.4" width="22.8" height="5" rx="2.5" fill="#e0bd74"/></svg><span>Il Giglio <i>Verde</i></span></a>
-  <ul class="nav-links">
-    <li><a href="#servizi">Servizi</a></li>
-    <li><a href="#perche">Perché noi</a></li>
-    <li><a href="#prodotti">Prodotti</a></li>
-    <li><a href="#blog">Blog</a></li>
-    <li><a href="#contatti" class="cta">Preventivo gratuito</a></li>
-  </ul>
-  <button class="burger" onclick="tm()" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-
-<div class="mobile-menu" id="mm">
-  <button class="m-close" onclick="tm()">✕</button>
-  <a href="#servizi" onclick="tm()">Servizi</a>
-  <a href="#perche" onclick="tm()">Perché noi</a>
-  <a href="#prodotti" onclick="tm()">Prodotti</a>
-  <a href="#blog" onclick="tm()">Blog</a>
-  <a href="#contatti" onclick="tm()">Preventivo</a>
+<div class="stagione">
+  <div class="wrap">
+    <p id="stagione-testo">In autunno: raccolta delle olive, potature e pulizia del cotto.</p>
+    <a id="stagione-link" class="link" href="#contatti" data-servizio="Campagna e Oliveti" data-msg="Buongiorno, vorrei prenotare un sopralluogo per la raccolta delle olive.">Prenota un sopralluogo</a>
+  </div>
 </div>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-eyebrow">Verde · Edilizia · Campagna · Firenze</div>
-  <h1><span class="l1">L'arte di curare</span><br><span class="l2">i tuoi <i>spazi verdi</i></span></h1>
-  <p class="hero-lead">Un'unica ditta per giardini, facciate, oliveti, antizanzare e luci natalizie a Bagno a Ripoli, Firenze Sud e in tutta l'area fiorentina. Curiamo ogni dettaglio con esperienza e passione — dai privati alle dimore storiche.</p>
-  <div class="hero-actions">
-    <a href="#contatti" class="btn btn-fill">Richiedi preventivo</a>
-    <a href="#servizi" class="btn btn-ghost">Scopri i servizi</a>
-    <a href="https://share.google/BkS3udBZDlnNuC22n" target="_blank" class="btn btn-ghost">📍 Scheda Google · Foto e Recensioni</a>
+<header class="testata" id="testata">
+  <div class="wrap">
+    <a href="/" class="marchio" aria-label="Il Giglio Verde, pagina iniziale"><svg viewBox="4 4 52 58" aria-hidden="true" focusable="false"><g fill="#f3eee2"><path d="M30 4C33.8 13 35.8 20 35.8 26.5C35.8 31.5 33.6 35.5 30 38C26.4 35.5 24.2 31.5 24.2 26.5C24.2 20 26.2 13 30 4Z"/><path d="M24.6 28.5C19 25.5 12.5 25 8.5 28.5C4 32.5 4 40.5 8.5 44C10.5 45.5 13 45.8 14.8 45C11.5 42.5 10.5 38 12.5 34.5C14.3 31.4 19 29.6 24.6 28.5Z"/><path d="M35.4 28.5C41 25.5 47.5 25 51.5 28.5C56 32.5 56 40.5 51.5 44C49.5 45.5 47 45.8 45.2 45C48.5 42.5 49.5 38 47.5 34.5C45.7 31.4 41 29.6 35.4 28.5Z"/><path d="M27.6 44.3H32.4C33.8 51 35.8 57 38.4 62H21.6C24.2 57 26.2 51 27.6 44.3Z"/></g><rect x="18.6" y="39.4" width="22.8" height="5" rx="2.5" fill="#e0bd74"/></svg><span>Il Giglio Verde</span></a>
+    <nav aria-label="Principale">
+      <ul class="menu">
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#come-lavoriamo">Come lavoriamo</a></li>
+        <li><a href="#lavori">Lavori</a></li>
+        <li><a href="#zone">Zone</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+    </nav>
+    <a class="testata-tel" href="tel:+393287217116">328 721 7116</a>
+    <a class="btn btn-linea" href="#contatti">Chiedi un preventivo</a>
+    <button class="apri-menu" type="button" aria-expanded="false" aria-controls="pannello-menu">Menu</button>
   </div>
 </header>
 
-<div class="hero-frame">
-  <div class="hero-frame-inner">
-    <div class="hero-frame-tag">«Diamo forma alla bellezza che cresce.»</div>
-    <div class="hero-frame-meta">
-      <div class="hfm"><div class="n">2011</div><div class="l">Dal</div></div>
-      <div class="hfm"><div class="n">360°</div><div class="l">Servizio completo</div></div>
-      <div class="hfm"><div class="n">Firenze</div><div class="l">& dintorni</div></div>
-    </div>
-    <div class="scroll-hint">↓</div>
+<div class="pannello-menu" id="pannello-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="pm-testa">
+    <span class="marchio"><svg viewBox="4 4 52 58" aria-hidden="true" focusable="false"><g fill="#f3eee2"><path d="M30 4C33.8 13 35.8 20 35.8 26.5C35.8 31.5 33.6 35.5 30 38C26.4 35.5 24.2 31.5 24.2 26.5C24.2 20 26.2 13 30 4Z"/><path d="M24.6 28.5C19 25.5 12.5 25 8.5 28.5C4 32.5 4 40.5 8.5 44C10.5 45.5 13 45.8 14.8 45C11.5 42.5 10.5 38 12.5 34.5C14.3 31.4 19 29.6 24.6 28.5Z"/><path d="M35.4 28.5C41 25.5 47.5 25 51.5 28.5C56 32.5 56 40.5 51.5 44C49.5 45.5 47 45.8 45.2 45C48.5 42.5 49.5 38 47.5 34.5C45.7 31.4 41 29.6 35.4 28.5Z"/><path d="M27.6 44.3H32.4C33.8 51 35.8 57 38.4 62H21.6C24.2 57 26.2 51 27.6 44.3Z"/></g><rect x="18.6" y="39.4" width="22.8" height="5" rx="2.5" fill="#e0bd74"/></svg><span>Il Giglio Verde</span></span>
+    <button class="apri-menu chiudi-menu" type="button" style="display:inline-flex">Chiudi</button>
   </div>
-</div>
-
-<!-- MARQUEE -->
-<div class="marquee">
-  <div class="marquee-track">
-    <span>Giardini <span class="dot">✦</span> <i>Antizanzare</i> <span class="dot">✦</span> Facciate <span class="dot">✦</span> <i>Oliveti</i> <span class="dot">✦</span> Luci Natalizie <span class="dot">✦</span> <i>Dimore Storiche</i> <span class="dot">✦</span> </span>
-    <span>Giardini <span class="dot">✦</span> <i>Antizanzare</i> <span class="dot">✦</span> Facciate <span class="dot">✦</span> <i>Oliveti</i> <span class="dot">✦</span> Luci Natalizie <span class="dot">✦</span> <i>Dimore Storiche</i> <span class="dot">✦</span> </span>
-  </div>
-</div>
-
-<!-- COUNTER -->
-<div class="counter">
-  <div class="counter-inner">
-    <div class="counter-item rv"><div class="counter-num"><span data-target="2011">0</span></div><div class="counter-label">Anno di fondazione</div></div>
-    <div class="counter-item rv"><div class="counter-num"><span data-target="15" data-da="2011">0</span></div><div class="counter-label">Anni di esperienza</div></div>
-    <div class="counter-item rv"><div class="counter-num"><span data-target="6">0</span></div><div class="counter-label">Servizi offerti</div></div>
-    <div class="counter-item rv"><div class="counter-num"><span data-target="4.8" data-dec="1">0</span><span class="sym">★</span></div><div class="counter-label">Media su Google</div></div>
-  </div>
-</div>
-
-<!-- SERVIZI -->
-<section class="sec" id="servizi">
-  <div class="sec-c">
-    <div class="eyebrow rv">Cosa facciamo</div>
-    <h2 class="sec-title rv">Un servizio completo,<br><i>tutto in una ditta</i></h2>
-    <p class="sec-sub rv">Dal verde all'edilizia, dalla campagna alle luci natalizie — pensiamo a tutto noi, con un solo referente di fiducia.</p>
-  </div>
-  <div class="srv-grid">
-    <a class="srv-card rv" href="/manutenzione-giardini-firenze.html"><span class="idx">01</span><span class="ico">🌿</span><h3>Verde e Giardini</h3><p>Creazione e manutenzione di giardini privati, ville, dimore storiche e condomini. Dal progetto alla cura annuale.</p><span class="srv-more">Scopri il servizio →</span></a>
-    <a class="srv-card rv" href="/antizanzare-firenze.html"><span class="idx">02</span><span class="ico">🦟</span><h3>Antizanzare</h3><p>Trattamenti professionali e bio-trappole a CO₂. Soluzioni efficaci, ecologiche e sicure per persone e animali.</p><span class="srv-more">Scopri il servizio →</span></a>
-    <a class="srv-card rv" href="/facciate-cotto-pietra-firenze.html"><span class="idx">03</span><span class="ico">🏡</span><h3>Edilizia e Facciate</h3><p>Muratura, pulizia di cotto e pietre, trattamenti protettivi, imbiancatura e rifacimento facciate.</p><span class="srv-more">Scopri il servizio →</span></a>
-    <a class="srv-card rv" href="/oliveti-raccolta-olive-firenze.html"><span class="idx">04</span><span class="ico">🌾</span><h3>Campagna e Oliveti</h3><p>Gestione oliveti, raccolta olive, rivendita olio e trinciatura campi per terreni agricoli e incolti.</p><span class="srv-more">Scopri il servizio →</span></a>
-    <div class="srv-card rv"><span class="idx">05</span><span class="ico">🎄</span><h3>Luci Natalizie</h3><p>Fornitura e installazione di luci natalizie professionali per privati e aziende. Magia in ogni dettaglio.</p></div>
-    <div class="srv-card rv"><span class="idx">06</span><span class="ico">🏺</span><h3>Rivendita Prodotti</h3><p>Terricci, concimi, vasi, terracotte e arredo giardino di qualità, disponibili direttamente da noi.</p></div>
-  </div>
-</section>
-
-<!-- PERCHE -->
-<section class="split" id="perche">
-  <div class="split-inner">
-    <div class="split-left rv">
-      <div class="eyebrow">Perché sceglierci</div>
-      <h2 class="sec-title">I nostri<br><i>punti di forza</i></h2>
-      <p class="sec-sub">Esperienza, territorio e un servizio davvero completo che pochi possono offrire nella zona fiorentina.</p>
-    </div>
-    <ul class="why-list rv">
-      <li class="why-row"><span class="why-ico">🎯</span><div><h4>Servizio a 360°</h4><p>Verde, edilizia e campagna in un'unica ditta. Un solo referente affidabile per ogni esigenza.</p></div></li>
-      <li class="why-row"><span class="why-ico">🏛️</span><div><h4>Dimore storiche</h4><p>Esperienza consolidata su ville di pregio e dimore storiche fiorentine, con la cura che meritano.</p></div></li>
-      <li class="why-row"><span class="why-ico">🌱</span><div><h4>Soluzioni green</h4><p>Trattamenti antizanzare ecologici e bio-trappole a CO₂, sicuri per persone, animali e piante.</p></div></li>
-      <li class="why-row"><span class="why-ico">📍</span><div><h4>Radicati a Firenze</h4><p>Conosciamo il territorio e i suoi spazi verdi. Vicini, affidabili e sempre puntuali.</p></div></li>
+  <nav aria-label="Menu del telefono">
+    <ul>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#come-lavoriamo">Come lavoriamo</a></li>
+      <li><a href="#lavori">Lavori</a></li>
+      <li><a href="#per-chi">Per chi lavoriamo</a></li>
+      <li><a href="#zone">Zone</a></li>
+      <li><a href="#blog">Consigli</a></li>
+      <li><a href="#contatti">Contatti</a></li>
     </ul>
-  </div>
-</section>
-
-<!-- ZONE -->
-<div class="zone rv">
-  <div class="deco">~ dove operiamo ~</div>
-  <h2>Interveniamo su <i>tutta Firenze</i> e dintorni</h2>
-  <div class="zone-pills">
-    <div class="pill">📍 Bagno a Ripoli</div>
-    <div class="pill">📍 Grassina</div>
-    <div class="pill">📍 Antella</div>
-    <div class="pill">📍 Ponte a Ema</div>
-    <div class="pill">📍 Firenze Sud</div>
-    <div class="pill">📍 Firenze Centro</div>
-    <div class="pill">📍 Fiesole</div>
-    <div class="pill">📍 Impruneta</div>
-    <div class="pill">📍 Pontassieve</div>
-    <div class="pill">📍 Rignano sull'Arno</div>
-    <div class="pill">📍 Greve in Chianti</div>
-  </div>
-  <p class="zone-note">…e nel resto dell'area metropolitana fiorentina. Sei in un altro comune? Chiamaci e ne parliamo.</p>
+  </nav>
+  <a class="btn btn-oro" href="tel:+393287217116"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Chiama 328 721 7116</a>
+  <a class="btn btn-linea" href="https://wa.me/393287217116" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
 </div>
 
-<!-- PRODOTTI -->
-<section class="prod" id="prodotti">
-  <div class="prod-inner">
-    <div class="prod-visual rv"><span class="big">🏺</span></div>
-    <div class="prod-text rv">
-      <div class="eyebrow">Rivendita</div>
-      <h2 class="sec-title">Prodotti di qualità<br><i>per il tuo giardino</i></h2>
-      <p>Vendiamo direttamente una selezione professionale di prodotti per il giardinaggio e l'arredo degli esterni, per completare ogni progetto con i materiali migliori.</p>
-      <div class="prod-tags">
-        <div class="prod-tag">🌱 Terricci e concimi</div>
-        <div class="prod-tag">🏺 Vasi e terracotte</div>
-        <div class="prod-tag">🪑 Arredo giardino</div>
-        <div class="prod-tag">🔧 Attrezzi professionali</div>
-        <div class="prod-tag">💐 Articoli per fioristi</div>
-        <div class="prod-tag">🌿 Prodotti giardinaggio</div>
+<main id="contenuto">
+
+  <section class="apertura" aria-labelledby="titolo">
+    <div class="apertura-testo">
+      <h1 id="titolo">Giardiniere a Bagno&nbsp;a&nbsp;Ripoli e&nbsp;Firenze&nbsp;Sud</h1>
+      <p class="lead">Ci prendiamo cura di giardini privati, ville e condomini, oliveti, cotto e facciate. Siamo Il Giglio Verde e lavoriamo in zona dal&nbsp;2011.</p>
+      <div class="azioni">
+        <a class="btn btn-oro" href="tel:+393287217116"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Chiama 328 721 7116</a>
+        <a class="btn btn-linea" href="#contatti">Chiedi un preventivo</a>
+      </div>
+      <ul class="fiducia">
+        <li><a href="https://share.google/BkS3udBZDlnNuC22n" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg>4,8 su Google</a></li>
+        <li>Sopralluogo gratuito</li>
+        <li>Preventivo scritto e chiaro</li>
+      </ul>
+    </div>
+    <figure class="apertura-foto">
+      <img src="/img/home/apertura-1400.webp" srcset="/img/home/apertura-820.webp 820w, /img/home/apertura-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 54vw" width="1400" height="1180" fetchpriority="high" alt="Prato rasato a strisce lungo un bordo fiorito di cespica, tra olivi e cipressi">
+    </figure>
+  </section>
+
+  <section class="crescita" id="come-lavoriamo" aria-labelledby="crescita-titolo">
+    <div class="crescita-pin">
+      <div class="crescita-testa">
+        <h2 id="crescita-titolo">Dal seme al giardino</h2>
+        <p>Come lavoriamo, dal primo sopralluogo alla cura negli anni.</p>
+      </div>
+      <div class="pianta-box">
+        <svg class="pianta" viewBox="0 0 400 640" role="img" aria-labelledby="pianta-titolo">
+          <title id="pianta-titolo">Un giglio che nasce da un seme e fiorisce</title>
+          <defs>
+            <linearGradient id="terra-sf" x1="0" y1="0" x2="400" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#08100b" stop-opacity="0"/>
+              <stop offset=".22" stop-color="#08100b"/>
+              <stop offset=".78" stop-color="#08100b"/>
+              <stop offset="1" stop-color="#08100b" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="suolo-sf" x1="10" y1="0" x2="390" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#9a7a30" stop-opacity="0"/>
+              <stop offset=".2" stop-color="#9a7a30"/>
+              <stop offset=".8" stop-color="#9a7a30"/>
+              <stop offset="1" stop-color="#9a7a30" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="520" width="400" height="120" fill="url(#terra-sf)"/>
+          <g fill="#2b3626">
+            <circle cx="128" cy="542" r="1.6"/><circle cx="158" cy="566" r="1.2"/><circle cx="244" cy="550" r="1.4"/>
+            <circle cx="276" cy="578" r="1.1"/><circle cx="112" cy="592" r="1.3"/><circle cx="298" cy="604" r="1.5"/>
+            <circle cx="226" cy="616" r="1"/><circle cx="168" cy="626" r="1.2"/><circle cx="322" cy="560" r="1"/>
+            <circle cx="88" cy="562" r="1"/><circle cx="190" cy="584" r="0.9"/><circle cx="262" cy="530" r="1.1"/>
+          </g>
+          <line x1="10" y1="520" x2="390" y2="520" stroke="url(#suolo-sf)" stroke-width="1.4"/>
+          <g class="radici" fill="none" stroke="#bcc1ad" stroke-opacity=".5" stroke-linecap="round">
+            <path class="radice" stroke-width="2" d="M200,521 C199,546 204,571 201,600 C199,615 202,628 200,636"/>
+            <path class="radice" stroke-width="1.2" d="M201,546 C190,554 180,565 170,584"/>
+            <path class="radice" stroke-width="1.2" d="M202,560 C213,569 223,581 231,600"/>
+            <path class="radice" stroke-width="1" d="M201,585 C193,595 187,605 182,618"/>
+            <path class="radice" stroke-width="1" d="M201,598 C208,606 214,614 219,626"/>
+            <path class="radice" stroke-width=".8" d="M176,573 C169,575 163,580 158,587"/>
+            <path class="radice" stroke-width=".8" d="M224,588 C230,590 236,595 240,602"/>
+          </g>
+          <path class="stelo" fill="none" stroke="#a4c48f" stroke-width="5" stroke-linecap="round" d="M200,514 C198,470 204,430 201,390 C198,350 203,310 200,272 C199,258 200,246 200,236"/>
+          <g class="cotiledoni">
+            <path class="cot" data-y="492" data-lato="-1" data-l="34" data-a="18" fill="#b9d3a5" transform="translate(200 492) scale(-1 1) rotate(-18) scale(.34)" d="M0,0 C18,-30 70,-38 100,-10 C72,16 24,18 0,0Z"/>
+            <path class="cot" data-y="492" data-lato="1" data-l="34" data-a="18" fill="#b9d3a5" transform="translate(200 492) scale(1 1) rotate(-18) scale(.34)" d="M0,0 C18,-30 70,-38 100,-10 C72,16 24,18 0,0Z"/>
+          </g>
+          <g class="foglie">
+            <g class="foglia" data-y="455" data-lato="-1" data-l="112" data-a="40" transform="translate(200 455) scale(-1 1) rotate(-40) scale(1.12)"><path fill="#a4c48f" d="M0,0 C22,-15 62,-15 100,0 C62,8 24,10 0,0Z"/><path fill="none" stroke="#6f8f5e" stroke-width="1.1" vector-effect="non-scaling-stroke" d="M2,0 Q50,-4 94,-1"/></g>
+            <g class="foglia" data-y="428" data-lato="1" data-l="118" data-a="44" transform="translate(200 428) scale(1 1) rotate(-44) scale(1.18)"><path fill="#a4c48f" d="M0,0 C22,-15 62,-15 100,0 C62,8 24,10 0,0Z"/><path fill="none" stroke="#6f8f5e" stroke-width="1.1" vector-effect="non-scaling-stroke" d="M2,0 Q50,-4 94,-1"/></g>
+            <g class="foglia" data-y="398" data-lato="-1" data-l="106" data-a="48" transform="translate(200 398) scale(-1 1) rotate(-48) scale(1.06)"><path fill="#a4c48f" d="M0,0 C22,-15 62,-15 100,0 C62,8 24,10 0,0Z"/><path fill="none" stroke="#6f8f5e" stroke-width="1.1" vector-effect="non-scaling-stroke" d="M2,0 Q50,-4 94,-1"/></g>
+            <g class="foglia" data-y="368" data-lato="1" data-l="98" data-a="51" transform="translate(200 368) scale(1 1) rotate(-51) scale(.98)"><path fill="#a4c48f" d="M0,0 C22,-15 62,-15 100,0 C62,8 24,10 0,0Z"/><path fill="none" stroke="#6f8f5e" stroke-width="1.1" vector-effect="non-scaling-stroke" d="M2,0 Q50,-4 94,-1"/></g>
+            <g class="foglia" data-y="338" data-lato="-1" data-l="86" data-a="55" transform="translate(200 338) scale(-1 1) rotate(-55) scale(.86)"><path fill="#a4c48f" d="M0,0 C22,-15 62,-15 100,0 C62,8 24,10 0,0Z"/><path fill="none" stroke="#6f8f5e" stroke-width="1.1" vector-effect="non-scaling-stroke" d="M2,0 Q50,-4 94,-1"/></g>
+            <g class="foglia" data-y="309" data-lato="1" data-l="70" data-a="59" transform="translate(200 309) scale(1 1) rotate(-59) scale(.7)"><path fill="#a4c48f" d="M0,0 C22,-15 62,-15 100,0 C62,8 24,10 0,0Z"/><path fill="none" stroke="#6f8f5e" stroke-width="1.1" vector-effect="non-scaling-stroke" d="M2,0 Q50,-4 94,-1"/></g>
+          </g>
+          <g class="seme" opacity="0" transform="translate(200 523) scale(1.4) translate(-200 -523)">
+            <path class="seme-a" fill="#c49b52" stroke="#8a6a2c" stroke-width="1" d="M200,497 C192,500 188.5,508 190,515 C191.5,520.5 196,523 200,523Z"/>
+            <path class="seme-b" fill="#b48a43" stroke="#8a6a2c" stroke-width="1" d="M200,497 C208,500 211.5,508 210,515 C208.5,520.5 204,523 200,523Z"/>
+          </g>
+          <g class="fiore" transform="translate(200 236) scale(3.7) translate(-30 -62)">
+            <path class="p-centro" fill="#f3eee2" d="M30 4C33.8 13 35.8 20 35.8 26.5C35.8 31.5 33.6 35.5 30 38C26.4 35.5 24.2 31.5 24.2 26.5C24.2 20 26.2 13 30 4Z"/>
+            <path class="p-sx" fill="#f3eee2" d="M24.6 28.5C19 25.5 12.5 25 8.5 28.5C4 32.5 4 40.5 8.5 44C10.5 45.5 13 45.8 14.8 45C11.5 42.5 10.5 38 12.5 34.5C14.3 31.4 19 29.6 24.6 28.5Z"/>
+            <path class="p-dx" fill="#f3eee2" d="M35.4 28.5C41 25.5 47.5 25 51.5 28.5C56 32.5 56 40.5 51.5 44C49.5 45.5 47 45.8 45.2 45C48.5 42.5 49.5 38 47.5 34.5C45.7 31.4 41 29.6 35.4 28.5Z"/>
+            <path class="p-base" fill="#f3eee2" d="M27.6 44.3H32.4C33.8 51 35.8 57 38.4 62H21.6C24.2 57 26.2 51 27.6 44.3Z"/>
+            <rect class="fascia" x="18.6" y="39.4" width="22.8" height="5" rx="2.5" fill="#e0bd74"/>
+          </g>
+        </svg>
+      </div>
+      <ol class="passi">
+        <li class="passo attivo"><span class="n" aria-hidden="true">1</span><h3>Sopralluogo</h3><p>Veniamo a vedere il posto, ascoltiamo cosa ti serve e guardiamo il terreno. È gratuito e senza impegno.</p></li>
+        <li class="passo"><span class="n" aria-hidden="true">2</span><h3>Preventivo</h3><p>Ti mandiamo un preventivo scritto, con ogni voce spiegata. Puoi accettarlo anche dal telefono, con una firma.</p></li>
+        <li class="passo"><span class="n" aria-hidden="true">3</span><h3>Il lavoro</h3><p>Veniamo noi, sempre la stessa squadra, con l'attrezzatura giusta per ogni lavoro. E ti teniamo aggiornato.</p></li>
+        <li class="passo"><span class="n" aria-hidden="true">4</span><h3>La cura nel tempo</h3><p>Un giardino cambia con le stagioni: lo seguiamo anno dopo anno, con interventi programmati.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sez prima-dopo" aria-labelledby="pd-titolo">
+    <div class="wrap pd-griglia">
+      <div class="pd">
+        <img src="/img/home/dopo-giorno-39.webp" width="685" height="384" loading="lazy" decoding="async" alt="Lo stesso giardino al giorno 39: prato fitto e verde, con l'orcio e il vialetto in pietra">
+        <div class="pd-prima"><img src="/img/home/prima-giorno-0.webp" width="685" height="384" loading="lazy" decoding="async" alt="Il giardino al giorno 0: terra nuda dopo la scalpatura, con l'orcio di terracotta"></div>
+        <span class="pd-et pd-et-prima">Giorno 0</span>
+        <span class="pd-et pd-et-dopo">Giorno 39</span>
+        <div class="pd-linea" aria-hidden="true"><span class="pd-maniglia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
+        <input class="pd-range" type="range" min="0" max="100" value="50" aria-label="Confronta prima e dopo: sposta la linea">
+      </div>
+      <div class="pd-testo">
+        <h2 id="pd-titolo">Lo stesso prato, 39&nbsp;giorni dopo</h2>
+        <p>È il prato del nostro giardino, 150&nbsp;m². A luglio il vecchio manto scalpato e la terra nuda, ad agosto un tappeto fitto di Bermuda. Trascina la linea per confrontare.</p>
+        <a class="link" href="/caso-studio-prato/caso-studio-prato-macroterma.html">Leggi il diario del lavoro, giorno per giorno</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- QUOTE -->
-<div class="quote rv">
-  <p>Prendiamo il nostro lavoro come una <i>missione</i>: migliorare, nel nostro piccolo, il mondo in cui viviamo.</p>
-  <div class="author">— Il Giglio Verde, dal 2011</div>
-</div>
-  
-<!-- RECENSIONI -->
-<section class="sec" id="recensioni" style="text-align:center;">
-  <div class="eyebrow rv">La tua opinione conta</div>
-  <h2 class="sec-title rv">Sei stato nostro cliente?<br><i>Raccontacelo in 30 secondi</i></h2>
-  <p class="sec-sub rv" style="margin-left:auto; margin-right:auto;">Le recensioni ci aiutano a farci conoscere da altre famiglie e aziende della zona che cercano un giardiniere di fiducia. Se sei rimasto soddisfatto del lavoro, una recensione su Google per noi vale davvero tanto.</p>
-  <div style="margin-top:36px; display:flex; flex-direction:column; align-items:center; gap:22px;">
-    <div style="font-size:1.8rem; letter-spacing:0.12em; color:var(--gold);">★★★★★</div>
-    <a href="https://share.google/BkS3udBZDlnNuC22n" target="_blank" class="btn btn-fill rv">Lascia una recensione su Google →</a>
-  </div>
-</section>
-  
-<!-- CONTATTI -->
-<section class="contact" id="contatti">
-  <div class="contact-inner">
-    <div class="contact-left rv">
-      <div class="eyebrow">Parliamone</div>
-      <h2 class="sec-title">Richiedi il tuo<br><i>preventivo gratuito</i></h2>
-      <p>Sopralluogo e preventivo senza impegno. Scrivici, chiamaci o mandaci un messaggio WhatsApp: ti rispondiamo al più presto.</p>
-      <a href="tel:+393287217116" class="c-item"><div class="ci-ico">📞</div><div><div class="ci-label">Telefono / WhatsApp</div><div class="ci-val">328 7217116</div></div></a>
-      <a href="mailto:giglioverdefirenze@gmail.com" class="c-item"><div class="ci-ico">✉️</div><div><div class="ci-label">Email</div><div class="ci-val">giglioverdefirenze@gmail.com</div></div></a>
-      <a href="https://www.giglioverde.com" class="c-item"><div class="ci-ico">🌐</div><div><div class="ci-label">Sito web</div><div class="ci-val">www.giglioverde.com</div></div></a>
-      <a href="https://share.google/BkS3udBZDlnNuC22n" target="_blank" class="c-item"><div class="ci-ico">📍</div><div><div class="ci-label">Google Maps · Foto e Recensioni</div><div class="ci-val">Vedi la nostra scheda →</div></div></a>
+  <section class="sez" id="servizi" aria-labelledby="servizi-titolo">
+    <div class="wrap">
+      <h2 id="servizi-titolo">Verde, casa e campagna: un'unica ditta</h2>
+      <p class="intro">Un solo referente per il giardino, il cotto di casa e l'oliveto. Organizziamo noi i lavori e ti diciamo prima quanto costano.</p>
+      <ul class="servizi-griglia">
+        <li class="servizio"><a href="/manutenzione-giardini-firenze.html">
+          <img src="/img/home/servizio-giardini.webp" width="640" height="800" loading="lazy" decoding="async" alt="Vialetto di pietre posate sulla terra, accanto a una siepe">
+          <h3>Giardini e manutenzione</h3>
+          <p>Giardini privati, ville, dimore storiche e condomini, tutto l'anno: prati, siepi, potature, vialetti e aiuole.</p>
+          <span class="link">Manutenzione giardini</span>
+        </a></li>
+        <li class="servizio"><a href="/antizanzare-firenze.html">
+          <img src="/img/home/servizio-antizanzare.webp" width="640" height="800" loading="lazy" decoding="async" alt="Trappola antizanzare collegata a una bombola di CO₂, accanto a un vaso di terracotta">
+          <h3>Antizanzare</h3>
+          <p>Trappole a CO₂ e trattamenti mirati, sicuri per persone e animali. Vendiamo anche prodotti naturali.</p>
+          <span class="link">Il servizio antizanzare</span>
+        </a></li>
+        <li class="servizio"><a href="/facciate-cotto-pietra-firenze.html">
+          <img src="/img/home/servizio-cotto.webp" width="640" height="800" loading="lazy" decoding="async" alt="Terrazzo in cotto pulito, con la ringhiera in ferro">
+          <h3>Cotto, pietra e facciate</h3>
+          <p>Pulizia e trattamenti protettivi di cotto e pietra, lavori in muratura, imbiancature e rifacimento delle facciate.</p>
+          <span class="link">Facciate, cotto e pietra</span>
+        </a></li>
+        <li class="servizio"><a href="/oliveti-raccolta-olive-firenze.html">
+          <img src="/img/home/servizio-oliveti.webp" width="640" height="800" loading="lazy" decoding="async" alt="Buddleja in fiore davanti a olivi e cipressi">
+          <h3>Oliveti e campagna</h3>
+          <p>Gestione degli oliveti, potatura, raccolta delle olive e trinciatura dei campi.</p>
+          <span class="link">Oliveti e raccolta olive</span>
+        </a></li>
+      </ul>
+      <div class="anche">
+        <div><h3>Luci di Natale</h3><p>Forniamo e montiamo luci natalizie professionali per case e aziende.</p></div>
+        <div><h3>Prodotti per il giardino</h3><p>Terricci, concimi, vasi, terracotte e arredo da esterno, in vendita direttamente da noi.</p></div>
+      </div>
     </div>
-    <form class="form-card rv" id="form-preventivo" name="richieste-preventivo" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-      <p class="hp" hidden><label>Lascia vuoto questo campo <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-      <div class="form-campi">
-        <label for="f-nome">Nome e cognome</label>
-        <input id="f-nome" name="nome" type="text" placeholder="Mario Rossi" autocomplete="name">
-        <div class="form-grid2">
-          <div><label for="f-tel">Telefono</label><input id="f-tel" name="telefono" type="tel" placeholder="328 0000000" autocomplete="tel"></div>
-          <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="nome@email.it" autocomplete="email"></div>
+  </section>
+
+  <section class="sez perchi" id="per-chi" aria-labelledby="perchi-titolo">
+    <div class="wrap">
+      <h2 id="perchi-titolo">Per chi lavoriamo</h2>
+      <ul class="perchi-griglia">
+        <li>
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13 14 5l10 8M7 11v13h14V11M12 24v-6h4v6"/></svg>
+          <h3>Privati e famiglie</h3>
+          <p>Dal giardino di casa al parco della villa: taglio dell'erba, potature, siepi e cura di stagione.</p>
+          <a class="link" href="#contatti" data-servizio="Verde e Giardini" data-msg="Buongiorno, ho un giardino a ... e vorrei un sopralluogo.">Chiedi un sopralluogo</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 25V4h16v21M3 25h22M10 8h2M16 8h2M10 12h2M16 12h2M10 16h2M16 16h2M12 25v-5h4v5"/></svg>
+          <h3>Condomini e amministratori</h3>
+          <p>Manutenzione annuale del verde condominiale, con interventi a calendario e preventivi dettagliati.</p>
+          <a class="link" href="#contatti" data-servizio="Verde e Giardini" data-msg="Buongiorno, amministro un condominio a ... e vorrei un preventivo per la manutenzione del verde.">Chiedi un preventivo</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 25h22M5 22h18M4 11h20L14 4zM7 11v11M11 11v11M17 11v11M21 11v11"/></svg>
+          <h3>Ville e dimore storiche</h3>
+          <p>Siepi formali, olivi e cipressi, giardini in ordine in ogni stagione, anche nelle ville che ospitano eventi e matrimoni.</p>
+          <a class="link" href="#contatti" data-servizio="Verde e Giardini" data-msg="Buongiorno, vi scrivo per una villa a ... e vorrei un sopralluogo.">Chiedi un sopralluogo</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v7a2 2 0 0 0 4 0V4M11 13v12M20 4c-2.2 1.8-3 5-3 9h3v12"/></svg>
+          <h3>Agriturismi, ristoranti e strutture ricettive</h3>
+          <p>Spazi verdi in ordine per gli ospiti e trattamenti antizanzare per vivere fuori la sera.</p>
+          <a class="link" href="#contatti" data-servizio="Verde e Giardini" data-msg="Buongiorno, gestisco una struttura a ... e vorrei un sopralluogo.">Chiedi un sopralluogo</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sez" id="lavori" aria-labelledby="lavori-titolo">
+    <div class="wrap">
+      <div class="testa-riga">
+        <h2 id="lavori-titolo">Lavori recenti</h2>
+        <a class="link" href="https://www.instagram.com/giglioverdegiardini" target="_blank" rel="noopener">Altre foto su Instagram</a>
+      </div>
+      <ul class="lavori-griglia">
+        <li class="l1"><a href="/articolo-manutenzione-campi-calcio.html">
+          <img src="/img/home/lavoro-campo-07.webp" width="900" height="676" loading="lazy" decoding="async" alt="Campo da calcio a 11 visto da bordo campo, in una giornata di sole">
+          <span class="didascalia">Manutenzione di un campo da calcio a 11</span>
+        </a></li>
+        <li class="l2"><a href="/facciate-cotto-pietra-firenze.html">
+          <img src="/img/home/lavoro-cotto.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Terrazzo in cotto bagnato, con due vasi di terracotta in fondo">
+          <span class="didascalia">Terrazzo in cotto</span>
+        </a></li>
+        <li class="l3"><a href="/caso-studio-prato/caso-studio-prato-macroterma.html">
+          <img src="/img/home/lavoro-prato.webp" width="1200" height="675" loading="lazy" decoding="async" alt="Giardino con prato fitto, un orcio di terracotta e un vialetto in pietra">
+          <span class="didascalia">Il nostro prato, a conversione finita</span>
+        </a></li>
+        <li class="l4"><a href="/antizanzare-firenze.html">
+          <img src="/img/home/lavoro-trappola-siepe.webp" width="1000" height="750" loading="lazy" decoding="async" alt="Trappola antizanzare a CO₂ tra una siepe e una casetta di legno">
+          <span class="didascalia">Trappola antizanzare a CO₂ lungo la siepe</span>
+        </a></li>
+        <li class="l5"><a href="/articolo-manutenzione-campi-calcio.html">
+          <img src="/img/home/lavoro-campo-06.webp" width="900" height="676" loading="lazy" decoding="async" alt="Rastrello appoggiato su una zona d'erba consumata del campo">
+          <span class="didascalia">Rastrello sulle zone consumate del campo</span>
+        </a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sez recensioni" id="recensioni" aria-labelledby="rec-titolo">
+    <div class="wrap rec-griglia">
+      <div class="voto-box">
+        <h2 id="rec-titolo">Cosa dicono i&nbsp;clienti</h2>
+        <p class="voto"><span class="voto-num">4,8</span><span class="stelle" role="img" aria-label="4,8 stelle su 5"><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg></span></p>
+        <p>La media delle recensioni sulla nostra scheda Google.</p>
+        <p class="link-riga">
+          <a class="link" href="https://share.google/BkS3udBZDlnNuC22n" target="_blank" rel="noopener">Leggi le recensioni</a>
+          <a class="link" href="https://share.google/BkS3udBZDlnNuC22n" target="_blank" rel="noopener">Lascia la tua</a>
+        </p>
+      </div>
+      <div class="citazioni">
+        <figure class="citazione segnaposto"><blockquote>Qui va il testo di una recensione vera, copiato dalla scheda Google.</blockquote><figcaption>Nome del cliente</figcaption></figure>
+        <figure class="citazione segnaposto"><blockquote>Qui va la seconda recensione vera.</blockquote><figcaption>Nome del cliente</figcaption></figure>
+        <figure class="citazione segnaposto"><blockquote>Qui va la terza recensione vera.</blockquote><figcaption>Nome del cliente</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sez zone-olio" id="zone" aria-labelledby="zone-titolo">
+    <div class="wrap zo-griglia">
+      <div>
+        <h2 id="zone-titolo">Dove lavoriamo</h2>
+        <p class="elenco-zone">Bagno a Ripoli, Grassina, Antella, Ponte a Ema, Firenze Sud, Firenze centro, Fiesole, Impruneta, Pontassieve, Rignano sull'Arno e Greve in Chianti.</p>
+        <p>Sei in un altro comune dell'area fiorentina? <a class="link" href="tel:+393287217116">Chiamaci</a> e ne parliamo.</p>
+      </div>
+      <div class="olio">
+        <h2>L'olio nostro</h2>
+        <p>Vendiamo direttamente l'olio delle nostre raccolte e, per il giardino, terricci, concimi, vasi e terracotte.</p>
+        <a class="btn btn-linea" href="https://wa.me/393287217116?text=Buongiorno%2C%20vorrei%20informazioni%20sull%27olio." target="_blank" rel="noopener">Chiedi l'olio su WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sez contatti" id="contatti" aria-labelledby="contatti-titolo">
+    <div class="wrap ct-griglia">
+      <div class="ct-testo">
+        <svg viewBox="4 4 52 58" aria-hidden="true" focusable="false"><g fill="#f3eee2"><path d="M30 4C33.8 13 35.8 20 35.8 26.5C35.8 31.5 33.6 35.5 30 38C26.4 35.5 24.2 31.5 24.2 26.5C24.2 20 26.2 13 30 4Z"/><path d="M24.6 28.5C19 25.5 12.5 25 8.5 28.5C4 32.5 4 40.5 8.5 44C10.5 45.5 13 45.8 14.8 45C11.5 42.5 10.5 38 12.5 34.5C14.3 31.4 19 29.6 24.6 28.5Z"/><path d="M35.4 28.5C41 25.5 47.5 25 51.5 28.5C56 32.5 56 40.5 51.5 44C49.5 45.5 47 45.8 45.2 45C48.5 42.5 49.5 38 47.5 34.5C45.7 31.4 41 29.6 35.4 28.5Z"/><path d="M27.6 44.3H32.4C33.8 51 35.8 57 38.4 62H21.6C24.2 57 26.2 51 27.6 44.3Z"/></g><rect x="18.6" y="39.4" width="22.8" height="5" rx="2.5" fill="#e0bd74"/></svg>
+        <h2 id="contatti-titolo">Richiedi il tuo preventivo</h2>
+        <p>Sopralluogo e preventivo gratuiti e senza impegno. Compila il modulo, chiamaci o scrivici su WhatsApp: ti rispondiamo al più presto.</p>
+        <a class="tel-grande" href="tel:+393287217116">328 721 7116</a>
+        <ul class="ct-vie">
+          <li><a href="https://wa.me/393287217116" target="_blank" rel="noopener"><span>WhatsApp</span>Scrivici un messaggio</a></li>
+          <li><a href="mailto:giglioverdefirenze@gmail.com"><span>Email</span>giglioverdefirenze@gmail.com</a></li>
+          <li><a href="https://share.google/BkS3udBZDlnNuC22n" target="_blank" rel="noopener"><span>Google Maps</span>La nostra scheda, con foto e recensioni</a></li>
+        </ul>
+      </div>
+      <form class="form-card rv" id="form-preventivo" name="richieste-preventivo" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <p class="hp" hidden><label>Lascia vuoto questo campo <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="form-campi">
+          <label for="f-nome">Nome e cognome</label>
+          <input id="f-nome" name="nome" type="text" placeholder="Mario Rossi" autocomplete="name">
+          <div class="form-grid2">
+            <div><label for="f-tel">Telefono</label><input id="f-tel" name="telefono" type="tel" placeholder="328 0000000" autocomplete="tel"></div>
+            <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="nome@email.it" autocomplete="email"></div>
+          </div>
+          <label for="f-servizio">Servizio richiesto</label>
+          <select id="f-servizio" name="servizio">
+            <option value="">Seleziona…</option>
+            <option>Verde e Giardini</option>
+            <option>Antizanzare</option>
+            <option>Edilizia e Facciate</option>
+            <option>Campagna e Oliveti</option>
+            <option>Luci Natalizie</option>
+            <option>Rivendita Prodotti</option>
+          </select>
+          <label for="f-msg">Messaggio</label>
+          <textarea id="f-msg" name="messaggio" placeholder="Che lavoro serve e dove (es. potatura siepi, Grassina)"></textarea>
+          <p class="form-err" id="form-err" role="alert" hidden></p>
+          <button class="btn btn-oro form-submit" type="submit" value="modulo">Invia la richiesta</button>
+          <button class="btn btn-linea form-alt" type="submit" value="whatsapp">Oppure mandala su WhatsApp</button>
+          <p class="form-nota">La richiesta ci arriva per email e ti rispondiamo al più presto. I tuoi dati servono solo a risponderti.</p>
+          <details class="form-privacy">
+            <summary>Come usiamo i tuoi dati</summary>
+            <p>Titolare del trattamento: Il Giglio Verde SRLS, P.IVA 18448341000, giglioverdefirenze@gmail.com. Usiamo nome, recapiti e messaggio solo per rispondere alla tua richiesta e preparare l'eventuale preventivo (base giuridica: la tua richiesta, art. 6.1.b del GDPR). Il modulo è gestito da Netlify, il servizio che ospita questo sito, che ci inoltra la richiesta per email. Non usiamo i dati per altri scopi e non li cediamo a nessuno. Li conserviamo per il tempo necessario a gestire la richiesta e, se diventi cliente, per quanto richiesto dalla legge. Puoi chiedere in ogni momento di vederli, correggerli o cancellarli scrivendo a giglioverdefirenze@gmail.com, e hai diritto di presentare reclamo al Garante per la protezione dei dati personali.</p>
+          </details>
         </div>
-        <label for="f-servizio">Servizio richiesto</label>
-        <select id="f-servizio" name="servizio">
-          <option value="">Seleziona…</option>
-          <option>Verde e Giardini</option>
-          <option>Antizanzare</option>
-          <option>Edilizia e Facciate</option>
-          <option>Campagna e Oliveti</option>
-          <option>Luci Natalizie</option>
-          <option>Rivendita Prodotti</option>
-        </select>
-        <label for="f-msg">Messaggio</label>
-        <textarea id="f-msg" name="messaggio" placeholder="Che lavoro serve e dove (es. potatura siepi, Grassina)"></textarea>
-        <p class="form-err" id="form-err" role="alert" hidden></p>
-        <button class="form-submit" type="submit" value="modulo">Invia la richiesta →</button>
-        <button class="form-alt" type="submit" value="whatsapp">Oppure mandala su WhatsApp</button>
-        <p class="form-nota">La richiesta ci arriva per email e ti rispondiamo al più presto. I tuoi dati servono solo a risponderti.</p>
-        <details class="form-privacy">
-          <summary>Come usiamo i tuoi dati</summary>
-          <p>Titolare del trattamento: Il Giglio Verde SRLS, P.IVA 18448341000, giglioverdefirenze@gmail.com. Usiamo nome, recapiti e messaggio solo per rispondere alla tua richiesta e preparare l'eventuale preventivo (base giuridica: la tua richiesta, art. 6.1.b del GDPR). Il modulo è gestito da Netlify, il servizio che ospita questo sito, che ci inoltra la richiesta per email. Non usiamo i dati per altri scopi e non li cediamo a nessuno. Li conserviamo per il tempo necessario a gestire la richiesta e, se diventi cliente, per quanto richiesto dalla legge. Puoi chiedere in ogni momento di vederli, correggerli o cancellarli scrivendo a giglioverdefirenze@gmail.com, e hai diritto di presentare reclamo al Garante per la protezione dei dati personali.</p>
-        </details>
-      </div>
-      <div class="form-ok" id="form-ok" role="status" hidden>
-        <div class="form-ok-ico">✓</div>
-        <h3>Richiesta inviata</h3>
-        <p>Grazie! Ti ricontattiamo al più presto. Se è urgente chiamaci al <a href="tel:+393287217116">328 7217116</a>.</p>
-      </div>
-    </form>
-  </div>
-</section>
-
-<!-- BLOG -->
-<section class="sec" id="blog" style="background: var(--bg-2); max-width:100%; padding: 100px 6%;">
-  <div style="max-width:1280px; margin:0 auto;">
-    <div class="sec-c">
-      <div class="eyebrow rv">Dal nostro blog</div>
-      <h2 class="sec-title rv">Consigli, stagioni<br><i>e curiosità dal verde</i></h2>
-      <p class="sec-sub rv">Articoli scritti da chi lavora ogni giorno con le mani nella terra — consigli pratici, guide stagionali e approfondimenti sul mondo del verde fiorentino.</p>
+        <div class="form-ok" id="form-ok" role="status" hidden>
+          <div class="form-ok-ico">✓</div>
+          <h3>Richiesta inviata</h3>
+          <p>Grazie! Ti ricontattiamo al più presto. Se è urgente chiamaci al <a href="tel:+393287217116">328 721 7116</a>.</p>
+        </div>
+      </form>
     </div>
-    <div class="srv-grid" style="margin-top:60px;">
+  </section>
 
-      <a class="srv-card rv" href="/articolo-giardino-primavera.html">
-        <span class="idx">01</span>
-        <div style="font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--sage); margin-bottom:14px; font-weight:500;">Primavera · Giardini</div>
-        <h3 style="font-family:'Instrument Serif',serif; font-size:1.4rem; font-weight:400; margin-bottom:12px; line-height:1.25;">Come preparare il giardino per la primavera</h3>
-        <p style="font-size:0.88rem; color:var(--cream-dim); line-height:1.65; font-weight:300; margin-bottom:20px;">Le operazioni fondamentali da fare tra marzo e aprile per avere un giardino rigoglioso per tutta l'estate. Dalla potatura alla concimazione.</p>
-        <div style="font-size:0.74rem; color:var(--gold); font-weight:500; letter-spacing:0.06em;">Leggi l'articolo →</div>
-      </a>
+  <section class="sez blog" id="blog" aria-labelledby="blog-titolo">
+    <div class="wrap">
+      <h2 id="blog-titolo">Consigli di stagione</h2>
+      <p class="intro">Articoli scritti da chi lavora ogni giorno con le mani nella terra.</p>
+      <ul class="blog-lista">
+        <li><a href="/articolo-raccolta-olive.html"><span class="cat">Autunno, oliveti</span><span><h3>La raccolta delle olive: quando e come farla</h3><span class="riassunto">Il momento giusto per raccogliere e come curare l'oliveto durante l'anno.</span></span><span class="leggi">Leggi</span></a></li>
+        <li><a href="/caso-studio-prato/caso-studio-prato-macroterma.html"><span class="cat">Estate, prato</span><span><h3>Come abbiamo convertito il prato in un tappeto macroterma</h3><span class="riassunto">Un caso reale, giorno per giorno: terreno, semina, primo taglio e un imprevisto.</span></span><span class="leggi">Leggi</span></a></li>
+        <li><a href="/articolo-manutenzione-campi-calcio.html"><span class="cat">Sport, manutenzione</span><span><h3>Manutenzione dei campi da calcio: un lavoro di tutto l'anno</h3><span class="riassunto">Un campo a 11, dal taglio all'alba alla copertura delle zone consumate.</span></span><span class="leggi">Leggi</span></a></li>
+        <li><a href="/articolo-antizanzare-naturale.html"><span class="cat">Estate, antizanzare</span><span><h3>Zanzare: come eliminarle in modo naturale</h3><span class="riassunto">Dalle trappole a CO₂ ai trattamenti professionali, per vivere il giardino d'estate.</span></span><span class="leggi">Leggi</span></a></li>
+        <li><a href="/articolo-giardino-primavera.html"><span class="cat">Primavera, giardini</span><span><h3>Come preparare il giardino per la primavera</h3><span class="riassunto">Cosa fare tra marzo e aprile, dalla potatura alla concimazione.</span></span><span class="leggi">Leggi</span></a></li>
+      </ul>
+    </div>
+  </section>
 
-      <a class="srv-card rv" href="/articolo-antizanzare-naturale.html">
-        <span class="idx">02</span>
-        <div style="font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--sage); margin-bottom:14px; font-weight:500;">Estate · Antizanzare</div>
-        <h3 style="font-family:'Instrument Serif',serif; font-size:1.4rem; font-weight:400; margin-bottom:12px; line-height:1.25;">Zanzare: come eliminarle in modo naturale</h3>
-        <p style="font-size:0.88rem; color:var(--cream-dim); line-height:1.65; font-weight:300; margin-bottom:20px;">Dalle bio-trappole a CO₂ ai trattamenti professionali: tutto quello che devi sapere per vivere il giardino senza pensieri durante l'estate.</p>
-        <div style="font-size:0.74rem; color:var(--gold); font-weight:500; letter-spacing:0.06em;">Leggi l'articolo →</div>
-      </a>
+</main>
 
-      <a class="srv-card rv" href="/articolo-raccolta-olive.html">
-        <span class="idx">03</span>
-        <div style="font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--sage); margin-bottom:14px; font-weight:500;">Autunno · Oliveti</div>
-        <h3 style="font-family:'Instrument Serif',serif; font-size:1.4rem; font-weight:400; margin-bottom:12px; line-height:1.25;">La raccolta delle olive: quando e come farla</h3>
-        <p style="font-size:0.88rem; color:var(--cream-dim); line-height:1.65; font-weight:300; margin-bottom:20px;">Il momento giusto per raccogliere, come gestire l'oliveto durante l'anno e come ottenere il massimo dalla produzione di olio toscano.</p>
-        <div style="font-size:0.74rem; color:var(--gold); font-weight:500; letter-spacing:0.06em;">Leggi l'articolo →</div>
-      </a>
-      <a class="srv-card rv" href="/caso-studio-prato/caso-studio-prato-macroterma.html">
-          <span class="idx">04</span>
-          <div style="font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--sage); margin-bottom:14px; font-weight:500;">Estate · Prato</div>
-          <h3 style="font-family:'Instrument Serif',serif; font-size:1.4rem; font-weight:400; margin-bottom:12px; line-height:1.25;">Come abbiamo convertito il prato in un tappeto macroterma</h3>
-          <p style="font-size:0.88rem; color:var(--cream-dim); line-height:1.65; font-weight:300; margin-bottom:20px;">Un caso studio reale, giorno per giorno: preparazione del terreno, semina, primo taglio e la gestione di un imprevisto lungo il percorso.</p>
-          <div style="font-size:0.74rem; color:var(--gold); font-weight:500; letter-spacing:0.06em;">Leggi l'articolo →</div>
-        </a>
-      <a class="srv-card rv" href="/articolo-manutenzione-campi-calcio.html">
-        <span class="idx">05</span>
-        <div style="font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--sage); margin-bottom:14px; font-weight:500;">Sport · Manutenzione</div>
-        <h3 style="font-family:'Instrument Serif',serif; font-size:1.4rem; font-weight:400; margin-bottom:12px; line-height:1.25;">Manutenzione dei campi da calcio: un lavoro di tutto l'anno</h3>
-        <p style="font-size:0.88rem; color:var(--cream-dim); line-height:1.65; font-weight:300; margin-bottom:20px;">Un caso concreto di manutenzione su un campo a 11: dal taglio all'alba alla copertura delle zone usurate con terriccio e sabbia.</p>
-        <div style="font-size:0.74rem; color:var(--gold); font-weight:500; letter-spacing:0.06em;">Leggi l'articolo →</div>
-      </a>
+<footer class="piede">
+  <div class="wrap piede-griglia">
+    <div>
+      <a href="/" class="marchio"><svg viewBox="4 4 52 58" aria-hidden="true" focusable="false"><g fill="#f3eee2"><path d="M30 4C33.8 13 35.8 20 35.8 26.5C35.8 31.5 33.6 35.5 30 38C26.4 35.5 24.2 31.5 24.2 26.5C24.2 20 26.2 13 30 4Z"/><path d="M24.6 28.5C19 25.5 12.5 25 8.5 28.5C4 32.5 4 40.5 8.5 44C10.5 45.5 13 45.8 14.8 45C11.5 42.5 10.5 38 12.5 34.5C14.3 31.4 19 29.6 24.6 28.5Z"/><path d="M35.4 28.5C41 25.5 47.5 25 51.5 28.5C56 32.5 56 40.5 51.5 44C49.5 45.5 47 45.8 45.2 45C48.5 42.5 49.5 38 47.5 34.5C45.7 31.4 41 29.6 35.4 28.5Z"/><path d="M27.6 44.3H32.4C33.8 51 35.8 57 38.4 62H21.6C24.2 57 26.2 51 27.6 44.3Z"/></g><rect x="18.6" y="39.4" width="22.8" height="5" rx="2.5" fill="#e0bd74"/></svg><span>Il Giglio Verde</span></a>
+      <p>Cura del verde, della casa e della campagna a Bagno a Ripoli e Firenze, dal 2011.</p>
+    </div>
+    <div>
+      <h3 class="piede-t">Servizi</h3>
+      <ul>
+        <li><a href="/manutenzione-giardini-firenze.html">Manutenzione giardini</a></li>
+        <li><a href="/antizanzare-firenze.html">Antizanzare</a></li>
+        <li><a href="/facciate-cotto-pietra-firenze.html">Facciate, cotto e pietra</a></li>
+        <li><a href="/oliveti-raccolta-olive-firenze.html">Oliveti e raccolta olive</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="piede-t">Contatti</h3>
+      <ul>
+        <li><a href="tel:+393287217116">328 721 7116</a></li>
+        <li><a href="mailto:giglioverdefirenze@gmail.com">giglioverdefirenze@gmail.com</a></li>
+        <li><a href="https://www.instagram.com/giglioverdegiardini" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/GiglioVerdeGiardini" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
     </div>
   </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="foot-giglio rv"><svg class="giglio" viewBox="4 4 52 58" aria-hidden="true" focusable="false"><g fill="#f3eee2"><path d="M30 4C33.8 13 35.8 20 35.8 26.5C35.8 31.5 33.6 35.5 30 38C26.4 35.5 24.2 31.5 24.2 26.5C24.2 20 26.2 13 30 4Z"/><path d="M24.6 28.5C19 25.5 12.5 25 8.5 28.5C4 32.5 4 40.5 8.5 44C10.5 45.5 13 45.8 14.8 45C11.5 42.5 10.5 38 12.5 34.5C14.3 31.4 19 29.6 24.6 28.5Z"/><path d="M35.4 28.5C41 25.5 47.5 25 51.5 28.5C56 32.5 56 40.5 51.5 44C49.5 45.5 47 45.8 45.2 45C48.5 42.5 49.5 38 47.5 34.5C45.7 31.4 41 29.6 35.4 28.5Z"/><path d="M27.6 44.3H32.4C33.8 51 35.8 57 38.4 62H21.6C24.2 57 26.2 51 27.6 44.3Z"/></g><rect x="18.6" y="39.4" width="22.8" height="5" rx="2.5" fill="#e0bd74"/></svg></div>
-  <div class="foot-logo rv">Il Giglio <i>Verde</i></div>
-  <p class="foot-tagline rv">L'arte di curare i tuoi spazi verdi · Bagno a Ripoli e Firenze dal 2011</p>
-  <div class="foot-servizi">
-    <a href="/manutenzione-giardini-firenze.html">Manutenzione giardini</a>
-    <a href="/antizanzare-firenze.html">Antizanzare</a>
-    <a href="/facciate-cotto-pietra-firenze.html">Facciate, cotto e pietra</a>
-    <a href="/oliveti-raccolta-olive-firenze.html">Oliveti e raccolta olive</a>
-  </div>
-  <div class="foot-bottom">
-    <p>© <span class="anno">2026</span> Il Giglio Verde SRLS · P.IVA 18448341000 · Tommaso Batini · Bagno a Ripoli, Firenze Sud, Firenze</p>
-    <div class="foot-social">
-      <a href="https://www.instagram.com/giglioverdegiardini" target="_blank">IG</a>
-      <a href="https://www.facebook.com/GiglioVerdeGiardini" target="_blank">FB</a>
+  <div class="wrap">
+    <div class="piede-legale">
+      <p>© <span class="anno">2026</span> Il Giglio Verde SRLS</p>
+      <p>P.IVA 18448341000</p>
+      <p>Titolare Tommaso Batini</p>
+      <p>Bagno a Ripoli (FI)</p>
     </div>
   </div>
 </footer>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/393287217116" class="wa" target="_blank" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+<nav class="barra" aria-label="Contatti rapidi">
+  <a class="barra-chiama" href="tel:+393287217116"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>Chiama</span></a>
+  <a href="https://wa.me/393287217116" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span></a>
+  <a href="#contatti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg><span>Preventivo</span></a>
+</nav>
 
 <script>
-  function tm() { document.getElementById('mm').classList.toggle('open'); }
-  const fp = document.getElementById('form-preventivo');
-  const errBox = document.getElementById('form-err');
-  const inviaBtn = fp.querySelector('.form-submit');
-  const linkWA = (d) => {
-    const g = k => (d.get(k) || '').toString().trim();
-    const righe = ['Buongiorno, sono ' + g('nome') + '.'];
+(function () {
+  // testata: filo sotto quando si scende
+  var testata = document.getElementById('testata');
+  function filo() { testata.classList.toggle('scesa', window.scrollY > 8); }
+  window.addEventListener('scroll', filo, { passive: true });
+  filo();
+
+  // menu del telefono
+  var pannello = document.getElementById('pannello-menu');
+  var apri = document.querySelector('.testata .apri-menu');
+  var chiudi = pannello.querySelector('.chiudi-menu');
+  function apriMenu() { pannello.hidden = false; apri.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; chiudi.focus(); }
+  function chiudiMenu(rimetti) { pannello.hidden = true; apri.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; if (rimetti) apri.focus(); }
+  apri.addEventListener('click', apriMenu);
+  chiudi.addEventListener('click', function () { chiudiMenu(true); });
+  pannello.addEventListener('click', function (e) { if (e.target.closest('a')) chiudiMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !pannello.hidden) chiudiMenu(true); });
+
+  // fascia in alto: cambia da sola con la stagione
+  var oggi = new Date(), m = oggi.getMonth() + 1, g = oggi.getDate(), st;
+  if ((m === 11 && g >= 15) || m === 12 || (m === 1 && g <= 6)) st = ['Luci di Natale: le montiamo noi, per case e aziende.', 'Chiedi un preventivo', 'Luci Natalizie', 'Buongiorno, vorrei un preventivo per le luci di Natale.'];
+  else if (m <= 2) st = ['In inverno: cura degli oliveti, lavori in muratura e imbiancature.', 'Prenota un sopralluogo', 'Edilizia e Facciate', 'Buongiorno, vorrei un sopralluogo per un lavoro.'];
+  else if (m <= 5) st = ['In primavera: pulizia del giardino, antizanzare e facciate.', 'Prenota un sopralluogo', 'Verde e Giardini', 'Buongiorno, vorrei preparare il giardino per la bella stagione.'];
+  else if (m <= 8) st = ['In estate: manutenzione, irrigazione e trattamenti antizanzare.', 'Prenota un sopralluogo', 'Antizanzare', 'Buongiorno, vorrei informazioni sui trattamenti antizanzare.'];
+  else st = ['In autunno: raccolta delle olive, potature e pulizia del cotto.', 'Prenota un sopralluogo', 'Campagna e Oliveti', 'Buongiorno, vorrei prenotare un sopralluogo per la raccolta delle olive.'];
+  document.getElementById('stagione-testo').textContent = st[0];
+  var sl = document.getElementById('stagione-link');
+  sl.textContent = st[1]; sl.dataset.servizio = st[2]; sl.dataset.msg = st[3];
+
+  // i collegamenti "chiedi un sopralluogo" precompilano il modulo
+  var selServizio = document.getElementById('f-servizio'), campoMsg = document.getElementById('f-msg');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('[data-servizio], [data-msg]') : null;
+    if (!a) return;
+    if (a.dataset.servizio) selServizio.value = a.dataset.servizio;
+    if (a.dataset.msg && !campoMsg.value.trim()) campoMsg.value = a.dataset.msg;
+  });
+
+  // prima e dopo
+  document.querySelectorAll('.pd').forEach(function (pd) {
+    var r = pd.querySelector('.pd-range'), stato = null, x0 = 0, y0 = 0;
+    function metti(v) { v = Math.max(0, Math.min(100, v)); pd.style.setProperty('--pos', v + '%'); r.value = Math.round(v); }
+    function daX(x) { var b = pd.getBoundingClientRect(); metti((x - b.left) / b.width * 100); }
+    r.addEventListener('input', function () { metti(+r.value); });
+    pd.addEventListener('pointerdown', function (e) {
+      x0 = e.clientX; y0 = e.clientY;
+      if (e.pointerType === 'mouse') { stato = 'trascina'; daX(e.clientX); } else { stato = 'forse'; }
+      try { pd.setPointerCapture(e.pointerId); } catch (err) {}
+    });
+    pd.addEventListener('pointermove', function (e) {
+      if (stato === 'forse') {
+        var dx = Math.abs(e.clientX - x0), dy = Math.abs(e.clientY - y0);
+        if (dx > 6 && dx > dy) stato = 'trascina'; else if (dy > 6) stato = null;
+      }
+      if (stato === 'trascina') { e.preventDefault(); daX(e.clientX); }
+    });
+    pd.addEventListener('pointerup', function (e) { if (stato === 'forse') daX(e.clientX); stato = null; });
+    pd.addEventListener('pointercancel', function () { stato = null; });
+  });
+
+  // dal seme al giardino: il giglio cresce scorrendo
+  var sez = document.getElementById('come-lavoriamo');
+  var ridotto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (sez && !ridotto) {
+    var pin = sez.querySelector('.crescita-pin');
+    var svg = sez.querySelector('.pianta');
+    var stelo = svg.querySelector('.stelo');
+    var L = stelo.getTotalLength();
+    stelo.style.strokeDasharray = L + ' ' + L;
+    var radici = Array.prototype.map.call(svg.querySelectorAll('.radice'), function (p) {
+      var l = p.getTotalLength(); p.style.strokeDasharray = l + ' ' + l; return [p, l];
+    });
+    var campioni = [];
+    for (var i = 0; i <= 160; i++) { var pt = stelo.getPointAtLength(L * i / 160); campioni.push([i / 160, pt.x, pt.y]); }
+    function suStelo(y) {
+      var b = campioni[0];
+      for (var j = 1; j < campioni.length; j++) if (Math.abs(campioni[j][2] - y) < Math.abs(b[2] - y)) b = campioni[j];
+      return b;
+    }
+    function pezzi(sel) {
+      return Array.prototype.map.call(svg.querySelectorAll(sel), function (el) {
+        var c = suStelo(+el.dataset.y);
+        return { el: el, f: c[0], x: c[1], y: c[2], lato: +el.dataset.lato, l: +el.dataset.l, a: +el.dataset.a };
+      });
+    }
+    var foglie = pezzi('.foglia'), cotiledoni = pezzi('.cot');
+    var seme = svg.querySelector('.seme'), semeA = svg.querySelector('.seme-a'), semeB = svg.querySelector('.seme-b');
+    var fiore = svg.querySelector('.fiore');
+    var pc = svg.querySelector('.p-centro'), psx = svg.querySelector('.p-sx'), pdx = svg.querySelector('.p-dx'), pb = svg.querySelector('.p-base');
+    var fascia = svg.querySelector('.fascia');
+    var cima = stelo.getPointAtLength(L);
+    var passi = sez.querySelectorAll('.passo');
+
+    var C = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
+    var tra = function (t, a, b) { return C((t - a) / (b - a)); };
+    var dolce = function (x) { return 1 - Math.pow(1 - x, 3); };
+    var VERDE = [127, 160, 105], CREMA = [243, 238, 226];
+    var colore = function (k) { return 'rgb(' + VERDE.map(function (v, n) { return Math.round(v + (CREMA[n] - v) * k); }).join(',') + ')'; };
+
+    function foglia(p, g, piega) {
+      if (g <= 0.001) { p.el.setAttribute('opacity', '0'); return; }
+      p.el.setAttribute('opacity', '1');
+      var ang = p.a + (piega - p.a) * (1 - g);
+      p.el.setAttribute('transform', 'translate(' + p.x.toFixed(2) + ' ' + p.y.toFixed(2) + ') scale(' + p.lato + ' 1) rotate(' + (-ang).toFixed(2) + ') scale(' + (p.l / 100 * g).toFixed(4) + ')');
+    }
+
+    var ultimo = -1, attivo = -1;
+    function disegna(t) {
+      if (Math.abs(t - ultimo) < 0.0004) return;
+      ultimo = t;
+      // il seme si apre e cade
+      var apre = dolce(tra(t, 0.03, 0.13));
+      seme.setAttribute('opacity', (1 - tra(t, 0.13, 0.22)).toFixed(3));
+      semeA.setAttribute('transform', 'rotate(' + (-26 * apre).toFixed(2) + ' 200 523)');
+      semeB.setAttribute('transform', 'rotate(' + (26 * apre).toFixed(2) + ' 200 523)');
+      // radici
+      radici.forEach(function (r, n) { r[0].style.strokeDashoffset = (r[1] * (1 - dolce(tra(t, 0.02 + n * 0.022, 0.2 + n * 0.022)))).toFixed(2); });
+      // stelo
+      var sp = tra(t, 0.08, 0.68);
+      stelo.style.strokeDashoffset = (L * (1 - sp)).toFixed(2);
+      stelo.style.opacity = sp > 0 ? 1 : 0;
+      cotiledoni.forEach(function (p) { foglia(p, dolce(tra(sp, p.f - 0.01, p.f + 0.08)), 75); });
+      foglie.forEach(function (p) { foglia(p, dolce(tra(sp, p.f - 0.02, p.f + 0.13)), 84); });
+      // bocciolo e fioritura: alla fine le forme sono esattamente quelle del marchio
+      var b = dolce(tra(t, 0.655, 0.8)), o = dolce(tra(t, 0.8, 0.97));
+      if (t < 0.65) { fiore.setAttribute('opacity', '0'); }
+      else {
+        var k = 0.1 + 0.45 * b + 0.45 * o;
+        fiore.setAttribute('opacity', '1');
+        fiore.setAttribute('transform', 'translate(' + cima.x.toFixed(2) + ' ' + cima.y.toFixed(2) + ') scale(' + (3.7 * k).toFixed(4) + ') translate(-30 -62)');
+        psx.setAttribute('transform', 'rotate(' + (62 * (1 - o)).toFixed(2) + ' 24 40)');
+        pdx.setAttribute('transform', 'rotate(' + (-62 * (1 - o)).toFixed(2) + ' 36 40)');
+        pc.setAttribute('transform', 'translate(30 38) scale(' + (0.78 + 0.22 * o).toFixed(4) + ' ' + (0.72 + 0.28 * o).toFixed(4) + ') translate(-30 -38)');
+        var col = colore(tra(t, 0.8, 0.97));
+        pc.setAttribute('fill', col); psx.setAttribute('fill', col); pdx.setAttribute('fill', col); pb.setAttribute('fill', col);
+        var f = dolce(tra(t, 0.88, 1));
+        fascia.setAttribute('opacity', f.toFixed(3));
+        fascia.setAttribute('transform', 'translate(30 41.9) scale(' + f.toFixed(4) + ' 1) translate(-30 -41.9)');
+      }
+      // il passo che si sta leggendo
+      var n = Math.min(3, Math.floor(t * 4));
+      if (n !== attivo) {
+        attivo = n;
+        for (var q = 0; q < passi.length; q++) passi[q].classList.toggle('attivo', q === n);
+      }
+    }
+
+    sez.classList.add('anima');
+    var inCoda = false;
+    function misura() {
+      inCoda = false;
+      var r = sez.getBoundingClientRect();
+      var corsa = sez.offsetHeight - pin.offsetHeight;
+      var alto = parseFloat(getComputedStyle(pin).top) || 0;
+      disegna(corsa > 0 ? C((alto - r.top) / corsa) : 1);
+    }
+    function chiedi() { if (!inCoda) { inCoda = true; requestAnimationFrame(misura); } }
+    window.addEventListener('scroll', chiedi, { passive: true });
+    window.addEventListener('resize', chiedi);
+    misura();
+  }
+
+  // modulo preventivo: invio a Netlify, WhatsApp come alternativa
+  var fp = document.getElementById('form-preventivo');
+  var errBox = document.getElementById('form-err');
+  var inviaBtn = fp.querySelector('.form-submit');
+  var linkWA = function (d) {
+    var g = function (k) { return (d.get(k) || '').toString().trim(); };
+    var righe = ['Buongiorno, sono ' + g('nome') + '.'];
     if (g('servizio')) righe.push('Servizio: ' + g('servizio'));
     if (g('messaggio')) righe.push(g('messaggio'));
     if (g('telefono')) righe.push('Telefono: ' + g('telefono'));
     if (g('email')) righe.push('Email: ' + g('email'));
     return 'https://wa.me/393287217116?text=' + encodeURIComponent(righe.join('\n'));
   };
-  fp.addEventListener('submit', async (ev) => {
+  fp.addEventListener('submit', function (ev) {
     ev.preventDefault();
-    const d = new FormData(fp), g = k => (d.get(k) || '').toString().trim();
+    var d = new FormData(fp), g = function (k) { return (d.get(k) || '').toString().trim(); };
     if (g('bot-field')) return;
     if (!g('nome') || (!g('telefono') && !g('email'))) { errBox.textContent = "Scrivi il tuo nome e almeno un telefono o un'email, così possiamo risponderti."; errBox.hidden = false; return; }
     errBox.hidden = true;
-    const via = (ev.submitter && ev.submitter.value) || 'modulo';
+    var via = (ev.submitter && ev.submitter.value) || 'modulo';
     if (via === 'whatsapp') {
       if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'whatsapp' });
       window.open(linkWA(d), '_blank', 'noopener');
       return;
     }
     inviaBtn.disabled = true; inviaBtn.textContent = 'Invio in corso…';
-    try {
-      const corpo = new URLSearchParams();
-      d.forEach((v, k) => corpo.append(k, v));
-      corpo.set('form-name', 'richieste-preventivo');
-      const r = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: corpo.toString() });
-      if (!r.ok) throw new Error('risposta ' + r.status);
-      if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'modulo' });
-      fp.querySelector('.form-campi').hidden = true;
-      const ok = document.getElementById('form-ok'); ok.hidden = false;
-      ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } catch (e) {
-      errBox.innerHTML = 'Non siamo riusciti a inviare la richiesta. Chiamaci al <a href="tel:+393287217116">328 7217116</a> oppure <a href="' + linkWA(d) + '" target="_blank" rel="noopener">mandala su WhatsApp</a>.';
-      errBox.hidden = false;
-      inviaBtn.disabled = false; inviaBtn.textContent = 'Invia la richiesta →';
-    }
+    var corpo = new URLSearchParams();
+    d.forEach(function (v, k) { corpo.append(k, v); });
+    corpo.set('form-name', 'richieste-preventivo');
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: corpo.toString() })
+      .then(function (r) {
+        if (!r.ok) throw new Error('risposta ' + r.status);
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'modulo' });
+        fp.querySelector('.form-campi').hidden = true;
+        var ok = document.getElementById('form-ok'); ok.hidden = false;
+        ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(function () {
+        errBox.innerHTML = 'Non siamo riusciti a inviare la richiesta. Chiamaci al <a href="tel:+393287217116">328 721 7116</a> oppure <a href="' + linkWA(d) + '" target="_blank" rel="noopener">mandala su WhatsApp</a>.';
+        errBox.hidden = false;
+        inviaBtn.disabled = false; inviaBtn.textContent = 'Invia la richiesta';
+      });
   });
 
-  window.addEventListener('scroll', () => {
-    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 30);
-  });
-
-  const rvs = document.querySelectorAll('.rv');
-  const io = new IntersectionObserver((es) => { es.forEach((e,i) => { if (e.isIntersecting) { setTimeout(()=>e.target.classList.add('in'), (i%3)*70); io.unobserve(e.target); } }); }, { threshold: 0.12 });
-  rvs.forEach(el => io.observe(el));
-
-  document.querySelectorAll('[data-da]').forEach(el => { el.dataset.target = new Date().getFullYear() - (+el.dataset.da); });
-  const counters = document.querySelectorAll('.counter-num span[data-target]');
-  const fmt = (v, d) => d ? v.toFixed(d).replace('.', ',') : String(Math.round(v));
-  const cio = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) { const el = e.target, t = +el.dataset.target, d = +(el.dataset.dec || 0); const s = d ? t/60 : Math.max(1, Math.ceil(t/60)); let c = 0; const tick = () => { c += s; if (c >= t) el.textContent = fmt(t, d); else { el.textContent = fmt(c, d); requestAnimationFrame(tick); } }; tick(); cio.unobserve(el); } }); }, { threshold: 0.5 });
-  counters.forEach(c => cio.observe(c));
-</script>
-<script>
-(function(){
-  document.querySelectorAll('.anno').forEach(function(el){ el.textContent = new Date().getFullYear(); });
-  document.addEventListener('click', function(e){
+  // anno nel piè di pagina e conteggio dei contatti in Analytics
+  document.querySelectorAll('.anno').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+  document.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('a[href]') : null;
     if (!a || typeof gtag !== 'function') return;
     var h = a.getAttribute('href') || '';
