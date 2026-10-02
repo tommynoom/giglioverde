@@ -839,7 +839,7 @@ main > section { position: relative; }
     var attuale = -1, inCoda = false;
 
     function misuraTela() {
-      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var dpr = Math.min(window.devicePixelRatio || 1, piccolo ? 3 : 2);
       cv.width = Math.round(cv.clientWidth * dpr); cv.height = Math.round(cv.clientHeight * dpr);
       attuale = -1;
     }
@@ -858,6 +858,8 @@ main > section { position: relative; }
       var im = foto[j], W = cv.width, H = cv.height;
       var s = Math.min(W / im.naturalWidth, H / im.naturalHeight);
       var w = im.naturalWidth * s, h = im.naturalHeight * s;
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
       ctx.clearRect(0, 0, W, H);
       ctx.drawImage(im, W - w, H - h, w, h);
     }
@@ -868,22 +870,23 @@ main > section { position: relative; }
     function aggiorna() { inCoda = false; disegna(ridotto ? tot - 1 : Math.round(avanzamento() * (tot - 1))); }
     function chiedi() { if (!inCoda) { inCoda = true; requestAnimationFrame(aggiorna); } }
 
-    // ordine di caricamento: prima pochi fotogrammi sparsi, poi si riempiono i buchi
+    // ordine di caricamento: prima il fotogramma del punto in cui si trova la pagina, poi pochi fotogrammi sparsi, poi si riempiono i buchi
     var ordine = [], visti = {};
-    [32, 16, 8, 4, 2, 1].forEach(function (passo) {
-      for (var i = 0; i < tot; i += passo) if (!visti[i]) { visti[i] = 1; ordine.push(i); }
-    });
-    if (!visti[tot - 1]) ordine.splice(1, 0, tot - 1);
+    function metti(i) { if (!visti[i]) { visti[i] = 1; ordine.push(i); } }
+    metti(Math.round(avanzamento() * (tot - 1)));
+    metti(0); metti(tot - 1);
+    [32, 16, 8, 4, 2, 1].forEach(function (passo) { for (var i = 0; i < tot; i += passo) metti(i); });
     if (ridotto) ordine = [tot - 1];
     var inVolo = 0, pos = 0;
     function prossima() {
       while (inVolo < 6 && pos < ordine.length) {
         (function (i) {
           var im = new Image(); inVolo++;
-          im.decoding = 'async';
-          im.onload = function () { foto[i] = im; pronte[i] = true; inVolo--; if (!box.classList.contains('pronto')) box.classList.add('pronto'); chiedi(); prossima(); };
-          im.onerror = function () { inVolo--; prossima(); };
+          var fatto = function () { foto[i] = im; pronte[i] = true; inVolo--; if (!box.classList.contains('pronto')) box.classList.add('pronto'); chiedi(); prossima(); };
+          var errore = function () { inVolo--; prossima(); };
           im.src = nome(i);
+          // la foto si decodifica prima di disegnarla, cosi' lo scorrimento resta fluido anche ad alta risoluzione
+          if (im.decode) im.decode().then(fatto, errore); else { im.onload = fatto; im.onerror = errore; }
         })(ordine[pos++]);
       }
     }
