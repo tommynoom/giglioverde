@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Il Giglio Verde | Giardini ed esterni a Firenze e Bagno a Ripoli</title>
-<meta name="description" content="Impresa per giardini ed esterni a Firenze e Bagno a Ripoli: manutenzione del verde, facciate, cotto, oliveti e antizanzare per privati, condomini e aziende. Dal 2011.">
+<meta name="description" content="Progettazione con rendering, realizzazione e manutenzione di giardini ed esterni a Firenze e Bagno a Ripoli, per privati, ville, aziende e condomini. Dal 2011.">
 <link rel="canonical" href="https://www.giglioverde.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Il Giglio Verde">
 <meta property="og:locale" content="it_IT">
 <meta property="og:url" content="https://www.giglioverde.com/">
 <meta property="og:title" content="Il Giglio Verde | Giardini ed esterni a Firenze e Bagno a Ripoli">
-<meta property="og:description" content="Giardini ed esterni gestiti da un'unica impresa: verde, edilizia, campagna e antizanzare a Firenze e Bagno a Ripoli. Dal 2011.">
+<meta property="og:description" content="Giardini ed esterni progettati con rendering, realizzati e seguiti nel tempo da un'unica impresa: verde, edilizia, campagna, antizanzare e luci da esterno a Firenze e Bagno a Ripoli. Dal 2011.">
 <meta property="og:image" content="https://www.giglioverde.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -33,7 +33,7 @@
   "url": "https://www.giglioverde.com/",
   "logo": "https://www.giglioverde.com/Sito-icona-Android-512.png",
   "image": "https://www.giglioverde.com/og-image.jpg",
-  "description": "Cura del verde, edilizia e campagna a Bagno a Ripoli, Firenze Sud e nell'area fiorentina: manutenzione giardini, trattamenti antizanzare, facciate, cotto e pietra, oliveti, luci natalizie.",
+  "description": "Progettazione con rendering, realizzazione e manutenzione di giardini ed esterni a Bagno a Ripoli, Firenze Sud e nell'area fiorentina: verde, antizanzare, facciate, cotto e pietra, oliveti, luci da esterno per Natale ed eventi.",
   "telephone": "+39 328 721 7116",
   "email": "giglioverdefirenze@gmail.com",
   "foundingDate": "2011",
@@ -111,6 +111,13 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
+          "name": "Progettazione con rendering e realizzazione di giardini"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
           "name": "Manutenzione giardini",
           "url": "https://www.giglioverde.com/manutenzione-giardini-firenze.html"
         }
@@ -143,7 +150,7 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Luci natalizie"
+          "name": "Luci da esterno per Natale ed eventi"
         }
       },
       {
@@ -179,14 +186,17 @@
   --oro: #e0bd74;
   --linea: rgba(243, 238, 226, 0.13);
   --linea-oro: rgba(224, 189, 116, 0.38);
-  --velo: rgba(16, 29, 20, 0.84);
   --serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
   --sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --hh: 78px;
-  --pad: clamp(20px, 5vw, 80px);
-  --max: 1320px;
-  --colonna: 640px;
-  --sez: clamp(88px, 10vw, 140px);
+  --pad: clamp(20px, 4.5vw, 72px);
+  --sez: clamp(64px, 7vw, 108px);
+  /* il fiore ha la parte destra dello schermo; i testi stanno nella colonna a sinistra e non ci entrano mai */
+  --margine: max(0px, calc((100vw - 1920px) / 2));
+  --colonna: clamp(400px, calc(40vw - 90px), 640px);
+  --stacco: clamp(28px, 3.2vw, 64px);
+  --fiore-sx: calc(var(--margine) + var(--pad) + var(--colonna) + var(--stacco));
+  --fiore-alto: 116px; /* fondo della testata a pagina ferma in cima: lo aggiorna lo script */
   color-scheme: dark;
 }
 *, *::before, *::after { box-sizing: border-box; }
@@ -194,23 +204,27 @@
 html { scroll-padding-top: calc(var(--hh) + 16px); -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--bosco); color: var(--crema-2); font: 400 17px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; height: auto; display: block; }
-h1, h2, h3 { font-family: var(--serif); font-weight: 400; color: var(--crema); margin: 0; letter-spacing: -0.005em; }
-h2 { font-size: clamp(38px, 4.4vw, 60px); line-height: 1.04; }
-h3 { font-size: clamp(23px, 1.9vw, 27px); line-height: 1.15; }
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; color: var(--crema); margin: 0; letter-spacing: -0.005em; }
+h2 { font-size: clamp(34px, 3.3vw, 50px); line-height: 1.06; }
+h3 { font-size: clamp(22px, 1.7vw, 26px); line-height: 1.18; }
+h4 { font-size: 22px; line-height: 1.2; }
 p { margin: 0; }
 a { color: inherit; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
+figure { margin: 0; }
 :focus-visible { outline: 2px solid var(--oro); outline-offset: 3px; border-radius: 3px; }
 .salta { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--oro); color: var(--bosco); padding: 10px 16px; border-radius: 4px; font-weight: 600; text-decoration: none; }
 .salta:focus { top: 12px; }
 
-.wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--pad); }
-.colonna { max-width: var(--colonna); }
-.sez { padding-block: var(--sez); }
-.intro { margin-top: 18px; font-size: 18px; max-width: 34em; }
+/* la colonna dei testi: sul PC sta a sinistra e si ferma prima dello spazio del fiore */
+.wrap { width: var(--colonna); margin-left: calc(var(--margine) + var(--pad)); container-type: inline-size; }
+.riga { padding-inline: calc(var(--margine) + var(--pad)); }
+.sez > .wrap { padding-block: var(--sez); border-top: 1px solid var(--linea); }
+.intro { margin-top: 16px; font-size: 17.5px; }
 .link { color: var(--oro); font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
 .link:hover { text-decoration-thickness: 2px; }
 .etichetta { font-family: var(--serif); font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--oro); }
+.sotto-titolo { font-family: var(--serif); font-size: 15px; line-height: 1.3; letter-spacing: 0.16em; text-transform: uppercase; color: var(--oro); }
 
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 2px; border: 1px solid transparent; font: 600 15.5px/1.1 var(--sans); letter-spacing: 0.01em; text-decoration: none; cursor: pointer; transition: background-color .2s, border-color .2s, color .2s; }
 .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
@@ -219,31 +233,30 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn-linea { border-color: rgba(243, 238, 226, 0.34); color: var(--crema); background: transparent; }
 .btn-linea:hover { border-color: var(--crema); }
 
-/* il fiore vero, sullo sfondo: un video in time-lapse che avanza con lo scorrimento */
-.fiore-vero { position: fixed; z-index: 1; top: 0; right: 0; bottom: 0; width: min(60vw, 980px); pointer-events: none; mix-blend-mode: screen; opacity: 0; transition: opacity .8s ease; }
+/* il fiore vero: i fotogrammi di un time-lapse che avanzano con lo scorrimento.
+   Sul PC occupa tutta la parte destra sotto la testata; niente gli passa sopra. */
+.fiore-vero { position: fixed; z-index: 1; top: var(--fiore-alto); bottom: 0; left: var(--fiore-sx); right: var(--margine); pointer-events: none; opacity: 0; transition: opacity .8s ease; }
 .fiore-vero.pronto { opacity: 1; }
-.fiore-vero canvas { position: absolute; inset: 0; width: 100%; height: 100%; -webkit-mask-image: radial-gradient(ellipse 78% 74% at 58% 66%, #000 54%, transparent 100%); mask-image: radial-gradient(ellipse 78% 74% at 58% 66%, #000 54%, transparent 100%); }
-main, .testata, .piede, .utilita { position: relative; z-index: 2; }
+.fiore-vero canvas { display: block; width: 100%; height: 100%; }
 main > section { position: relative; }
-.velo { background: var(--velo); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
 
 /* barra in alto con i dati dell'impresa */
 .utilita { background: var(--notte); border-bottom: 1px solid var(--linea); font-size: 13.5px; }
-.utilita .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 28px; min-height: 38px; }
+.utilita .riga { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 28px; min-height: 38px; }
 .utilita ul { display: flex; flex-wrap: wrap; gap: 6px 26px; }
 .utilita a { text-decoration: none; color: var(--crema); }
 .utilita a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* testata */
-.testata { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(16, 29, 20, 0.9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linea); }
-.testata .wrap { height: var(--hh); display: flex; align-items: center; gap: 30px; }
+.testata { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(16, 29, 20, 0.92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linea); }
+.testata .riga { height: var(--hh); display: flex; align-items: center; gap: 28px; }
 .marchio { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; color: var(--crema); }
 .marchio svg { width: 26px; height: 29px; flex-shrink: 0; }
 .marchio-nome { display: flex; flex-direction: column; line-height: 1; }
 .marchio-nome b { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
 .marchio-nome small { margin-top: 5px; font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crema-2); white-space: nowrap; }
 .testata nav { margin-left: auto; }
-.menu { display: flex; gap: 28px; }
+.menu { display: flex; gap: 26px; }
 .menu a { font-size: 15px; color: var(--crema-2); text-decoration: none; padding-block: 8px; }
 .menu a:hover { color: var(--crema); }
 .testata .btn { min-height: 44px; padding: 0 20px; font-size: 14.5px; }
@@ -251,85 +264,116 @@ main > section { position: relative; }
 .pannello-menu { position: fixed; inset: 0; z-index: 90; background: var(--bosco); display: flex; flex-direction: column; padding: 0 var(--pad) 32px; overflow-y: auto; }
 .pm-testa { height: 64px; display: flex; align-items: center; justify-content: space-between; }
 .pannello-menu ul { margin: 26px 0 32px; display: grid; gap: 2px; }
-.pannello-menu ul a { display: block; font-family: var(--serif); font-size: 36px; line-height: 1.25; color: var(--crema); text-decoration: none; padding: 6px 0; }
+.pannello-menu ul a { display: block; font-family: var(--serif); font-size: 34px; line-height: 1.25; color: var(--crema); text-decoration: none; padding: 5px 0; }
 .pannello-menu .btn { width: 100%; margin-top: 10px; }
 
 /* apertura */
-.apertura { min-height: clamp(520px, calc(100svh - var(--hh) - 38px - 130px), 720px); display: flex; align-items: center; }
-.apertura .wrap { width: 100%; padding-block: clamp(64px, 10vh, 120px); }
-.apertura h1 { font-size: clamp(44px, 5.4vw, 80px); line-height: 1; letter-spacing: -0.012em; max-width: 8.6em; }
-.apertura .lead { margin: 30px 0 38px; font-size: clamp(17px, 1.3vw, 19.5px); max-width: 31em; }
+.apertura .wrap { min-height: clamp(520px, calc(100svh - 116px), 760px); display: flex; flex-direction: column; justify-content: center; padding-block: clamp(48px, 8vh, 96px); }
+.apertura h1 { margin-top: 18px; font-size: clamp(40px, 4.1vw, 62px); line-height: 1.03; letter-spacing: -0.012em; }
+.apertura .lead { margin: 26px 0 34px; font-size: clamp(17px, 1.25vw, 19px); max-width: 30em; }
 .azioni { display: flex; flex-wrap: wrap; gap: 12px; }
 
-/* divisioni */
-.divisioni-griglia { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.divisione { padding: 44px clamp(20px, 2.4vw, 36px) 48px; display: flex; flex-direction: column; gap: 14px; }
-.divisione:first-child { padding-left: 0; }
-.divisione + .divisione { border-left: 1px solid var(--linea-oro); }
-.divisione h3 { margin-top: 2px; }
-.divisione ul { display: grid; gap: 6px; font-size: 15.5px; flex-grow: 1; }
-.divisione li { padding-left: 16px; position: relative; }
-.divisione li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 7px; height: 1px; background: var(--oro); }
-.divisioni-testa { padding-top: 64px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px 40px; border-bottom: 1px solid var(--linea-oro); padding-bottom: 28px; }
-.divisioni-testa p { max-width: 30em; }
-.altri-servizi { padding: 26px 0 40px; border-top: 1px solid var(--linea-oro); font-size: 15.5px; }
+/* settori */
+.settori-lista { margin-top: 34px; border-top: 1px solid var(--linea-oro); }
+.settore { display: grid; gap: 8px 28px; padding: 24px 0 26px; border-bottom: 1px solid var(--linea); }
+.settore ul { display: grid; gap: 5px; font-size: 15.5px; }
+.settore li { padding-left: 16px; position: relative; }
+.settore li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 7px; height: 1px; background: var(--oro); }
+.settore .link { justify-self: start; font-size: 15.5px; }
+.altri-servizi { padding-top: 22px; font-size: 15.5px; }
 .altri-servizi strong { color: var(--crema); font-weight: 600; }
+@container (min-width: 460px) {
+  .settore { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); grid-template-rows: auto auto 1fr; align-items: start; }
+  .settore > .etichetta { grid-column: 1; grid-row: 1; }
+  .settore > h3 { grid-column: 1; grid-row: 2; }
+  .settore > .link { grid-column: 1; grid-row: 3; margin-top: 4px; }
+  .settore > ul { grid-column: 2; grid-row: 1 / span 3; padding-top: 3px; }
+}
 
 /* l'impresa */
 .impresa-testo p + p { margin-top: 16px; }
-.fatti { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 48px; border-top: 1px solid var(--linea-oro); }
-.fatti li { padding: 24px 24px 24px 0; border-bottom: 1px solid var(--linea); }
-.fatti li:nth-child(even) { padding-left: 24px; border-left: 1px solid var(--linea); }
-.fatti b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 2.8vw, 40px); line-height: 1.05; color: var(--crema); }
+.fatti { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 40px; border-top: 1px solid var(--linea-oro); }
+.fatti li { padding: 22px 20px 22px 0; border-bottom: 1px solid var(--linea); }
+.fatti li:nth-child(even) { padding-left: 20px; border-left: 1px solid var(--linea); }
+.fatti b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 2.6vw, 38px); line-height: 1.05; color: var(--crema); }
 .fatti span { display: block; margin-top: 6px; font-size: 14.5px; }
 
 /* metodo */
-.metodo-griglia { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-top: 52px; border-top: 1px solid var(--linea-oro); counter-reset: passo; }
-.metodo-griglia li { padding: 30px clamp(18px, 2.2vw, 32px) 8px 0; counter-increment: passo; }
-.metodo-griglia li + li { padding-left: clamp(18px, 2.2vw, 32px); border-left: 1px solid var(--linea); }
-.metodo-griglia li::before { content: counter(passo, decimal-leading-zero); display: block; font-family: var(--serif); font-size: 44px; line-height: 1; color: var(--oro); margin-bottom: 18px; }
-.metodo-griglia p { margin-top: 10px; font-size: 15.5px; }
+.passi { margin-top: 34px; border-top: 1px solid var(--linea-oro); counter-reset: passo; }
+.passi li { display: grid; grid-template-columns: 62px minmax(0, 1fr); padding: 20px 0 22px; border-bottom: 1px solid var(--linea); counter-increment: passo; }
+.passi li::before { content: counter(passo, decimal-leading-zero); grid-row: 1 / span 2; font-family: var(--serif); font-size: 38px; line-height: 1; color: var(--oro); }
+.passi p { margin-top: 6px; font-size: 15.5px; }
+
+/* progettazione */
+.progetta h2 { margin-top: 12px; }
+.fasi { display: grid; gap: 0 28px; margin-top: 18px; border-top: 1px solid var(--linea-oro); counter-reset: fase; }
+.fasi li { padding: 20px 0 22px; border-bottom: 1px solid var(--linea); counter-increment: fase; }
+.fasi h4::before { content: counter(fase) ". "; color: var(--oro); }
+.fasi p { margin-top: 8px; font-size: 15.5px; }
+@container (min-width: 460px) {
+  .fasi { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.progetta .sotto-titolo { margin-top: 38px; }
+.nota-luci { margin: 24px 0 18px; padding-left: 18px; border-left: 2px solid var(--oro); font-size: 15.5px; }
 
 /* per chi lavoriamo */
-.clienti-griglia { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 44px; border-top: 1px solid var(--linea-oro); }
-.clienti-griglia li { padding: 28px 28px 30px 0; border-bottom: 1px solid var(--linea); display: flex; flex-direction: column; gap: 10px; }
-.clienti-griglia li:nth-child(even) { padding-left: 28px; padding-right: 0; border-left: 1px solid var(--linea); }
+.clienti-griglia { display: grid; margin-top: 34px; border-top: 1px solid var(--linea-oro); }
+.clienti-griglia li { padding: 24px 0 26px; border-bottom: 1px solid var(--linea); display: flex; flex-direction: column; gap: 10px; }
 .clienti-griglia p { font-size: 15.5px; flex-grow: 1; }
+.clienti-griglia .link { align-self: flex-start; }
+@container (min-width: 460px) {
+  .clienti-griglia { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .clienti-griglia li:nth-child(odd) { padding-right: 22px; }
+  .clienti-griglia li:nth-child(even) { padding-left: 22px; border-left: 1px solid var(--linea); }
+}
 
-/* lavori e progetti */
-.progetti-griglia { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 18px; margin-top: 48px; }
-.progetto { grid-column: span 4; display: flex; flex-direction: column; }
-.progetto.grande { grid-column: span 8; grid-row: span 2; }
-.progetto:nth-child(n+4) { grid-column: span 6; }
-.progetto:nth-child(n+4) img { aspect-ratio: 16 / 9; }
-.progetto figure { margin: 0; overflow: hidden; border-radius: 2px; background: var(--bosco-2); }
-.progetto img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.progetto-testo { padding: 16px 0 6px; }
-.progetto-testo .etichetta { font-size: 13px; }
-.progetto-testo h3 { margin: 6px 0 6px; font-size: 24px; }
-.progetto-testo p { font-size: 15px; }
-.progetto a { text-decoration: none; color: inherit; }
-.progetto a:hover h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
-.pd { position: relative; aspect-ratio: 685 / 384; overflow: hidden; border-radius: 2px; touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: ew-resize; --pos: 50%; }
-.pd img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; pointer-events: none; }
+/* lavori: prima e dopo, poi il carosello */
+.lavori .sotto-titolo { margin-top: 44px; }
+.confronto { margin-top: 18px; }
+.confronto + .confronto { margin-top: 40px; }
+.didascalia { padding-top: 14px; }
+.didascalia h4 { margin: 5px 0 5px; }
+.didascalia p { font-size: 15px; }
+.pd { position: relative; aspect-ratio: 685 / 384; overflow: hidden; border-radius: 2px; touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: ew-resize; background: var(--bosco-2); --pos: 50%; }
+.pd img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 .pd-prima { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
-.pd-et { position: absolute; top: 14px; padding: 5px 11px; background: rgba(11, 20, 14, 0.84); color: var(--crema); font-size: 13px; font-weight: 600; border-radius: 2px; pointer-events: none; }
-.pd-et-prima { left: 14px; }
-.pd-et-dopo { right: 14px; }
+.pd-et { position: absolute; top: 12px; padding: 5px 11px; background: rgba(11, 20, 14, 0.84); color: var(--crema); font-size: 13px; font-weight: 600; border-radius: 2px; pointer-events: none; }
+.pd-et-prima { left: 12px; }
+.pd-et-dopo { right: 12px; }
 .pd-linea { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: var(--crema); pointer-events: none; }
 .pd-maniglia { position: absolute; top: 50%; left: 50%; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; background: var(--crema); color: var(--bosco); display: flex; align-items: center; justify-content: center; }
 .pd-maniglia svg { width: 22px; height: 22px; }
 .pd-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; touch-action: pan-y; }
 .pd:has(.pd-range:focus-visible) .pd-maniglia { outline: 2px solid var(--oro); outline-offset: 3px; }
+.coppia { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.coppia-foto { position: relative; overflow: hidden; border-radius: 2px; background: var(--bosco-2); }
+.coppia-foto img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.coppia-foto .pd-et { left: 12px; }
+.car-testa { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 52px; }
+.lavori .car-testa .sotto-titolo { margin-top: 0; }
+.car-comandi { display: flex; align-items: center; gap: 10px; }
+.car-conta { min-width: 3.6em; text-align: right; font-size: 14px; font-variant-numeric: tabular-nums; }
+.car-btn { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid rgba(224, 189, 116, 0.45); background: transparent; color: var(--oro); cursor: pointer; transition: background-color .2s, border-color .2s, opacity .2s; }
+.car-btn:hover:not(:disabled) { border-color: var(--oro); background: rgba(224, 189, 116, 0.1); }
+.car-btn:disabled { opacity: 0.35; cursor: default; }
+.car-btn svg { width: 20px; height: 20px; }
+.car-pista { display: flex; gap: 14px; margin-top: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; overscroll-behavior-x: contain; scrollbar-width: none; }
+.car-pista::-webkit-scrollbar { display: none; }
+.scheda { flex: 0 0 74%; scroll-snap-align: start; }
+.scheda img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 2px; background: var(--bosco-2); }
+.scheda figcaption { padding: 12px 2px 4px 0; }
+.scheda h4 { margin: 4px 0 4px; font-size: 21px; }
+.scheda p { font-size: 14.5px; }
+.lavori .altre-foto { margin-top: 26px; font-size: 15.5px; }
 
 /* recensioni */
-.voto { display: flex; align-items: baseline; gap: 18px; margin-top: 28px; }
-.voto-num { font-family: var(--serif); font-size: clamp(96px, 10vw, 148px); line-height: 0.8; color: var(--crema); }
+.voto { display: flex; align-items: baseline; gap: 18px; margin-top: 26px; }
+.voto-num { font-family: var(--serif); font-size: clamp(96px, 9vw, 136px); line-height: 0.8; color: var(--crema); }
 .stelle { display: inline-flex; gap: 3px; color: var(--oro); }
 .stelle svg { width: 19px; height: 19px; }
 .voto-nota { margin-top: 16px; }
 .link-riga { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 18px; }
-.citazioni { display: grid; gap: 16px; margin-top: 40px; }
+.citazioni { display: grid; gap: 16px; margin-top: 36px; }
 .citazione { margin: 0; padding: 24px 26px; border: 1px solid var(--linea); border-radius: 2px; background: rgba(11, 20, 14, 0.5); }
 .citazione blockquote { margin: 0; font-family: var(--serif); font-style: italic; font-size: 23px; line-height: 1.35; color: var(--crema); }
 .citazione figcaption { margin-top: 12px; font-size: 14px; }
@@ -337,20 +381,19 @@ main > section { position: relative; }
 .citazione.segnaposto blockquote { font-family: var(--sans); font-style: normal; font-size: 15.5px; color: var(--crema-2); }
 
 /* zone */
-.zone-elenco { margin-top: 36px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 28px; border-top: 1px solid var(--linea-oro); }
-.zone-elenco li { padding: 13px 0; border-bottom: 1px solid var(--linea); font-family: var(--serif); font-size: 22px; color: var(--crema); }
+.zone-elenco { margin-top: 32px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; border-top: 1px solid var(--linea-oro); }
+.zone-elenco li { padding: 12px 0; border-bottom: 1px solid var(--linea); font-family: var(--serif); font-size: 21px; color: var(--crema); }
 .zone-nota { margin-top: 22px; }
 
 /* contatti */
-.ct-griglia { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(36px, 6vw, 96px); align-items: start; }
-.ct-testo > p { margin-top: 18px; max-width: 30em; }
-.dati { margin-top: 36px; border-top: 1px solid var(--linea-oro); }
-.dati div { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--linea); }
+.ct-testo > p { margin-top: 16px; }
+.dati { margin-top: 32px; border-top: 1px solid var(--linea-oro); }
+.dati div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 4px 16px; padding: 13px 0; border-bottom: 1px solid var(--linea); }
 .dati dt { font-size: 14px; }
 .dati dd { margin: 0; color: var(--crema); font-weight: 500; overflow-wrap: anywhere; }
 .dati a { text-decoration: none; }
 .dati a:hover { color: var(--oro); }
-.form-card { background: rgba(11, 20, 14, 0.72); border: 1px solid var(--linea); border-radius: 2px; padding: clamp(24px, 3.2vw, 42px); }
+.form-card { margin-top: 40px; container-type: inline-size; background: rgba(11, 20, 14, 0.72); border: 1px solid var(--linea); border-radius: 2px; padding: clamp(22px, 2.6vw, 36px); }
 .form-titolo { font-size: 30px; margin-bottom: 22px; }
 .form-campi label { display: block; margin: 0 0 8px; font-size: 14.5px; font-weight: 600; color: var(--crema); }
 .form-campi input, .form-campi select, .form-campi textarea { width: 100%; margin-bottom: 20px; padding: 14px 16px; background: var(--notte); color: var(--crema); border: 1px solid rgba(243, 238, 226, 0.26); border-radius: 2px; font: 400 16px/1.4 var(--sans); }
@@ -359,7 +402,10 @@ main > section { position: relative; }
 .form-campi textarea { min-height: 130px; resize: vertical; }
 .form-campi input::placeholder, .form-campi textarea::placeholder { color: rgba(188, 193, 173, 0.58); }
 .form-campi input:focus, .form-campi select:focus, .form-campi textarea:focus { outline: none; border-color: var(--oro); box-shadow: 0 0 0 3px rgba(224, 189, 116, 0.2); }
-.form-grid2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 16px; }
+.form-grid2 { display: grid; grid-template-columns: minmax(0, 1fr); }
+@container (min-width: 420px) {
+  .form-grid2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 16px; }
+}
 .form-err { color: #f0b49a; font-size: 15px; line-height: 1.5; margin: -4px 0 16px; }
 .form-err a, .form-nota a, .form-ok a { color: var(--oro); }
 .form-submit, .form-alt { width: 100%; }
@@ -374,61 +420,50 @@ main > section { position: relative; }
 .form-ok h3 { font-size: 32px; margin-bottom: 10px; }
 
 /* consigli */
-.blog-lista { margin-top: 40px; border-top: 1px solid var(--linea-oro); }
-.blog-lista a { display: block; padding: 22px 0; border-bottom: 1px solid var(--linea); text-decoration: none; color: inherit; }
+.blog-lista { margin-top: 34px; border-top: 1px solid var(--linea-oro); }
+.blog-lista a { display: block; padding: 20px 0; border-bottom: 1px solid var(--linea); text-decoration: none; color: inherit; }
 .blog-lista .etichetta { font-size: 12.5px; }
-.blog-lista h3 { margin-top: 6px; font-size: clamp(22px, 1.8vw, 26px); }
+.blog-lista h3 { margin-top: 6px; font-size: clamp(21px, 1.7vw, 25px); }
 .blog-lista .riassunto { display: block; margin-top: 6px; font-size: 15.5px; }
 .blog-lista a:hover h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
 
-/* piede */
-.piede { background: rgba(11, 20, 14, 0.9); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-top: 1px solid var(--linea-oro); padding-top: 64px; font-size: 15px; }
-.piede-griglia { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: 36px; }
-.piede-griglia > div > p { margin-top: 18px; max-width: 24em; }
-.piede-t { font-family: var(--serif); font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--oro); margin-bottom: 14px; }
-.piede ul { display: grid; gap: 8px; }
+/* piede: anche lui nella colonna, cosi' a fine pagina il fiore aperto resta libero */
+.piede { font-size: 15px; }
+.piede > .wrap:first-child { padding-top: 56px; border-top: 1px solid var(--linea-oro); }
+.piede-marchio > p { margin-top: 18px; max-width: 26em; }
+.piede-griglia { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 36px; }
+@container (min-width: 380px) {
+  .piede-griglia { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+}
+.piede-t { font-family: var(--serif); font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--oro); margin-bottom: 12px; }
+.piede ul { display: grid; gap: 7px; }
 .piede ul a { text-decoration: none; }
 .piede ul a:hover { color: var(--crema); text-decoration: underline; text-underline-offset: 4px; }
-.piede-legale { display: flex; flex-wrap: wrap; gap: 4px 26px; margin-top: 52px; padding: 22px 0 36px; border-top: 1px solid var(--linea); font-size: 13.5px; }
+.piede-legale { display: flex; flex-wrap: wrap; gap: 4px 24px; margin-top: 44px; padding: 20px 0 36px; border-top: 1px solid var(--linea); font-size: 13.5px; }
 
 .barra { display: none; }
 
 @media screen and (max-width: 1180px) {
   .menu { display: none; }
   .apri-menu { display: inline-flex; margin-left: 0; }
-  .testata nav { margin-left: auto; }
-  .divisioni-griglia { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .divisione:nth-child(3) { padding-left: 0; border-left: 0; }
-  .divisione:nth-child(n+3) { border-top: 1px solid var(--linea-oro); }
-  .metodo-griglia { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .metodo-griglia li:nth-child(3) { padding-left: 0; border-left: 0; }
 }
 
+/* telefono e finestre strette: niente spazio accanto ai testi, quindi il fiore ha il suo spazio sotto l'apertura */
 @media screen and (max-width: 900px) {
   :root { --hh: 64px; }
   body { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
+  .wrap { width: auto; margin-inline: var(--pad); }
   .utilita { display: none; }
   .marchio-nome b { font-size: 18px; }
   .marchio-nome small { font-size: 9.5px; }
   .testata .btn { display: none; }
   .apri-menu { margin-left: auto; }
-  .fiore-vero { width: 128vw; right: -14vw; bottom: calc(68px + env(safe-area-inset-bottom)); opacity: 0; }
-  .fiore-vero.pronto { opacity: 0.5; }
-  .apertura { min-height: calc(100svh - var(--hh) - 68px); align-items: flex-start; }
-  .apertura .wrap { padding-block: 40px 48px; }
+  .apertura .wrap { min-height: 0; padding-block: 38px 6px; }
+  .apertura h1 { font-size: clamp(36px, 9.6vw, 56px); }
   .azioni .btn { flex: 1 1 auto; }
-  .divisioni-griglia, .metodo-griglia, .clienti-griglia, .fatti { grid-template-columns: minmax(0, 1fr); }
-  .divisione, .divisione:first-child, .divisione:nth-child(3) { padding: 28px 0; border-left: 0; }
-  .divisione + .divisione { border-top: 1px solid var(--linea-oro); }
-  .metodo-griglia li, .metodo-griglia li + li, .metodo-griglia li:nth-child(3) { padding: 26px 0; border-left: 0; border-bottom: 1px solid var(--linea); }
-  .clienti-griglia li, .clienti-griglia li:nth-child(even), .fatti li, .fatti li:nth-child(even) { padding: 22px 0; border-left: 0; }
-  .progetti-griglia { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-  .progetto, .progetto.grande, .progetto:nth-child(n+4) { grid-column: auto; grid-row: auto; }
-  .zone-elenco { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .zone-elenco li { font-size: 19px; }
-  .ct-griglia { grid-template-columns: minmax(0, 1fr); }
-  .dati div { grid-template-columns: minmax(0, 1fr); }
-  .piede-griglia { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  .fiore-vero { position: relative; inset: auto; z-index: auto; width: 100%; aspect-ratio: 2000 / 1506; }
+  .car-pista { margin-right: calc(-1 * var(--pad)); padding-right: var(--pad); }
+  .scheda { flex-basis: 80%; }
   .barra { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); background: rgba(11, 20, 14, 0.94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-top: 1px solid var(--linea); }
   .barra a { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; border-radius: 2px; color: var(--crema); text-decoration: none; font-size: 15px; font-weight: 600; border: 1px solid rgba(243, 238, 226, 0.3); }
   .barra a svg { width: 19px; height: 19px; }
@@ -436,22 +471,20 @@ main > section { position: relative; }
 }
 
 @media screen and (max-width: 520px) {
-  .form-grid2 { grid-template-columns: minmax(0, 1fr); }
-  .zone-elenco { grid-template-columns: minmax(0, 1fr); }
+  .dati div { grid-template-columns: minmax(0, 1fr); }
+  .zone-elenco li { font-size: 19px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { transition: none !important; animation: none !important; }
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
 </style>
 </head>
 <body>
 <a class="salta" href="#contenuto">Vai al contenuto</a>
 
-<div class="fiore-vero" data-fotogrammi="120" data-fotogrammi-telefono="80" data-percorso="/img/fiore/" aria-hidden="true"><canvas></canvas></div>
-
 <div class="utilita">
-  <div class="wrap">
+  <div class="riga">
     <p>Il Giglio Verde SRLS, Bagno a Ripoli (FI)</p>
     <ul>
       <li>Lunedì–sabato, 8–19</li>
@@ -462,13 +495,13 @@ main > section { position: relative; }
 </div>
 
 <header class="testata" id="testata">
-  <div class="wrap">
+  <div class="riga">
     <a href="/" class="marchio" aria-label="Il Giglio Verde, pagina iniziale"><svg viewBox="4 4 52 58" aria-hidden="true" focusable="false"><g fill="#f3eee2"><path d="M30 4C33.8 13 35.8 20 35.8 26.5C35.8 31.5 33.6 35.5 30 38C26.4 35.5 24.2 31.5 24.2 26.5C24.2 20 26.2 13 30 4Z"/><path d="M24.6 28.5C19 25.5 12.5 25 8.5 28.5C4 32.5 4 40.5 8.5 44C10.5 45.5 13 45.8 14.8 45C11.5 42.5 10.5 38 12.5 34.5C14.3 31.4 19 29.6 24.6 28.5Z"/><path d="M35.4 28.5C41 25.5 47.5 25 51.5 28.5C56 32.5 56 40.5 51.5 44C49.5 45.5 47 45.8 45.2 45C48.5 42.5 49.5 38 47.5 34.5C45.7 31.4 41 29.6 35.4 28.5Z"/><path d="M27.6 44.3H32.4C33.8 51 35.8 57 38.4 62H21.6C24.2 57 26.2 51 27.6 44.3Z"/></g><rect x="18.6" y="39.4" width="22.8" height="5" rx="2.5" fill="#e0bd74"/></svg><span class="marchio-nome"><b>Il Giglio Verde</b><small>Giardini ed esterni</small></span></a>
     <nav aria-label="Principale">
       <ul class="menu">
-        <li><a href="#divisioni">Divisioni</a></li>
+        <li><a href="#settori">Settori</a></li>
+        <li><a href="#progettazione">Progettazione</a></li>
         <li><a href="#impresa">L'impresa</a></li>
-        <li><a href="#metodo">Metodo</a></li>
         <li><a href="#lavori">Lavori</a></li>
         <li><a href="#contatti">Contatti</a></li>
       </ul>
@@ -485,9 +518,10 @@ main > section { position: relative; }
   </div>
   <nav aria-label="Menu del telefono">
     <ul>
-      <li><a href="#divisioni">Divisioni</a></li>
+      <li><a href="#settori">Settori</a></li>
       <li><a href="#impresa">L'impresa</a></li>
-      <li><a href="#metodo">Metodo</a></li>
+      <li><a href="#metodo">Il metodo</a></li>
+      <li><a href="#progettazione">Progettazione</a></li>
       <li><a href="#per-chi">Per chi lavoriamo</a></li>
       <li><a href="#lavori">Lavori</a></li>
       <li><a href="#zone">Dove operiamo</a></li>
@@ -502,168 +536,201 @@ main > section { position: relative; }
 
   <section class="apertura" aria-labelledby="titolo">
     <div class="wrap">
-      <h1 id="titolo">Giardini ed esterni, gestiti da un'unica impresa</h1>
-      <p class="lead">Manutenzione del verde, facciate e pavimentazioni, oliveti e trattamenti antizanzare per privati, condomini, ville e aziende di Firenze e dintorni.</p>
+      <p class="etichetta">Firenze e Bagno a Ripoli · dal 2011</p>
+      <h1 id="titolo">Creiamo giardini, li progettiamo con rendering e li seguiamo nel tempo</h1>
+      <p class="lead">Chi ci affida un lavoro ha un solo interlocutore: dal sopralluogo alla progettazione, dalla realizzazione alla manutenzione.</p>
       <div class="azioni">
         <a class="btn btn-oro" href="#contatti">Richiedi un preventivo</a>
         <a class="btn btn-linea" href="tel:+393287217116"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Chiama 328 721 7116</a>
       </div>
     </div>
+    <div class="fiore-vero" data-fotogrammi="120" data-fotogrammi-telefono="80" data-percorso="/img/fiore/" aria-hidden="true"><canvas></canvas></div>
   </section>
 
-  <section class="velo" id="divisioni" aria-labelledby="divisioni-titolo">
+  <section class="sez" id="settori" aria-labelledby="settori-titolo">
     <div class="wrap">
-      <div class="divisioni-testa">
-        <h2 id="divisioni-titolo">Le divisioni</h2>
-        <p>Quattro settori di lavoro e un solo referente: organizziamo noi ogni intervento, anche quando ne servono più di uno.</p>
-      </div>
-      <div class="divisioni-griglia">
-        <article class="divisione">
+      <h2 id="settori-titolo">I settori in cui operiamo</h2>
+      <p class="intro">Cinque settori e un solo referente: organizziamo noi ogni intervento, anche quando ne servono più di uno.</p>
+      <div class="settori-lista">
+        <article class="settore">
           <span class="etichetta">Verde</span>
           <h3>Giardini e spazi verdi</h3>
-          <ul><li>Manutenzione annuale di giardini e parchi</li><li>Ville, dimore storiche e condomini</li><li>Potature, siepi, prati e nuovi impianti</li></ul>
+          <ul><li>Progettazione e realizzazione di nuovi giardini</li><li>Manutenzione annuale di giardini e parchi</li><li>Potature, siepi, prati e nuovi impianti</li></ul>
           <a class="link" href="/manutenzione-giardini-firenze.html">Manutenzione giardini</a>
         </article>
-        <article class="divisione">
+        <article class="settore">
           <span class="etichetta">Edilizia</span>
           <h3>Facciate, cotto e pietra</h3>
           <ul><li>Pulizia e protezione di cotto e pietra</li><li>Lavori in muratura e imbiancature</li><li>Rifacimento delle facciate</li></ul>
           <a class="link" href="/facciate-cotto-pietra-firenze.html">Facciate, cotto e pietra</a>
         </article>
-        <article class="divisione">
+        <article class="settore">
           <span class="etichetta">Campagna</span>
           <h3>Oliveti e terreni</h3>
           <ul><li>Gestione e potatura degli oliveti</li><li>Raccolta delle olive</li><li>Trinciatura dei campi e olio nostro</li></ul>
           <a class="link" href="/oliveti-raccolta-olive-firenze.html">Oliveti e raccolta olive</a>
         </article>
-        <article class="divisione">
+        <article class="settore">
           <span class="etichetta">Antizanzare</span>
           <h3>Trattamenti e prodotti</h3>
           <ul><li>Trappole a CO₂ per giardini e terrazze</li><li>Trattamenti mirati e stagionali</li><li>Prodotti naturali in vendita</li></ul>
           <a class="link" href="/antizanzare-firenze.html">Il servizio antizanzare</a>
         </article>
+        <article class="settore">
+          <span class="etichetta">Luci da esterno</span>
+          <h3>Natale ed eventi</h3>
+          <ul><li>Luci di Natale per case, ville e aziende</li><li>Illuminazione da esterno per eventi</li><li>Progetto con rendering e installazione</li></ul>
+          <a class="link" href="#contatti" data-servizio="Luci Natalizie" data-msg="Buongiorno, vorrei un preventivo per luci da esterno (Natale o evento) a ...">Chiedi un preventivo</a>
+        </article>
       </div>
-      <p class="altri-servizi"><strong>Inoltre:</strong> luci di Natale professionali per case e aziende, e prodotti per il giardino come terricci, concimi, vasi e terracotte.</p>
+      <p class="altri-servizi"><strong>Inoltre:</strong> prodotti per il giardino come terricci, concimi, vasi e terracotte.</p>
     </div>
   </section>
 
   <section class="sez" id="impresa" aria-labelledby="impresa-titolo">
-    <div class="wrap">
-      <div class="colonna impresa-testo">
-        <h2 id="impresa-titolo">Un'impresa del territorio, un solo referente</h2>
-        <p class="intro">Il Giglio Verde SRLS lavora a Bagno a Ripoli e nell'area fiorentina dal 2011. Seguiamo giardini, esterni e terreni di famiglie, condomini, ville e aziende, con una squadra propria e l'attrezzatura adatta a ogni intervento.</p>
-        <p>Chi ci affida un lavoro ha un solo interlocutore, dal sopralluogo alla manutenzione negli anni, e un preventivo scritto con ogni voce chiara.</p>
-        <ul class="fatti">
-          <li><b>Dal 2011</b><span>a Bagno a Ripoli e Firenze</span></li>
-          <li><b>4 divisioni</b><span>verde, edilizia, campagna, antizanzare</span></li>
-          <li><b>11 comuni</b><span>serviti nell'area fiorentina</span></li>
-          <li><b>4,8 su 5</b><span>media delle recensioni Google</span></li>
-        </ul>
-      </div>
+    <div class="wrap impresa-testo">
+      <h2 id="impresa-titolo">Un'impresa del territorio, un solo referente</h2>
+      <p class="intro">Il Giglio Verde SRLS lavora a Bagno a Ripoli e nell'area fiorentina dal 2011. Progettiamo, realizziamo e curiamo giardini, esterni e terreni di privati, ville, aziende e condomini, con una squadra propria e l'attrezzatura adatta a ogni intervento.</p>
+      <p>Ogni lavoro ha un preventivo scritto, con ogni voce chiara, e lo stesso referente dall'inizio alla fine.</p>
+      <ul class="fatti">
+        <li><b>Dal 2011</b><span>a Bagno a Ripoli e Firenze</span></li>
+        <li><b>5 settori</b><span>verde, edilizia, campagna, antizanzare, luci</span></li>
+        <li><b>11 comuni</b><span>serviti nell'area fiorentina</span></li>
+        <li><b>4,8 su 5</b><span>media delle recensioni Google</span></li>
+      </ul>
     </div>
   </section>
 
-  <section class="sez velo" id="metodo" aria-labelledby="metodo-titolo">
+  <section class="sez" id="metodo" aria-labelledby="metodo-titolo">
     <div class="wrap">
       <h2 id="metodo-titolo">Il metodo</h2>
-      <p class="intro">Ogni lavoro segue gli stessi quattro passaggi.</p>
-      <ol class="metodo-griglia">
+      <p class="intro">Dal sopralluogo alla manutenzione, ogni lavoro segue gli stessi passaggi.</p>
+      <ol class="passi">
         <li><h3>Sopralluogo</h3><p>Veniamo a vedere il posto e ascoltiamo cosa serve. È gratuito e senza impegno.</p></li>
+        <li><h3>Progetto e rendering</h3><p>Disegniamo il lavoro con i nostri programmi e ti mostriamo il risultato prima di iniziare.</p></li>
         <li><h3>Preventivo scritto</h3><p>Ogni voce spiegata, con tempi e costi. Si accetta anche online, con una firma dal telefono.</p></li>
-        <li><h3>Esecuzione</h3><p>Lavoriamo con la nostra squadra e l'attrezzatura giusta, e teniamo aggiornato il cliente.</p></li>
+        <li><h3>Realizzazione</h3><p>Lavoriamo con la nostra squadra e l'attrezzatura giusta, e ti teniamo aggiornato.</p></li>
         <li><h3>Manutenzione</h3><p>Programmiamo gli interventi nel tempo, stagione dopo stagione.</p></li>
       </ol>
     </div>
   </section>
 
-  <section class="sez" id="per-chi" aria-labelledby="perchi-titolo">
+  <section class="sez progetta" id="progettazione" aria-labelledby="progettazione-titolo">
     <div class="wrap">
-      <div class="colonna">
-        <h2 id="perchi-titolo">Per chi lavoriamo</h2>
-        <ul class="clienti-griglia">
-          <li><h3>Condomini e amministratori</h3><p>Manutenzione del verde condominiale con interventi a calendario e preventivi dettagliati.</p><a class="link" href="#contatti" data-servizio="Verde e Giardini" data-msg="Buongiorno, amministro un condominio a ... e vorrei un preventivo per la manutenzione del verde.">Chiedi un preventivo</a></li>
-          <li><h3>Ville e dimore storiche</h3><p>Giardini formali, siepi, olivi e cipressi, anche per le ville che ospitano eventi e matrimoni.</p><a class="link" href="#contatti" data-servizio="Verde e Giardini" data-msg="Buongiorno, vi scrivo per una villa a ... e vorrei un sopralluogo.">Chiedi un sopralluogo</a></li>
-          <li><h3>Aziende e strutture ricettive</h3><p>Agriturismi, hotel e ristoranti: spazi verdi in ordine per gli ospiti e antizanzare per gli esterni.</p><a class="link" href="#contatti" data-servizio="Verde e Giardini" data-msg="Buongiorno, vi scrivo per una struttura a ... e vorrei un sopralluogo.">Chiedi un sopralluogo</a></li>
-          <li><h3>Privati</h3><p>Dal giardino di casa al parco della villa, con la cura che serve in ogni stagione.</p><a class="link" href="#contatti" data-servizio="Verde e Giardini" data-msg="Buongiorno, ho un giardino a ... e vorrei un sopralluogo.">Chiedi un sopralluogo</a></li>
-        </ul>
-      </div>
+      <p class="etichetta">Progettazione</p>
+      <h2 id="progettazione-titolo">Vedi il risultato prima di iniziare</h2>
+      <p class="intro">Progettiamo i lavori con il rendering, usando programmi costruiti su misura per quello che facciamo: giardini, esterni e luci. Prima di cominciare sai già come sarà il risultato, cosa serve e quanto costa.</p>
+      <h3 class="sotto-titolo">Come funziona</h3>
+      <ol class="fasi">
+        <li><h4>Rilievo</h4><p>Al sopralluogo prendiamo misure e foto dello spazio: giardino, terrazza, facciata o area esterna.</p></li>
+        <li><h4>Progetto in scala</h4><p>Nel programma ridisegniamo lo spazio in scala e collochiamo piante, prati, pavimentazioni e luci, scegliendo solo prodotti che si trovano davvero.</p></li>
+        <li><h4>Rendering</h4><p>Ti mostriamo come sarà a lavoro finito e lo modifichiamo insieme, finché non ti convince.</p></li>
+        <li><h4>Preventivo dal progetto</h4><p>Quantità e costi escono dal progetto approvato: il preventivo scritto corrisponde a quello che hai visto.</p></li>
+      </ol>
+      <p class="nota-luci">Lo stesso vale per le luci di Natale e per gli eventi: vedi l'effetto sulla casa o sull'attività prima dell'installazione.</p>
+      <a class="link" href="#contatti" data-servizio="Verde e Giardini" data-msg="Buongiorno, vorrei progettare un giardino a ... e vorrei un sopralluogo.">Chiedi un sopralluogo</a>
     </div>
   </section>
 
-  <section class="sez velo" id="lavori" aria-labelledby="lavori-titolo">
+  <section class="sez" id="per-chi" aria-labelledby="perchi-titolo">
+    <div class="wrap">
+      <h2 id="perchi-titolo">Per chi lavoriamo</h2>
+      <ul class="clienti-griglia">
+        <li><h3>Privati</h3><p>Dal giardino di casa al parco della villa: lo progettiamo, lo realizziamo e lo curiamo in ogni stagione.</p><a class="link" href="#contatti" data-servizio="Verde e Giardini" data-msg="Buongiorno, ho un giardino a ... e vorrei un sopralluogo.">Chiedi un sopralluogo</a></li>
+        <li><h3>Ville e dimore storiche</h3><p>Giardini formali, siepi, olivi e cipressi, anche per le ville che ospitano eventi e matrimoni.</p><a class="link" href="#contatti" data-servizio="Verde e Giardini" data-msg="Buongiorno, vi scrivo per una villa a ... e vorrei un sopralluogo.">Chiedi un sopralluogo</a></li>
+        <li><h3>Aziende e strutture ricettive</h3><p>Agriturismi, hotel e ristoranti: spazi verdi in ordine per gli ospiti, antizanzare e luci per gli esterni.</p><a class="link" href="#contatti" data-servizio="Verde e Giardini" data-msg="Buongiorno, vi scrivo per una struttura a ... e vorrei un sopralluogo.">Chiedi un sopralluogo</a></li>
+        <li><h3>Condomini e amministratori</h3><p>Manutenzione del verde condominiale con interventi a calendario e preventivi dettagliati.</p><a class="link" href="#contatti" data-servizio="Verde e Giardini" data-msg="Buongiorno, amministro un condominio a ... e vorrei un preventivo per la manutenzione del verde.">Chiedi un preventivo</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sez lavori" id="lavori" aria-labelledby="lavori-titolo">
     <div class="wrap">
       <h2 id="lavori-titolo">Lavori e progetti</h2>
-      <p class="intro">Alcuni interventi recenti. Altre foto sul nostro <a class="link" href="https://www.instagram.com/giglioverdegiardini" target="_blank" rel="noopener">profilo Instagram</a>.</p>
-      <div class="progetti-griglia">
-        <article class="progetto grande">
-          <div class="pd">
-            <img src="/img/home/dopo-giorno-39.webp" width="685" height="384" loading="lazy" decoding="async" alt="Lo stesso giardino al giorno 39: prato fitto e verde, con l'orcio e il vialetto in pietra">
-            <div class="pd-prima"><img src="/img/home/prima-giorno-0.webp" width="685" height="384" loading="lazy" decoding="async" alt="Il giardino al giorno 0: terra nuda dopo la scalpatura, con l'orcio di terracotta"></div>
-            <span class="pd-et pd-et-prima">Giorno 0</span>
-            <span class="pd-et pd-et-dopo">Giorno 39</span>
-            <div class="pd-linea" aria-hidden="true"><span class="pd-maniglia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
-            <input class="pd-range" type="range" min="0" max="100" value="50" aria-label="Confronta prima e dopo: sposta la linea">
+      <p class="intro">Prima e dopo, e alcuni lavori dal cantiere.</p>
+
+      <h3 class="sotto-titolo">Prima e dopo</h3>
+      <figure class="confronto">
+        <div class="pd">
+          <img src="/img/home/dopo-giorno-39.webp" width="685" height="384" loading="lazy" decoding="async" alt="Lo stesso giardino al giorno 39: prato fitto e verde, con l'orcio e il vialetto in pietra">
+          <div class="pd-prima"><img src="/img/home/prima-giorno-0.webp" width="685" height="384" loading="lazy" decoding="async" alt="Il giardino al giorno 0: terra nuda dopo la scalpatura, con l'orcio di terracotta"></div>
+          <span class="pd-et pd-et-prima">Giorno 0</span>
+          <span class="pd-et pd-et-dopo">Giorno 39</span>
+          <div class="pd-linea" aria-hidden="true"><span class="pd-maniglia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
+          <input class="pd-range" type="range" min="0" max="100" value="50" aria-label="Confronta prima e dopo: sposta la linea">
+        </div>
+        <figcaption class="didascalia">
+          <span class="etichetta">Verde</span>
+          <h4>Conversione di un prato in macroterma</h4>
+          <p>150 m², dal terreno nudo al prato fitto in 39 giorni. Trascina la linea per confrontare. <a class="link" href="/caso-studio-prato/caso-studio-prato-macroterma.html">Leggi il diario del lavoro</a></p>
+        </figcaption>
+      </figure>
+      <figure class="confronto">
+        <div class="coppia">
+          <div class="coppia-foto"><img src="/img/lavori/cotto-prima.webp" width="720" height="960" loading="lazy" decoding="async" alt="Terrazzo in cotto prima della pulizia: superficie grigia e annerita"><span class="pd-et">Prima</span></div>
+          <div class="coppia-foto"><img src="/img/lavori/cotto-dopo.webp" width="720" height="960" loading="lazy" decoding="async" alt="Lo stesso terrazzo dopo la pulizia, con il colore del cotto di nuovo visibile"><span class="pd-et">Dopo</span></div>
+        </div>
+        <figcaption class="didascalia">
+          <span class="etichetta">Edilizia</span>
+          <h4>Terrazzo in cotto</h4>
+          <p>Lo stesso terrazzo prima e dopo la pulizia. <a class="link" href="/facciate-cotto-pietra-firenze.html">Cotto e pietra</a></p>
+        </figcaption>
+      </figure>
+
+      <div class="carosello">
+        <div class="car-testa">
+          <h3 class="sotto-titolo" id="cantiere-titolo">Dal cantiere</h3>
+          <div class="car-comandi">
+            <span class="car-conta" aria-hidden="true">1 / 8</span>
+            <button class="car-btn car-prec" type="button" aria-label="Foto precedente" aria-controls="car-pista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="car-btn car-succ" type="button" aria-label="Foto successiva" aria-controls="car-pista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
           </div>
-          <div class="progetto-testo">
-            <span class="etichetta">Verde</span>
-            <h3>Conversione di un prato in macroterma</h3>
-            <p>150 m², dal terreno nudo al prato fitto in 39 giorni. Trascina la linea per confrontare. <a class="link" href="/caso-studio-prato/caso-studio-prato-macroterma.html">Leggi il diario del lavoro</a></p>
-          </div>
-        </article>
-        <article class="progetto"><a href="/articolo-manutenzione-campi-calcio.html">
-          <figure><img src="/img/home/lavoro-campo-07.webp" width="900" height="676" loading="lazy" decoding="async" alt="Campo da calcio a 11 visto da bordo campo, in una giornata di sole"></figure>
-          <div class="progetto-testo"><span class="etichetta">Verde</span><h3>Campo da calcio a 11</h3><p>Taglio e rigenerazione delle zone consumate, tutto l'anno.</p></div>
-        </a></article>
-        <article class="progetto"><a href="/facciate-cotto-pietra-firenze.html">
-          <figure><img src="/img/home/divisione-edilizia.webp" width="800" height="600" loading="lazy" decoding="async" alt="Terrazzo in cotto bagnato, con due vasi di terracotta"></figure>
-          <div class="progetto-testo"><span class="etichetta">Edilizia</span><h3>Pavimentazioni in cotto</h3><p>Pulizia e trattamenti protettivi per terrazzi e camminamenti.</p></div>
-        </a></article>
-        <article class="progetto"><a href="/antizanzare-firenze.html">
-          <figure><img src="/img/home/lavoro-trappola-siepe.webp" width="1000" height="750" loading="lazy" decoding="async" alt="Trappola antizanzare a CO₂ tra una siepe e una casetta di legno"></figure>
-          <div class="progetto-testo"><span class="etichetta">Antizanzare</span><h3>Trappole a CO₂</h3><p>Installate lungo siepi e terrazze, per vivere fuori la sera.</p></div>
-        </a></article>
-        <article class="progetto"><a href="/articolo-manutenzione-campi-calcio.html">
-          <figure><img src="/img/home/lavoro-campo-06.webp" width="900" height="676" loading="lazy" decoding="async" alt="Rastrello appoggiato su una zona d'erba consumata del campo"></figure>
-          <div class="progetto-testo"><span class="etichetta">Verde</span><h3>Rigenerazione del manto</h3><p>Le zone consumate del campo, ripristinate a fine stagione.</p></div>
-        </a></article>
+        </div>
+        <ul class="car-pista" id="car-pista" tabindex="0" aria-labelledby="cantiere-titolo">
+          <li class="scheda"><figure><img src="/img/lavori/camminamento-pietra.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Camminamento di lastre di pietra su terra appena sistemata, tra una siepe e il prato"><figcaption><span class="etichetta">Verde</span><h4>Camminamento in pietra</h4><p>Lastre posate a passo d'uomo tra la siepe e il prato.</p></figcaption></figure></li>
+          <li class="scheda"><figure><img src="/img/lavori/trappola-sotto-siepe.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Trappola antizanzare verde a CO₂ sotto le foglie di una siepe"><figcaption><span class="etichetta">Antizanzare</span><h4>Trappola a CO₂ tra le piante</h4><p>Sistemata sotto la siepe, all'ombra, dove le zanzare si riparano.</p></figcaption></figure></li>
+          <li class="scheda"><figure><img src="/img/lavori/campo-calcio.webp" width="541" height="676" loading="lazy" decoding="async" alt="Campo da calcio a 11 con la porta sullo sfondo, in una giornata di sole"><figcaption><span class="etichetta">Verde</span><h4>Campo da calcio a 11</h4><p>Taglio e rigenerazione delle zone consumate, tutto l'anno.</p></figcaption></figure></li>
+          <li class="scheda"><figure><img src="/img/lavori/terrazzo-cotto.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Terrazzo in cotto bagnato, con due vasi di terracotta in fondo"><figcaption><span class="etichetta">Edilizia</span><h4>Pavimentazioni in cotto</h4><p>Pulizia e trattamenti protettivi per terrazzi e camminamenti.</p></figcaption></figure></li>
+          <li class="scheda"><figure><img src="/img/lavori/buddleja.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Buddleja con le spighe viola in fiore, con olivi e un cipresso sullo sfondo"><figcaption><span class="etichetta">Verde</span><h4>Buddleja in fiore</h4><p>Arbusti fioriti in un giardino tra olivi e cipressi.</p></figcaption></figure></li>
+          <li class="scheda"><figure><img src="/img/lavori/trappola-bombola.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Trappola antizanzare a CO₂ collegata alla sua bombola, accanto a un muro in pietra e a un vaso"><figcaption><span class="etichetta">Antizanzare</span><h4>Trappola con bombola di CO₂</h4><p>Installata accanto al muro di casa, con la bombola collegata.</p></figcaption></figure></li>
+          <li class="scheda"><figure><img src="/img/lavori/rigenerazione-manto.webp" width="541" height="676" loading="lazy" decoding="async" alt="Livellatore appoggiato su una zona d'erba consumata del campo"><figcaption><span class="etichetta">Verde</span><h4>Rigenerazione del manto</h4><p>Le zone consumate del campo, ripristinate a fine stagione.</p></figcaption></figure></li>
+          <li class="scheda"><figure><img src="/img/lavori/bordure-olivi.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Prato rasato accanto a una bordura di fiori bianchi e rosa, sotto gli olivi"><figcaption><span class="etichetta">Verde</span><h4>Prato e bordure sotto gli olivi</h4><p>Prato rasato e bordure fiorite in un giardino tra gli olivi.</p></figcaption></figure></li>
+        </ul>
       </div>
+      <p class="altre-foto">Altre foto sul nostro <a class="link" href="https://www.instagram.com/giglioverdegiardini" target="_blank" rel="noopener">profilo Instagram</a>.</p>
     </div>
   </section>
 
   <section class="sez" id="recensioni" aria-labelledby="rec-titolo">
     <div class="wrap">
-      <div class="colonna">
-        <h2 id="rec-titolo">Cosa dicono i clienti</h2>
-        <p class="voto"><span class="voto-num">4,8</span><span class="stelle" role="img" aria-label="4,8 stelle su 5"><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg></span></p>
-        <p class="voto-nota">Media delle recensioni sulla scheda Google dell'impresa.</p>
-        <p class="link-riga">
-          <a class="link" href="https://share.google/BkS3udBZDlnNuC22n" target="_blank" rel="noopener">Leggi le recensioni</a>
-          <a class="link" href="https://share.google/BkS3udBZDlnNuC22n" target="_blank" rel="noopener">Lascia la tua</a>
-        </p>
-        <div class="citazioni">
-          <figure class="citazione segnaposto"><blockquote>Qui va il testo di una recensione vera, copiato dalla scheda Google.</blockquote><figcaption>Nome del cliente</figcaption></figure>
-          <figure class="citazione segnaposto"><blockquote>Qui va la seconda recensione vera.</blockquote><figcaption>Nome del cliente</figcaption></figure>
-          <figure class="citazione segnaposto"><blockquote>Qui va la terza recensione vera.</blockquote><figcaption>Nome del cliente</figcaption></figure>
-        </div>
+      <h2 id="rec-titolo">Cosa dicono i clienti</h2>
+      <p class="voto"><span class="voto-num">4,8</span><span class="stelle" role="img" aria-label="4,8 stelle su 5"><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 2.9 1.2-5.9L1.4 7.7l6-.7z"/></svg></span></p>
+      <p class="voto-nota">Media delle recensioni sulla scheda Google dell'impresa.</p>
+      <p class="link-riga">
+        <a class="link" href="https://share.google/BkS3udBZDlnNuC22n" target="_blank" rel="noopener">Leggi le recensioni</a>
+        <a class="link" href="https://share.google/BkS3udBZDlnNuC22n" target="_blank" rel="noopener">Lascia la tua</a>
+      </p>
+      <div class="citazioni">
+        <figure class="citazione segnaposto"><blockquote>Qui va il testo di una recensione vera, copiato dalla scheda Google.</blockquote><figcaption>Nome del cliente</figcaption></figure>
+        <figure class="citazione segnaposto"><blockquote>Qui va la seconda recensione vera.</blockquote><figcaption>Nome del cliente</figcaption></figure>
+        <figure class="citazione segnaposto"><blockquote>Qui va la terza recensione vera.</blockquote><figcaption>Nome del cliente</figcaption></figure>
       </div>
     </div>
   </section>
 
   <section class="sez" id="zone" aria-labelledby="zone-titolo">
     <div class="wrap">
-      <div class="colonna">
-        <h2 id="zone-titolo">Dove operiamo</h2>
-        <ul class="zone-elenco">
-          <li>Bagno a Ripoli</li><li>Grassina</li><li>Antella</li><li>Ponte a Ema</li><li>Firenze Sud</li><li>Firenze centro</li>
-          <li>Fiesole</li><li>Impruneta</li><li>Pontassieve</li><li>Rignano sull'Arno</li><li>Greve in Chianti</li>
-        </ul>
-        <p class="zone-nota">Per altri comuni dell'area metropolitana fiorentina chiamaci: valutiamo caso per caso.</p>
-      </div>
+      <h2 id="zone-titolo">Dove operiamo</h2>
+      <ul class="zone-elenco">
+        <li>Bagno a Ripoli</li><li>Grassina</li><li>Antella</li><li>Ponte a Ema</li><li>Firenze Sud</li><li>Firenze centro</li>
+        <li>Fiesole</li><li>Impruneta</li><li>Pontassieve</li><li>Rignano sull'Arno</li><li>Greve in Chianti</li>
+      </ul>
+      <p class="zone-nota">Per altri comuni dell'area metropolitana fiorentina chiamaci: valutiamo caso per caso.</p>
     </div>
   </section>
 
-  <section class="sez velo" id="contatti" aria-labelledby="contatti-titolo">
-    <div class="wrap ct-griglia">
+  <section class="sez" id="contatti" aria-labelledby="contatti-titolo">
+    <div class="wrap">
       <div class="ct-testo">
         <h2 id="contatti-titolo">Richiedi un preventivo</h2>
         <p>Sopralluogo e preventivo sono gratuiti e senza impegno. Scrivici con il modulo, oppure chiamaci o mandaci un WhatsApp.</p>
@@ -676,7 +743,7 @@ main > section { position: relative; }
           <div><dt>Partita IVA</dt><dd>18448341000</dd></div>
         </dl>
       </div>
-      <form class="form-card rv" id="form-preventivo" name="richieste-preventivo" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <form class="form-card" id="form-preventivo" name="richieste-preventivo" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
         <p class="hp" hidden><label>Lascia vuoto questo campo <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <div class="form-campi">
           <h3 class="form-titolo">Richiesta di preventivo</h3>
@@ -718,55 +785,57 @@ main > section { position: relative; }
 
   <section class="sez" id="consigli" aria-labelledby="consigli-titolo">
     <div class="wrap">
-      <div class="colonna">
-        <h2 id="consigli-titolo">Consigli di stagione</h2>
-        <ul class="blog-lista">
-          <li><a href="/articolo-raccolta-olive.html"><span class="etichetta">Campagna</span><h3>La raccolta delle olive: quando e come farla</h3><span class="riassunto">Il momento giusto per raccogliere e come curare l'oliveto durante l'anno.</span></a></li>
-          <li><a href="/caso-studio-prato/caso-studio-prato-macroterma.html"><span class="etichetta">Verde</span><h3>Come abbiamo convertito il prato in un tappeto macroterma</h3><span class="riassunto">Un caso reale, giorno per giorno: terreno, semina, primo taglio e un imprevisto.</span></a></li>
-          <li><a href="/articolo-manutenzione-campi-calcio.html"><span class="etichetta">Verde</span><h3>Manutenzione dei campi da calcio: un lavoro di tutto l'anno</h3><span class="riassunto">Un campo a 11, dal taglio all'alba alla copertura delle zone consumate.</span></a></li>
-          <li><a href="/articolo-antizanzare-naturale.html"><span class="etichetta">Antizanzare</span><h3>Zanzare: come eliminarle in modo naturale</h3><span class="riassunto">Dalle trappole a CO₂ ai trattamenti professionali.</span></a></li>
-          <li><a href="/articolo-giardino-primavera.html"><span class="etichetta">Verde</span><h3>Come preparare il giardino per la primavera</h3><span class="riassunto">Cosa fare tra marzo e aprile, dalla potatura alla concimazione.</span></a></li>
-        </ul>
-      </div>
+      <h2 id="consigli-titolo">Consigli di stagione</h2>
+      <ul class="blog-lista">
+        <li><a href="/articolo-raccolta-olive.html"><span class="etichetta">Campagna</span><h3>La raccolta delle olive: quando e come farla</h3><span class="riassunto">Il momento giusto per raccogliere e come curare l'oliveto durante l'anno.</span></a></li>
+        <li><a href="/caso-studio-prato/caso-studio-prato-macroterma.html"><span class="etichetta">Verde</span><h3>Come abbiamo convertito il prato in un tappeto macroterma</h3><span class="riassunto">Un caso reale, giorno per giorno: terreno, semina, primo taglio e un imprevisto.</span></a></li>
+        <li><a href="/articolo-manutenzione-campi-calcio.html"><span class="etichetta">Verde</span><h3>Manutenzione dei campi da calcio: un lavoro di tutto l'anno</h3><span class="riassunto">Un campo a 11, dal taglio all'alba alla copertura delle zone consumate.</span></a></li>
+        <li><a href="/articolo-antizanzare-naturale.html"><span class="etichetta">Antizanzare</span><h3>Zanzare: come eliminarle in modo naturale</h3><span class="riassunto">Dalle trappole a CO₂ ai trattamenti professionali.</span></a></li>
+        <li><a href="/articolo-giardino-primavera.html"><span class="etichetta">Verde</span><h3>Come preparare il giardino per la primavera</h3><span class="riassunto">Cosa fare tra marzo e aprile, dalla potatura alla concimazione.</span></a></li>
+      </ul>
     </div>
   </section>
 
 </main>
 
 <footer class="piede">
-  <div class="wrap piede-griglia">
-    <div>
+  <div class="wrap">
+    <div class="piede-marchio">
       <a href="/" class="marchio"><svg viewBox="4 4 52 58" aria-hidden="true" focusable="false"><g fill="#f3eee2"><path d="M30 4C33.8 13 35.8 20 35.8 26.5C35.8 31.5 33.6 35.5 30 38C26.4 35.5 24.2 31.5 24.2 26.5C24.2 20 26.2 13 30 4Z"/><path d="M24.6 28.5C19 25.5 12.5 25 8.5 28.5C4 32.5 4 40.5 8.5 44C10.5 45.5 13 45.8 14.8 45C11.5 42.5 10.5 38 12.5 34.5C14.3 31.4 19 29.6 24.6 28.5Z"/><path d="M35.4 28.5C41 25.5 47.5 25 51.5 28.5C56 32.5 56 40.5 51.5 44C49.5 45.5 47 45.8 45.2 45C48.5 42.5 49.5 38 47.5 34.5C45.7 31.4 41 29.6 35.4 28.5Z"/><path d="M27.6 44.3H32.4C33.8 51 35.8 57 38.4 62H21.6C24.2 57 26.2 51 27.6 44.3Z"/></g><rect x="18.6" y="39.4" width="22.8" height="5" rx="2.5" fill="#e0bd74"/></svg><span class="marchio-nome"><b>Il Giglio Verde</b><small>Giardini ed esterni</small></span></a>
-      <p>Impresa per la cura di giardini, esterni e terreni a Bagno a Ripoli e nell'area fiorentina, dal 2011.</p>
+      <p>Impresa che progetta, realizza e cura giardini, esterni e terreni a Bagno a Ripoli e nell'area fiorentina, dal 2011.</p>
     </div>
-    <div>
-      <h3 class="piede-t">Divisioni</h3>
-      <ul>
-        <li><a href="/manutenzione-giardini-firenze.html">Verde</a></li>
-        <li><a href="/facciate-cotto-pietra-firenze.html">Edilizia</a></li>
-        <li><a href="/oliveti-raccolta-olive-firenze.html">Campagna</a></li>
-        <li><a href="/antizanzare-firenze.html">Antizanzare</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="piede-t">Impresa</h3>
-      <ul>
-        <li><a href="#impresa">Chi siamo</a></li>
-        <li><a href="#metodo">Il metodo</a></li>
-        <li><a href="#lavori">Lavori e progetti</a></li>
-        <li><a href="#per-chi">Per chi lavoriamo</a></li>
-        <li><a href="#zone">Dove operiamo</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="piede-t">Contatti</h3>
-      <ul>
-        <li><a href="tel:+393287217116">328 721 7116</a></li>
-        <li><a href="https://wa.me/393287217116" target="_blank" rel="noopener">WhatsApp</a></li>
-        <li><a href="mailto:giglioverdefirenze@gmail.com">giglioverdefirenze@gmail.com</a></li>
-        <li><a href="https://www.instagram.com/giglioverdegiardini" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.facebook.com/GiglioVerdeGiardini" target="_blank" rel="noopener">Facebook</a></li>
-      </ul>
+    <div class="piede-griglia">
+      <div>
+        <h3 class="piede-t">Settori</h3>
+        <ul>
+          <li><a href="/manutenzione-giardini-firenze.html">Verde</a></li>
+          <li><a href="/facciate-cotto-pietra-firenze.html">Edilizia</a></li>
+          <li><a href="/oliveti-raccolta-olive-firenze.html">Campagna</a></li>
+          <li><a href="/antizanzare-firenze.html">Antizanzare</a></li>
+          <li><a href="#contatti" data-servizio="Luci Natalizie">Luci da esterno</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="piede-t">Impresa</h3>
+        <ul>
+          <li><a href="#impresa">Chi siamo</a></li>
+          <li><a href="#metodo">Il metodo</a></li>
+          <li><a href="#progettazione">Progettazione</a></li>
+          <li><a href="#lavori">Lavori e progetti</a></li>
+          <li><a href="#per-chi">Per chi lavoriamo</a></li>
+          <li><a href="#zone">Dove operiamo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="piede-t">Contatti</h3>
+        <ul>
+          <li><a href="tel:+393287217116">328 721 7116</a></li>
+          <li><a href="https://wa.me/393287217116" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:giglioverdefirenze@gmail.com">Email</a></li>
+          <li><a href="https://www.instagram.com/giglioverdegiardini" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/GiglioVerdeGiardini" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="wrap">
@@ -785,6 +854,8 @@ main > section { position: relative; }
 
 <script>
 (function () {
+  var ridotto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // menu del telefono
   var pannello = document.getElementById('pannello-menu');
   var apri = document.querySelector('.testata .apri-menu');
@@ -826,22 +897,57 @@ main > section { position: relative; }
     pd.addEventListener('pointercancel', function () { stato = null; });
   });
 
-  // il fiore vero sullo sfondo: i fotogrammi di un time-lapse, uno per ogni punto dello scorrimento
+  // carosello dei lavori: si scorre col dito, col trackpad o con le frecce
+  document.querySelectorAll('.carosello').forEach(function (car) {
+    var pista = car.querySelector('.car-pista');
+    var schede = pista.querySelectorAll('.scheda');
+    var prec = car.querySelector('.car-prec'), succ = car.querySelector('.car-succ'), conta = car.querySelector('.car-conta');
+    var inCoda = false;
+    function passo() { return schede.length > 1 ? schede[1].offsetLeft - schede[0].offsetLeft : pista.clientWidth; }
+    function vai(dir) { pista.scrollBy({ left: dir * passo(), behavior: ridotto ? 'auto' : 'smooth' }); }
+    function stato() {
+      inCoda = false;
+      var max = pista.scrollWidth - pista.clientWidth, x = pista.scrollLeft;
+      prec.disabled = x <= 2;
+      succ.disabled = x >= max - 2;
+      var i = x >= max - 2 ? schede.length : Math.min(schede.length, Math.round(x / passo()) + 1);
+      conta.textContent = i + ' / ' + schede.length;
+    }
+    prec.addEventListener('click', function () { vai(-1); });
+    succ.addEventListener('click', function () { vai(1); });
+    pista.addEventListener('scroll', function () { if (!inCoda) { inCoda = true; requestAnimationFrame(stato); } }, { passive: true });
+    pista.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); vai(1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); vai(-1); }
+    });
+    window.addEventListener('resize', stato);
+    stato();
+  });
+
+  // il fiore vero: i fotogrammi di un time-lapse, uno per ogni punto dello scorrimento.
+  // Sul PC sta fisso nella parte destra, che i testi lasciano libera; sul telefono ha il suo spazio sotto l'apertura.
   var box = document.querySelector('.fiore-vero');
-  var piccolo = window.matchMedia('(max-width: 900px)').matches;
-  var tot = box ? +(piccolo ? box.dataset.fotogrammiTelefono : box.dataset.fotogrammi) || 0 : 0;
+  var stretto = window.matchMedia('(max-width: 900px)');
+  var usaPc = !stretto.matches || window.innerWidth * (window.devicePixelRatio || 1) > 1500;
+  var tot = box ? +(usaPc ? box.dataset.fotogrammi : box.dataset.fotogrammiTelefono) || 0 : 0;
   if (box && tot > 1) {
-    var ridotto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var cartella = box.dataset.percorso + (piccolo ? 'telefono/' : 'pc/');
+    var FONDO = '16, 29, 20'; // lo stesso verde dello sfondo della pagina
+    var cartella = box.dataset.percorso + (usaPc ? 'pc/' : 'telefono/');
     var cv = box.querySelector('canvas'), ctx = cv.getContext('2d');
     var foto = new Array(tot), pronte = new Array(tot);
     var nome = function (i) { return cartella + 'f' + ('00' + (i + 1)).slice(-3) + '.webp'; };
     var attuale = -1, inCoda = false;
 
     function misuraTela() {
-      var dpr = Math.min(window.devicePixelRatio || 1, piccolo ? 3 : 2);
-      cv.width = Math.round(cv.clientWidth * dpr); cv.height = Math.round(cv.clientHeight * dpr);
-      attuale = -1;
+      if (!stretto.matches) {
+        // il fiore comincia sotto la testata, cosi' la testata non gli passa mai sopra
+        var alto = document.getElementById('contenuto').getBoundingClientRect().top + window.scrollY;
+        document.documentElement.style.setProperty('--fiore-alto', Math.max(0, Math.round(alto)) + 'px');
+      }
+      var dpr = Math.min(window.devicePixelRatio || 1, stretto.matches ? 3 : 2);
+      var w = Math.max(1, Math.round(cv.clientWidth * dpr)), h = Math.max(1, Math.round(cv.clientHeight * dpr));
+      if (w !== cv.width || h !== cv.height) { cv.width = w; cv.height = h; attuale = -1; return true; }
+      return false;
     }
     function vicina(i) {
       if (pronte[i]) return i;
@@ -851,24 +957,61 @@ main > section { position: relative; }
       }
       return -1;
     }
+    function sfuma(x, y, w, h, lato) {
+      var g = lato === 'sx' ? ctx.createLinearGradient(x, 0, x + w, 0)
+        : lato === 'dx' ? ctx.createLinearGradient(x + w, 0, x, 0)
+        : lato === 'su' ? ctx.createLinearGradient(0, y, 0, y + h)
+        : ctx.createLinearGradient(0, y + h, 0, y);
+      g.addColorStop(0, 'rgba(' + FONDO + ', 1)');
+      g.addColorStop(0.08, 'rgba(' + FONDO + ', 0.92)');
+      g.addColorStop(0.5, 'rgba(' + FONDO + ', 0.42)');
+      g.addColorStop(1, 'rgba(' + FONDO + ', 0)');
+      ctx.fillStyle = g;
+      // la sfumatura parte due pixel fuori dalla foto, cosi' copre anche il suo orlo
+      if (lato === 'sx') ctx.fillRect(x - 2, y, w + 2, h);
+      else if (lato === 'dx') ctx.fillRect(x, y, w + 2, h);
+      else if (lato === 'su') ctx.fillRect(x, y - 2, w, h + 2);
+      else ctx.fillRect(x, y, w, h + 2);
+    }
     function disegna(i) {
       var j = vicina(i);
       if (j < 0 || j === attuale) return;
       attuale = j;
       var im = foto[j], W = cv.width, H = cv.height;
       var s = Math.min(W / im.naturalWidth, H / im.naturalHeight);
-      var w = im.naturalWidth * s, h = im.naturalHeight * s;
+      // misure intere: con i mezzi pixel il bordo della foto lascerebbe una riga chiara
+      var w = Math.min(W, Math.round(im.naturalWidth * s)), h = Math.min(H, Math.round(im.naturalHeight * s)), x = W - w, y = H - h;
+      // sfondo verde, poi la foto in modalita' "schermo": il nero sparisce e resta solo il fiore
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = 'rgb(' + FONDO + ')';
+      ctx.fillRect(0, 0, W, H);
+      ctx.globalCompositeOperation = 'screen';
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = 'high';
-      ctx.clearRect(0, 0, W, H);
-      ctx.drawImage(im, W - w, H - h, w, h);
+      ctx.drawImage(im, x, y, w, h);
+      ctx.globalCompositeOperation = 'source-over';
+      // bordi sfumati dove la foto finisce dentro la pagina (non dove finisce lo schermo)
+      if (stretto.matches) {
+        sfuma(x, y, w, Math.round(h * 0.16), 'su');
+        sfuma(x, y + h - Math.round(h * 0.14), w, Math.round(h * 0.14), 'giu');
+      } else {
+        sfuma(x, y, Math.round(w * 0.12), h, 'sx');
+        sfuma(x, y, w, Math.round(h * 0.13), 'su');
+        if (box.getBoundingClientRect().right < window.innerWidth - 1) sfuma(x + w - Math.round(w * 0.08), y, Math.round(w * 0.08), h, 'dx');
+      }
     }
     function avanzamento() {
+      if (stretto.matches) {
+        // sul telefono sboccia mentre passa sullo schermo: chiuso quando entra dal basso, aperto a meta' schermo
+        var r = box.getBoundingClientRect(), vh = window.innerHeight;
+        return Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.5 + r.height * 0.5)));
+      }
       var max = document.documentElement.scrollHeight - window.innerHeight;
       return max > 0 ? Math.min(1, Math.max(0, window.scrollY / (max * 0.94))) : 0;
     }
     function aggiorna() { inCoda = false; disegna(ridotto ? tot - 1 : Math.round(avanzamento() * (tot - 1))); }
     function chiedi() { if (!inCoda) { inCoda = true; requestAnimationFrame(aggiorna); } }
+    function ridimensiona() { if (misuraTela()) aggiorna(); else chiedi(); }
 
     // ordine di caricamento: prima il fotogramma del punto in cui si trova la pagina, poi pochi fotogrammi sparsi, poi si riempiono i buchi
     var ordine = [], visti = {};
@@ -892,7 +1035,8 @@ main > section { position: relative; }
     }
     misuraTela();
     window.addEventListener('scroll', chiedi, { passive: true });
-    window.addEventListener('resize', function () { misuraTela(); chiedi(); });
+    window.addEventListener('resize', ridimensiona);
+    if (stretto.addEventListener) stretto.addEventListener('change', ridimensiona);
     if (document.readyState === 'complete') prossima(); else window.addEventListener('load', prossima);
   }
 
