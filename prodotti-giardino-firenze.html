@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prodotti per il giardino a Firenze: terricci, concimi, vasi e terracotte | Il Giglio Verde</title>
-<meta name="description" content="Terricci, concimi, vasi e terracotte scelti da chi cura giardini ogni giorno, con il consiglio giusto per piante e terreno. Bagno a Ripoli, Firenze Sud e Toscana.">
+<meta name="description" content="Terricci di ogni tipo, concimi, vasi e terracotte, case in legno con montaggio, reticolati e molto altro, con consegna anche senza lavori. Bagno a Ripoli, Firenze Sud e Toscana.">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GYQ426DJKF"></script>
 <script>
@@ -19,7 +19,7 @@
 <meta property="og:locale" content="it_IT">
 <meta property="og:url" content="https://www.giglioverde.com/prodotti-giardino-firenze.html">
 <meta property="og:title" content="Prodotti per il giardino a Firenze: terricci, concimi, vasi e terracotte | Il Giglio Verde">
-<meta property="og:description" content="Terricci, concimi, vasi e terracotte scelti da chi cura giardini ogni giorno, con il consiglio giusto per piante e terreno. Bagno a Ripoli, Firenze Sud e Toscana.">
+<meta property="og:description" content="Terricci di ogni tipo, concimi, vasi e terracotte, case in legno con montaggio, reticolati e molto altro, con consegna anche senza lavori. Bagno a Ripoli, Firenze Sud e Toscana.">
 <meta property="og:image" content="https://www.giglioverde.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -141,7 +141,7 @@
     "name": "Prodotti per il giardino",
     "serviceType": "Rivendita prodotti per il giardino",
     "url": "https://www.giglioverde.com/prodotti-giardino-firenze.html",
-    "description": "Terricci, concimi, vasi e terracotte scelti da chi cura giardini ogni giorno, con il consiglio giusto per piante e terreno. Bagno a Ripoli, Firenze Sud e Toscana.",
+    "description": "Terricci di ogni tipo, concimi, vasi e terracotte, case in legno con montaggio, reticolati e molto altro, con consegna anche senza lavori. Bagno a Ripoli, Firenze Sud e Toscana.",
     "provider": {
       "@type": "HomeAndConstructionBusiness",
       "@id": "https://www.giglioverde.com/#ditta",
@@ -212,35 +212,71 @@
 <header class="svc-hero">
   <div class="cat">Servizi · Prodotti</div>
   <h1>Prodotti per il <i>giardino</i></h1>
-  <p class="lead">Terricci, concimi, vasi e terracotte scelti da chi cura giardini, oliveti e terrazzi ogni giorno. Ti aiutiamo a scegliere il prodotto giusto per le tue piante, il tuo terreno e la tua stagione.</p>
+  <p class="lead">Terricci di ogni tipo, concimi, vasi e terracotte, case in legno con montaggio, reticolati e tanto altro per il giardino. Li vendiamo e li consegniamo anche senza un lavoro, con il consiglio di chi cura giardini, oliveti e terrazzi ogni giorno.</p>
   <div class="azioni">
     <a class="btn btn-fill" href="tel:+393287217116">Chiama 328 7217116</a>
     <a class="btn btn-ghost" href="https://wa.me/393287217116?text=Buongiorno%2C%20vorrei%20informazioni%20sui%20prodotti%20per%20il%20giardino." target="_blank" rel="noopener">Scrivici su WhatsApp</a>
   </div>
-  <div class="fatti"><span>Dal 2011</span><span>Consiglio su misura</span><span>Un solo referente</span></div>
+  <div class="fatti"><span>Dal 2011</span><span>Consegna anche senza lavori</span><span>Un solo referente</span></div>
 </header>
+<div class="hero-img-wrap">
+  <div class="carosello" aria-label="Prodotti per il giardino">
+    <div class="car-track">
+      <img src="/img/lavori/prodotti-fioriere-terracotta.webp" alt="Fioriere e conche in terracotta, lisce e decorate" width="853" height="640" loading="eager">
+      <img src="/img/lavori/prodotti-orcio-stemma.webp" alt="Orcio in terracotta con stemma in rilievo" width="480" height="640">
+      <img src="/img/lavori/prodotti-cassette-vaso.webp" alt="Cassette in terracotta e vaso con olivo" width="1123" height="640">
+    </div>
+    <button class="car-btn prev" type="button" aria-label="Foto precedente">&#8249;</button>
+    <button class="car-btn next" type="button" aria-label="Foto successiva">&#8250;</button>
+  </div>
+  <script>
+  (function(){
+    var c=document.currentScript.previousElementSibling, t=c.querySelector('.car-track');
+    function passo(dir){
+      var imgs=t.querySelectorAll('img'), x=t.scrollLeft, fine=t.scrollWidth-t.clientWidth-4;
+      if(dir>0 && x>=fine){ t.scrollTo({left:0}); return; }
+      if(dir<0 && x<=4){ t.scrollTo({left:fine}); return; }
+      for(var i=0;i<imgs.length;i++){ var o=imgs[i].offsetLeft-t.offsetLeft;
+        if(dir>0 && o>x+4){ t.scrollTo({left:o}); return; } }
+      for(var j=imgs.length-1;j>=0;j--){ var o2=imgs[j].offsetLeft-t.offsetLeft;
+        if(dir<0 && o2<x-4){ t.scrollTo({left:o2}); return; } }
+    }
+    if(t.scrollWidth<=t.clientWidth+4){ c.querySelector('.next').style.display=c.querySelector('.prev').style.display='none'; }
+    c.querySelector('.next').onclick=function(){passo(1)};
+    c.querySelector('.prev').onclick=function(){passo(-1)};
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      var pausa=false; c.onmouseenter=function(){pausa=true}; c.onmouseleave=function(){pausa=false};
+      t.addEventListener('touchstart',function(){pausa=true},{passive:true});
+      setInterval(function(){ if(!pausa) passo(1); },3500);
+    }
+  })();
+  </script>
+</div>
 
 <main>
   <h2>Cosa <i>trovi</i></h2>
   <div class="schede">
-    <div class="scheda"><h3>Terricci</h3><p>Per orto, prato, vasi e nuovi impianti: il terriccio giusto fa la differenza fin dalla messa a dimora.</p></div>
+    <div class="scheda"><h3>Terricci di ogni tipo</h3><p>Per orto, prato, vasi, agrumi, acidofile e nuovi impianti: il terriccio giusto fa la differenza fin dalla messa a dimora.</p></div>
     <div class="scheda"><h3>Concimi</h3><p>Per giardino, prato, orto e olivi, da usare nel momento giusto dell'anno.</p></div>
-    <div class="scheda"><h3>Vasi</h3><p>Vasi per terrazzi, giardini e interni, nelle misure adatte alla pianta.</p></div>
-    <div class="scheda"><h3>Terracotte</h3><p>Terracotte per dare carattere a terrazze, logge e giardini toscani.</p></div>
+    <div class="scheda"><h3>Vasi e terracotte</h3><p>Fioriere, conche, orci e vasi in terracotta per dare carattere a terrazze, logge e giardini toscani.</p></div>
+    <div class="scheda"><h3>Case in legno</h3><p>Casette da giardino per attrezzi e ricovero, fornite e montate da noi.</p></div>
+    <div class="scheda"><h3>Reticolati</h3><p>Reti e recinzioni per orti, giardini, animali e terreni.</p></div>
+    <div class="scheda"><h3>E molto altro</h3><p>Se ti serve qualcosa per il giardino che non vedi qui, chiedicelo: spesso ce l'abbiamo o te lo procuriamo.</p></div>
   </div>
 
   <h2>Il consiglio di chi <i>lavora</i> il verde</h2>
   <p>I prodotti che proponiamo sono quelli che usiamo nei nostri lavori. Raccontaci cosa devi piantare o curare e ti diciamo cosa serve davvero, senza farti comprare il superfluo.</p>
 
-  <h2>Un solo referente per <i>prodotti e lavori</i></h2>
-  <p>Se vuoi, pensiamo noi anche a invasare, mettere a dimora e concimare: i prodotti e il lavoro con le stesse persone e un unico preventivo.</p>
+  <h2>Consegna, anche <i>senza lavori</i></h2>
+  <p>Puoi comprare solo i prodotti: te li portiamo noi. Se invece vuoi, pensiamo anche a invasare, mettere a dimora, concimare o montare la casetta, con le stesse persone e un unico preventivo.</p>
 
   <h2>Dove <i>operiamo</i></h2>
   <p>Siamo basati a Bagno a Ripoli e lavoriamo principalmente su Firenze Sud, ma seguiamo clienti su tutto il territorio toscano. Ville, agriturismi, dimore storiche: se il progetto lo richiede, ci spostiamo.</p>
 
   <h2>Domande <i>frequenti</i></h2>
+  <details><summary>Vendete i prodotti anche senza un lavoro?</summary><p>Sì, vendiamo e consegniamo anche solo i prodotti.</p></details>
+  <details><summary>Montate anche le case in legno?</summary><p>Sì, le forniamo e le montiamo noi.</p></details>
   <details><summary>Mi aiutate a scegliere il terriccio o il concime?</summary><p>Sì: ci dici che piante hai e dove, e ti consigliamo il prodotto adatto.</p></details>
-  <details><summary>Potete anche fare il lavoro?</summary><p>Sì, possiamo invasare, mettere a dimora e concimare noi. Lo valutiamo insieme al sopralluogo.</p></details>
 
   <div class="cta">
     <h2>Chiedici il prodotto <i>giusto</i></h2>
