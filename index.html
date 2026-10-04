@@ -994,8 +994,11 @@ main > section { position: relative; }
         var r = box.getBoundingClientRect(), vh = window.innerHeight;
         return Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.5 + r.height * 0.5)));
       }
-      // sboccia del tutto entro le prime cinque schermate, poi resta aperto
-      var max = Math.min((document.documentElement.scrollHeight - window.innerHeight) * 0.94, window.innerHeight * 5);
+      // sboccia piano piano e si apre del tutto quando arriva la sezione "Cosa dicono i clienti", poi resta aperto
+      var rec = document.getElementById('recensioni');
+      var max = rec ? rec.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.2
+        : (document.documentElement.scrollHeight - window.innerHeight) * 0.94;
+      max = Math.min(max, document.documentElement.scrollHeight - window.innerHeight);
       return max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
     }
     function aggiorna() { inCoda = false; disegna(ridotto ? tot - 1 : Math.round(avanzamento() * (tot - 1))); }
