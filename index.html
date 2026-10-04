@@ -462,6 +462,12 @@ main > section { position: relative; }
   .marchio-nome small { font-size: 9.5px; }
   .testata .btn { display: none; }
   .apri-menu { margin-left: auto; }
+  .testata .riga { gap: 10px; }
+  .social { margin-left: 0; gap: 0; }
+  .social a { width: 30px; height: 34px; }
+  .marchio { gap: 10px; }
+  .marchio-nome b { letter-spacing: 0.06em; }
+  .apri-menu { padding: 11px 12px; }
   .apertura .wrap { min-height: 0; padding-block: 38px 6px; }
   .apertura h1 { font-size: clamp(36px, 9.6vw, 56px); }
   .azioni .btn { flex: 1 1 auto; }
@@ -481,6 +487,12 @@ main > section { position: relative; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+@media screen and (max-width: 380px) {
+  .marchio-nome b { font-size: 15.5px; letter-spacing: 0.04em; }
+  .marchio-nome small { font-size: 8.5px; letter-spacing: 0.16em; }
+  .social a { width: 28px; }
+  .apri-menu { padding: 10px; }
 }
 </style>
 </head>

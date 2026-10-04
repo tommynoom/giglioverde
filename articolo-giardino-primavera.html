@@ -149,7 +149,13 @@
   .social a { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 50%; color: var(--cream-dim); transition: color .2s, background .2s; }
   .social a:hover { color: var(--gold); background: rgba(243,238,226,0.06); }
   .social svg { width: 19px; height: 19px; }
-  </style>
+    @media screen and (max-width: 640px) {
+    .logo { white-space: nowrap; }
+    .logo-riga { gap: 2px; }
+    .social { margin-left: 0; gap: 0; }
+    .social a { width: 32px; height: 32px; }
+  }
+</style>
 </head>
 <body>
 
