@@ -115,6 +115,12 @@
   .foot-servizi a:hover { color: var(--gold); }
   .hero-img-wrap { padding: 24px 6% 0; }
   .hero-img { width: 100%; aspect-ratio: 16/7; object-fit: cover; border-radius: 16px; display: block; }
+  .carosello { position: relative; height: max(170px, calc(88vw * 7 / 32)); }
+  .car-track { display: flex; gap: 12px; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; border-radius: 16px; }
+  .car-track::-webkit-scrollbar { display: none; }
+  .car-track img { height: 100%; width: auto; flex: 0 0 auto; object-fit: cover; border-radius: 16px; scroll-snap-align: start; display: block; }
+  .car-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255,255,255,0.9); color: #1f3a2b; font-size: 20px; line-height: 1; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.18); }
+  .car-btn.prev { left: 10px; } .car-btn.next { right: 10px; }
   .wa { position: fixed; bottom: 22px; right: 22px; z-index: 99; width: 56px; height: 56px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 22px rgba(37,211,102,0.4); transition: transform 0.25s; }
   .wa:hover { transform: scale(1.08); }
   .wa svg { width: 28px; height: 28px; fill: #fff; }
@@ -205,8 +211,8 @@
 
 <header class="svc-hero">
   <div class="cat">Servizi · Campagna e oliveti</div>
-  <h1>Gestione oliveti e raccolta olive a <i>Bagno&nbsp;a&nbsp;Ripoli</i> e Firenze</h1>
-  <p class="lead">Hai degli olivi ma non il tempo di seguirli? Ci occupiamo dell'oliveto tutto l'anno, dalla potatura alla pulizia del terreno, e della raccolta delle olive in autunno.</p>
+  <h1>Dalla gestione dell'<i>oliveto</i>, passando per la raccolta, fino al prodotto finale</h1>
+  <p class="lead">Seguiamo l'oliveto tutto l'anno: potatura, pulizia e trinciatura del terreno, raccolta delle olive in autunno, fino all'olio. Per proprietari di oliveti, ville e aziende agricole che vogliono piante in salute e un raccolto di qualità.</p>
   <div class="azioni">
     <a class="btn btn-fill" href="tel:+393287217116">Chiama 328 7217116</a>
     <a class="btn btn-ghost" href="https://wa.me/393287217116?text=Buongiorno%2C%20vorrei%20informazioni%20per%20l%27oliveto%20e%20la%20raccolta%20delle%20olive." target="_blank" rel="noopener">Scrivici su WhatsApp</a>
@@ -214,7 +220,37 @@
   <div class="fatti"><span>Dal 2011</span><span>Sopralluogo e preventivo gratuiti</span><span>Un solo referente</span></div>
 </header>
 <div class="hero-img-wrap">
-  <img src="/img/lavori/bordure-olivi.webp" alt="Filare di olivi curato in Toscana" width="800" height="1000" loading="eager" class="hero-img">
+  <div class="carosello" aria-label="Lavori negli oliveti">
+    <div class="car-track">
+      <img src="/img/lavori/oliveto-drone-filari.webp" alt="Veduta aerea di un grande oliveto a filari" width="1138" height="640" loading="eager">
+      <img src="/img/lavori/oliveto-potatura.webp" alt="Oliveto dopo la potatura, con le ramaglie a terra" width="853" height="640">
+      <img src="/img/lavori/oliveto-drone-campo.webp" alt="Veduta aerea di olivi secolari su prato" width="1138" height="640">
+      <img src="/img/lavori/olivi-potatura-giardino.webp" alt="Potatura di olivi in un giardino condominiale" width="853" height="640">
+    </div>
+    <button class="car-btn prev" type="button" aria-label="Foto precedente">&#8249;</button>
+    <button class="car-btn next" type="button" aria-label="Foto successiva">&#8250;</button>
+  </div>
+  <script>
+  (function(){
+    var c=document.currentScript.previousElementSibling, t=c.querySelector('.car-track');
+    function passo(dir){
+      var imgs=t.querySelectorAll('img'), x=t.scrollLeft, fine=t.scrollWidth-t.clientWidth-4;
+      if(dir>0 && x>=fine){ t.scrollTo({left:0}); return; }
+      if(dir<0 && x<=4){ t.scrollTo({left:fine}); return; }
+      for(var i=0;i<imgs.length;i++){ var o=imgs[i].offsetLeft-t.offsetLeft;
+        if(dir>0 && o>x+4){ t.scrollTo({left:o}); return; } }
+      for(var j=imgs.length-1;j>=0;j--){ var o2=imgs[j].offsetLeft-t.offsetLeft;
+        if(dir<0 && o2<x-4){ t.scrollTo({left:o2}); return; } }
+    }
+    c.querySelector('.next').onclick=function(){passo(1)};
+    c.querySelector('.prev').onclick=function(){passo(-1)};
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      var pausa=false; c.onmouseenter=function(){pausa=true}; c.onmouseleave=function(){pausa=false};
+      t.addEventListener('touchstart',function(){pausa=true},{passive:true});
+      setInterval(function(){ if(!pausa) passo(1); },3500);
+    }
+  })();
+  </script>
 </div>
 
 <main>
