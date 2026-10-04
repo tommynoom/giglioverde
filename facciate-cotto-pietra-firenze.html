@@ -115,6 +115,12 @@
   .foot-servizi a:hover { color: var(--gold); }
   .hero-img-wrap { padding: 24px 6% 0; }
   .hero-img { width: 100%; aspect-ratio: 16/7; object-fit: cover; border-radius: 16px; display: block; }
+  .carosello { position: relative; height: max(170px, calc(88vw * 7 / 32)); }
+  .car-track { display: flex; gap: 12px; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; border-radius: 16px; }
+  .car-track::-webkit-scrollbar { display: none; }
+  .car-track img { height: 100%; width: auto; flex: 0 0 auto; object-fit: cover; border-radius: 16px; scroll-snap-align: start; display: block; }
+  .car-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255,255,255,0.9); color: #1f3a2b; font-size: 20px; line-height: 1; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.18); }
+  .car-btn.prev { left: 10px; } .car-btn.next { right: 10px; }
   .wa { position: fixed; bottom: 22px; right: 22px; z-index: 99; width: 56px; height: 56px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 22px rgba(37,211,102,0.4); transition: transform 0.25s; }
   .wa:hover { transform: scale(1.08); }
   .wa svg { width: 28px; height: 28px; fill: #fff; }
@@ -205,7 +211,7 @@
 
 <header class="svc-hero">
   <div class="cat">Servizi · Edilizia e facciate</div>
-  <h1>Nuova <i>vita</i> alla tua casa</h1>
+  <h1>Nuova <i>vita</i> a cotto, pietra e facciate</h1>
   <p class="lead">Restauro e protezione di cotto e pietra, rifacimento di facciate, imbiancature e opere murarie. Su abitazioni, ville e dimore storiche partiamo dallo studio della superficie e scegliamo tecniche e materiali adatti a ogni edificio: interventi rispettosi, fatti per durare.</p>
   <div class="azioni">
     <a class="btn btn-fill" href="tel:+393287217116">Chiama 328 7217116</a>
@@ -214,7 +220,37 @@
   <div class="fatti"><span>Dal 2011</span><span>Sopralluogo e preventivo gratuiti</span><span>Un solo referente</span></div>
 </header>
 <div class="hero-img-wrap">
-  <img src="/img/lavori/cotto-dopo.webp" alt="Terrazzo in cotto pulito e trattato" width="800" height="1000" loading="eager" class="hero-img">
+  <div class="carosello" aria-label="Lavori su cotto">
+    <div class="car-track">
+      <img src="/img/lavori/cotto-piscina.webp" alt="Bordo piscina in cotto a spina di pesce, tra gli olivi" width="853" height="640" loading="eager">
+      <img src="/img/lavori/cotto-spina-pesce.webp" alt="Pavimento esterno in cotto a spina di pesce con colonna in pietra" width="853" height="640">
+      <img src="/img/lavori/cotto-terrazza.webp" alt="Terrazza in cotto trattata con protettivo" width="480" height="640">
+      <img src="/img/lavori/cotto-balcone.webp" alt="Balcone in cotto dopo il trattamento idrorepellente" width="853" height="640">
+    </div>
+    <button class="car-btn prev" type="button" aria-label="Foto precedente">&#8249;</button>
+    <button class="car-btn next" type="button" aria-label="Foto successiva">&#8250;</button>
+  </div>
+  <script>
+  (function(){
+    var c=document.currentScript.previousElementSibling, t=c.querySelector('.car-track');
+    function passo(dir){
+      var imgs=t.querySelectorAll('img'), x=t.scrollLeft, fine=t.scrollWidth-t.clientWidth-4;
+      if(dir>0 && x>=fine){ t.scrollTo({left:0}); return; }
+      if(dir<0 && x<=4){ t.scrollTo({left:fine}); return; }
+      for(var i=0;i<imgs.length;i++){ var o=imgs[i].offsetLeft-t.offsetLeft;
+        if(dir>0 && o>x+4){ t.scrollTo({left:o}); return; } }
+      for(var j=imgs.length-1;j>=0;j--){ var o2=imgs[j].offsetLeft-t.offsetLeft;
+        if(dir<0 && o2<x-4){ t.scrollTo({left:o2}); return; } }
+    }
+    c.querySelector('.next').onclick=function(){passo(1)};
+    c.querySelector('.prev').onclick=function(){passo(-1)};
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      var pausa=false; c.onmouseenter=function(){pausa=true}; c.onmouseleave=function(){pausa=false};
+      t.addEventListener('touchstart',function(){pausa=true},{passive:true});
+      setInterval(function(){ if(!pausa) passo(1); },3500);
+    }
+  })();
+  </script>
 </div>
 
 <main>
