@@ -95,8 +95,9 @@
   .foto-sx { float: left; margin: 6px 26px 18px 0; }
   .foto-dx { float: right; margin: 6px 0 18px 26px; }
   .article-body h2 { clear: both; }
+  .article-body ul, .article-body ol { display: flow-root; }
   .foto-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 8px 0 30px; }
-  .foto-trio img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; display: block; }
+  .foto-trio img { width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; display: block; }
   .foto-trio figcaption { grid-column: 1 / -1; font-size: 0.8rem; color: var(--cream-dim); }
   .icona-titolo { width: 64px; height: 64px; border-radius: 50%; vertical-align: middle; margin-right: 14px; background: #fff; }
   @media screen and (max-width: 640px) {
