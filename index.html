@@ -254,6 +254,10 @@ main > section { position: relative; }
 .marchio-nome b { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
 .marchio-nome small { margin-top: 5px; font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crema-2); white-space: nowrap; }
 .testata nav { margin-left: auto; }
+.social { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; }
+.social a { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 50%; color: var(--crema-2); transition: color .2s, background .2s; }
+.social a:hover { color: var(--oro); background: rgba(243,238,226,0.06); }
+.social svg { width: 19px; height: 19px; }
 .menu { display: flex; gap: 26px; }
 .menu a { font-size: 15px; color: var(--crema-2); text-decoration: none; padding-block: 8px; }
 .menu a:hover { color: var(--crema); }
@@ -497,13 +501,15 @@ main > section { position: relative; }
 <header class="testata" id="testata">
   <div class="riga">
     <a href="/" class="marchio" aria-label="Il Giglio Verde, pagina iniziale"><svg viewBox="4 4 52 58" aria-hidden="true" focusable="false"><g fill="#f3eee2"><path d="M30 4C33.8 13 35.8 20 35.8 26.5C35.8 31.5 33.6 35.5 30 38C26.4 35.5 24.2 31.5 24.2 26.5C24.2 20 26.2 13 30 4Z"/><path d="M24.6 28.5C19 25.5 12.5 25 8.5 28.5C4 32.5 4 40.5 8.5 44C10.5 45.5 13 45.8 14.8 45C11.5 42.5 10.5 38 12.5 34.5C14.3 31.4 19 29.6 24.6 28.5Z"/><path d="M35.4 28.5C41 25.5 47.5 25 51.5 28.5C56 32.5 56 40.5 51.5 44C49.5 45.5 47 45.8 45.2 45C48.5 42.5 49.5 38 47.5 34.5C45.7 31.4 41 29.6 35.4 28.5Z"/><path d="M27.6 44.3H32.4C33.8 51 35.8 57 38.4 62H21.6C24.2 57 26.2 51 27.6 44.3Z"/></g><rect x="18.6" y="39.4" width="22.8" height="5" rx="2.5" fill="#e0bd74"/></svg><span class="marchio-nome"><b>Il Giglio Verde</b><small>Giardini ed esterni</small></span></a>
+    <span class="social"><a href="https://www.facebook.com/GiglioVerdeGiardini" target="_blank" rel="noopener" aria-label="Il Giglio Verde su Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.6V14h2.8v8h3.1z"/></svg></a><a href="https://www.instagram.com/giglioverdegiardini" target="_blank" rel="noopener" aria-label="Il Giglio Verde su Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3z"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a></span>
     <nav aria-label="Principale">
       <ul class="menu">
+        <li><a href="#contatti">Contatti</a></li>
         <li><a href="#settori">Settori</a></li>
         <li><a href="#progettazione">Progettazione</a></li>
         <li><a href="#impresa">L'impresa</a></li>
         <li><a href="#lavori">Lavori</a></li>
-        <li><a href="#contatti">Contatti</a></li>
+        <li><a href="#consigli">Blog</a></li>
       </ul>
     </nav>
     <a class="btn btn-oro" href="#contatti">Richiedi un preventivo</a>
@@ -518,13 +524,14 @@ main > section { position: relative; }
   </div>
   <nav aria-label="Menu del telefono">
     <ul>
+      <li><a href="#contatti">Contatti</a></li>
       <li><a href="#settori">Settori</a></li>
       <li><a href="#impresa">L'impresa</a></li>
       <li><a href="#metodo">Il metodo</a></li>
       <li><a href="#progettazione">Progettazione</a></li>
       <li><a href="#per-chi">Per chi lavoriamo</a></li>
       <li><a href="#lavori">Lavori</a></li>
-      <li><a href="#contatti">Contatti</a></li>
+      <li><a href="#consigli">Blog</a></li>
     </ul>
   </nav>
   <a class="btn btn-oro" href="#contatti">Richiedi un preventivo</a>
@@ -812,6 +819,7 @@ main > section { position: relative; }
           <li><a href="#progettazione">Progettazione</a></li>
           <li><a href="#lavori">Lavori e progetti</a></li>
           <li><a href="#per-chi">Per chi lavoriamo</a></li>
+          <li><a href="#consigli">Blog</a></li>
         </ul>
       </div>
       <div>

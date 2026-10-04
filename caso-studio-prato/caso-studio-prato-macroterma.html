@@ -47,7 +47,7 @@
 <!-- ===== HEADER DEL SITO ===== -->
 <header class="site-head">
   <div class="container site-head-inner">
-    <a class="site-logo" href="https://www.giglioverde.com"><svg class="giglio" viewBox="4 4 52 58" aria-hidden="true" focusable="false"><g fill="#f3eee2"><path d="M30 4C33.8 13 35.8 20 35.8 26.5C35.8 31.5 33.6 35.5 30 38C26.4 35.5 24.2 31.5 24.2 26.5C24.2 20 26.2 13 30 4Z"/><path d="M24.6 28.5C19 25.5 12.5 25 8.5 28.5C4 32.5 4 40.5 8.5 44C10.5 45.5 13 45.8 14.8 45C11.5 42.5 10.5 38 12.5 34.5C14.3 31.4 19 29.6 24.6 28.5Z"/><path d="M35.4 28.5C41 25.5 47.5 25 51.5 28.5C56 32.5 56 40.5 51.5 44C49.5 45.5 47 45.8 45.2 45C48.5 42.5 49.5 38 47.5 34.5C45.7 31.4 41 29.6 35.4 28.5Z"/><path d="M27.6 44.3H32.4C33.8 51 35.8 57 38.4 62H21.6C24.2 57 26.2 51 27.6 44.3Z"/></g><rect x="18.6" y="39.4" width="22.8" height="5" rx="2.5" fill="#e0bd74"/></svg><span>Il Giglio <em>Verde</em></span></a>
+    <span class="logo-riga"><a class="site-logo" href="https://www.giglioverde.com"><svg class="giglio" viewBox="4 4 52 58" aria-hidden="true" focusable="false"><g fill="#f3eee2"><path d="M30 4C33.8 13 35.8 20 35.8 26.5C35.8 31.5 33.6 35.5 30 38C26.4 35.5 24.2 31.5 24.2 26.5C24.2 20 26.2 13 30 4Z"/><path d="M24.6 28.5C19 25.5 12.5 25 8.5 28.5C4 32.5 4 40.5 8.5 44C10.5 45.5 13 45.8 14.8 45C11.5 42.5 10.5 38 12.5 34.5C14.3 31.4 19 29.6 24.6 28.5Z"/><path d="M35.4 28.5C41 25.5 47.5 25 51.5 28.5C56 32.5 56 40.5 51.5 44C49.5 45.5 47 45.8 45.2 45C48.5 42.5 49.5 38 47.5 34.5C45.7 31.4 41 29.6 35.4 28.5Z"/><path d="M27.6 44.3H32.4C33.8 51 35.8 57 38.4 62H21.6C24.2 57 26.2 51 27.6 44.3Z"/></g><rect x="18.6" y="39.4" width="22.8" height="5" rx="2.5" fill="#e0bd74"/></svg><span>Il Giglio <em>Verde</em></span></a><span class="social"><a href="https://www.facebook.com/GiglioVerdeGiardini" target="_blank" rel="noopener" aria-label="Il Giglio Verde su Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.6V14h2.8v8h3.1z"/></svg></a><a href="https://www.instagram.com/giglioverdegiardini" target="_blank" rel="noopener" aria-label="Il Giglio Verde su Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3z"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a></span></span>
 
     <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
     <label for="nav-toggle" class="nav-toggle-btn" aria-label="Apri il menu">
@@ -77,6 +77,7 @@
 <!-- ===== HERO ===== -->
 <div class="hero-photo">
   <picture>
+    <source type="image/avif" srcset="assets/img/hero.avif 1200w, assets/img/hero-lg.avif 1920w" sizes="100vw">
     <source type="image/webp"
       srcset="assets/img/hero.webp 1200w, assets/img/hero-lg.webp 1920w"
       sizes="100vw">
@@ -167,8 +168,9 @@
 
     <div class="roots-fig">
       <picture>
+        <source srcset="assets/img/roots_illustration.avif" type="image/avif">
         <source srcset="assets/img/roots_illustration.webp" type="image/webp">
-        <img src="assets/img/roots_illustration.jpg" alt="Confronto tra apparato radicale delle microterme (15-40 cm) e del Cynodon dactylon (fino a 180 cm)" loading="lazy" width="900" height="675">
+        <img src="assets/img/roots_illustration.jpg" alt="Confronto tra apparato radicale delle microterme (15-40 cm) e del Cynodon dactylon (fino a 180 cm)" loading="lazy" decoding="async" width="900" height="675">
       </picture>
       <p class="roots-note">Valori indicativi in suolo profondo e non compattato. Le microterme concentrano oltre l'80% della massa radicale nei primi 15 cm; il Cynodon mantiene radici attive ben oltre il metro, oltre a un reticolo superficiale di stoloni e rizomi nei primi 15–20 cm. In terreni compatti o poco profondi entrambe restano più superficiali, ma il rapporto tra le due resta invariato.</p>
       <p class="roots-source">Fonte: letteratura di turfgrass science su Cynodon dactylon e specie microterme (festuca, loietto, poa) in condizioni ottimali di suolo. I valori reali variano in funzione di struttura del terreno, compattazione e gestione irrigua.</p>
@@ -383,29 +385,33 @@
       <div class="gallery g2">
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d0_1000042380.jpg.avif" type="image/avif">
         <source srcset="assets/img/d0_1000042380.jpg.webp" type="image/webp">
-        <img src="assets/img/d0_1000042380.jpg.jpg" alt="Superficie scalpata e ripulita, vialetto in pietra liberato" loading="lazy" width="760" height="570">
+        <img src="assets/img/d0_1000042380.jpg.jpg" alt="Superficie scalpata e ripulita, vialetto in pietra liberato" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Superficie scalpata e ripulita, vialetto in pietra liberato</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d0_1000042381.jpg.avif" type="image/avif">
         <source srcset="assets/img/d0_1000042381.jpg.webp" type="image/webp">
-        <img src="assets/img/d0_1000042381.jpg.jpg" alt="Terreno livellato lungo il camminamento principale" loading="lazy" width="760" height="570">
+        <img src="assets/img/d0_1000042381.jpg.jpg" alt="Terreno livellato lungo il camminamento principale" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Terreno livellato lungo il camminamento principale</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d0_1000042382.jpg.avif" type="image/avif">
         <source srcset="assets/img/d0_1000042382.jpg.webp" type="image/webp">
-        <img src="assets/img/d0_1000042382.jpg.jpg" alt="Veduta d'insieme del giardino prima della semina" loading="lazy" width="760" height="570">
+        <img src="assets/img/d0_1000042382.jpg.jpg" alt="Veduta d'insieme del giardino prima della semina" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Veduta d'insieme del giardino prima della semina</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d0_1000042383.jpg.avif" type="image/avif">
         <source srcset="assets/img/d0_1000042383.jpg.webp" type="image/webp">
-        <img src="assets/img/d0_1000042383.jpg.jpg" alt="Area centrale pronta ad accogliere il substrato" loading="lazy" width="760" height="570">
+        <img src="assets/img/d0_1000042383.jpg.jpg" alt="Area centrale pronta ad accogliere il substrato" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Area centrale pronta ad accogliere il substrato</figcaption>
     </figure>
@@ -419,43 +425,49 @@
       <div class="gallery g3">
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d10_1000042986.jpg.avif" type="image/avif">
         <source srcset="assets/img/d10_1000042986.jpg.webp" type="image/webp">
-        <img src="assets/img/d10_1000042986.jpg.jpg" alt="Prime piantine ad ago tra le foglie secche" loading="lazy" width="760" height="570">
+        <img src="assets/img/d10_1000042986.jpg.jpg" alt="Prime piantine ad ago tra le foglie secche" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Prime piantine ad ago tra le foglie secche</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d10_1000042978.jpg.avif" type="image/avif">
         <source srcset="assets/img/d10_1000042978.jpg.webp" type="image/webp">
-        <img src="assets/img/d10_1000042978.jpg.jpg" alt="Germinazione isolata sul terriccio scuro" loading="lazy" width="760" height="570">
+        <img src="assets/img/d10_1000042978.jpg.jpg" alt="Germinazione isolata sul terriccio scuro" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Germinazione isolata sul terriccio scuro</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d10_1000042979.jpg.avif" type="image/avif">
         <source srcset="assets/img/d10_1000042979.jpg.webp" type="image/webp">
-        <img src="assets/img/d10_1000042979.jpg.jpg" alt="Distribuzione ancora rada, primi ciuffi" loading="lazy" width="760" height="570">
+        <img src="assets/img/d10_1000042979.jpg.jpg" alt="Distribuzione ancora rada, primi ciuffi" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Distribuzione ancora rada, primi ciuffi</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d10_1000042983.jpg.avif" type="image/avif">
         <source srcset="assets/img/d10_1000042983.jpg.webp" type="image/webp">
-        <img src="assets/img/d10_1000042983.jpg.jpg" alt="Veduta d'insieme dell'area seminata" loading="lazy" width="760" height="570">
+        <img src="assets/img/d10_1000042983.jpg.jpg" alt="Veduta d'insieme dell'area seminata" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Veduta d'insieme dell'area seminata</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d10_1000042981.jpg.avif" type="image/avif">
         <source srcset="assets/img/d10_1000042981.jpg.webp" type="image/webp">
-        <img src="assets/img/d10_1000042981.jpg.jpg" alt="Dettaglio ravvicinato dei primi fili" loading="lazy" width="760" height="570">
+        <img src="assets/img/d10_1000042981.jpg.jpg" alt="Dettaglio ravvicinato dei primi fili" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Dettaglio ravvicinato dei primi fili</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d10_1000042985.jpg.avif" type="image/avif">
         <source srcset="assets/img/d10_1000042985.jpg.webp" type="image/webp">
-        <img src="assets/img/d10_1000042985.jpg.jpg" alt="Piantine emergenti lungo il bordo" loading="lazy" width="760" height="570">
+        <img src="assets/img/d10_1000042985.jpg.jpg" alt="Piantine emergenti lungo il bordo" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Piantine emergenti lungo il bordo</figcaption>
     </figure>
@@ -469,43 +481,49 @@
       <div class="gallery g3">
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d17_1000043520.jpg.avif" type="image/avif">
         <source srcset="assets/img/d17_1000043520.jpg.webp" type="image/webp">
-        <img src="assets/img/d17_1000043520.jpg.jpg" alt="Zona centrale, tappeto fitto e terriccio coperto" loading="lazy" width="760" height="570">
+        <img src="assets/img/d17_1000043520.jpg.jpg" alt="Zona centrale, tappeto fitto e terriccio coperto" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Zona centrale, tappeto fitto e terriccio coperto</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d17_1000043521.jpg.avif" type="image/avif">
         <source srcset="assets/img/d17_1000043521.jpg.webp" type="image/webp">
-        <img src="assets/img/d17_1000043521.jpg.jpg" alt="Dettaglio ravvicinato in fase di accestimento" loading="lazy" width="760" height="570">
+        <img src="assets/img/d17_1000043521.jpg.jpg" alt="Dettaglio ravvicinato in fase di accestimento" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Dettaglio ravvicinato in fase di accestimento</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d17_1000043522.jpg.avif" type="image/avif">
         <source srcset="assets/img/d17_1000043522.jpg.webp" type="image/webp">
-        <img src="assets/img/d17_1000043522.jpg.jpg" alt="Densità uniforme su superficie ampia" loading="lazy" width="760" height="570">
+        <img src="assets/img/d17_1000043522.jpg.jpg" alt="Densità uniforme su superficie ampia" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Densità uniforme su superficie ampia</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d17_1000043523.jpg.avif" type="image/avif">
         <source srcset="assets/img/d17_1000043523.jpg.webp" type="image/webp">
-        <img src="assets/img/d17_1000043523.jpg.jpg" alt="Residuo di loietto sopra il tappeto fine" loading="lazy" width="760" height="570">
+        <img src="assets/img/d17_1000043523.jpg.jpg" alt="Residuo di loietto sopra il tappeto fine" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Residuo di loietto sopra il tappeto fine</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d17_1000043524.jpg.avif" type="image/avif">
         <source srcset="assets/img/d17_1000043524.jpg.webp" type="image/webp">
-        <img src="assets/img/d17_1000043524.jpg.jpg" alt="Copertura mantenuta fino al bordo" loading="lazy" width="760" height="570">
+        <img src="assets/img/d17_1000043524.jpg.jpg" alt="Copertura mantenuta fino al bordo" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Copertura mantenuta fino al bordo</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d17_1000043525.jpg.avif" type="image/avif">
         <source srcset="assets/img/d17_1000043525.jpg.webp" type="image/webp">
-        <img src="assets/img/d17_1000043525.jpg.jpg" alt="Rugiada mattutina, piantine turgide" loading="lazy" width="760" height="570">
+        <img src="assets/img/d17_1000043525.jpg.jpg" alt="Rugiada mattutina, piantine turgide" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Rugiada mattutina, piantine turgide</figcaption>
     </figure>
@@ -519,15 +537,17 @@
       <div class="gallery g2">
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d18_1000043618.jpg.avif" type="image/avif">
         <source srcset="assets/img/d18_1000043618.jpg.webp" type="image/webp">
-        <img src="assets/img/d18_1000043618.jpg.jpg" alt="Vialetto tra le aiuole dopo il taglio alto" loading="lazy" width="760" height="570">
+        <img src="assets/img/d18_1000043618.jpg.jpg" alt="Vialetto tra le aiuole dopo il taglio alto" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Vialetto tra le aiuole dopo il taglio alto</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d18_1000043619.jpg.avif" type="image/avif">
         <source srcset="assets/img/d18_1000043619.jpg.webp" type="image/webp">
-        <img src="assets/img/d18_1000043619.jpg.jpg" alt="Zona centrale, tappeto uniforme dopo il passaggio" loading="lazy" width="760" height="570">
+        <img src="assets/img/d18_1000043619.jpg.jpg" alt="Zona centrale, tappeto uniforme dopo il passaggio" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Zona centrale, tappeto uniforme dopo il passaggio</figcaption>
     </figure>
@@ -541,43 +561,49 @@
       <div class="gallery g3">
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d23_1000043896.jpg.avif" type="image/avif">
         <source srcset="assets/img/d23_1000043896.jpg.webp" type="image/webp">
-        <img src="assets/img/d23_1000043896.jpg.jpg" alt="Veduta d'insieme dopo il primo taglio" loading="lazy" width="760" height="570">
+        <img src="assets/img/d23_1000043896.jpg.jpg" alt="Veduta d'insieme dopo il primo taglio" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Veduta d'insieme dopo il primo taglio</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d23_1000043894.jpg.avif" type="image/avif">
         <source srcset="assets/img/d23_1000043894.jpg.webp" type="image/webp">
-        <img src="assets/img/d23_1000043894.jpg.jpg" alt="Area centrale e camminamento, tappeto uniforme" loading="lazy" width="760" height="570">
+        <img src="assets/img/d23_1000043894.jpg.jpg" alt="Area centrale e camminamento, tappeto uniforme" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Area centrale e camminamento, tappeto uniforme</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d23_1000043895.jpg.avif" type="image/avif">
         <source srcset="assets/img/d23_1000043895.jpg.webp" type="image/webp">
-        <img src="assets/img/d23_1000043895.jpg.jpg" alt="Zona lungo il muro in pietra, copertura chiusa" loading="lazy" width="760" height="570">
+        <img src="assets/img/d23_1000043895.jpg.jpg" alt="Zona lungo il muro in pietra, copertura chiusa" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Zona lungo il muro in pietra, copertura chiusa</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d23_1000043900.jpg.avif" type="image/avif">
         <source srcset="assets/img/d23_1000043900.jpg.webp" type="image/webp">
-        <img src="assets/img/d23_1000043900.jpg.jpg" alt="Dettaglio ravvicinato: taglio netto, foglia integra" loading="lazy" width="760" height="570">
+        <img src="assets/img/d23_1000043900.jpg.jpg" alt="Dettaglio ravvicinato: taglio netto, foglia integra" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Dettaglio ravvicinato: taglio netto, foglia integra</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d23_1000043898.jpg.avif" type="image/avif">
         <source srcset="assets/img/d23_1000043898.jpg.webp" type="image/webp">
-        <img src="assets/img/d23_1000043898.jpg.jpg" alt="Densità piena fino al bordo del camminamento" loading="lazy" width="760" height="570">
+        <img src="assets/img/d23_1000043898.jpg.jpg" alt="Densità piena fino al bordo del camminamento" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Densità piena fino al bordo del camminamento</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d23_1000043901.jpg.avif" type="image/avif">
         <source srcset="assets/img/d23_1000043901.jpg.webp" type="image/webp">
-        <img src="assets/img/d23_1000043901.jpg.jpg" alt="Fasce più rade a lato della pietra, dove l'acqua arriva meno" loading="lazy" width="760" height="570">
+        <img src="assets/img/d23_1000043901.jpg.jpg" alt="Fasce più rade a lato della pietra, dove l'acqua arriva meno" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Fasce più rade a lato della pietra, dove l'acqua arriva meno</figcaption>
     </figure>
@@ -604,43 +630,49 @@
       <div class="gallery g3">
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d22c_1000043897.avif" type="image/avif">
         <source srcset="assets/img/d22c_1000043897.webp" type="image/webp">
-        <img src="assets/img/d22c_1000043897.jpg" alt="Le chiazze nel contesto del giardino, il giorno del taglio" loading="lazy" width="760" height="570">
+        <img src="assets/img/d22c_1000043897.jpg" alt="Le chiazze nel contesto del giardino, il giorno del taglio" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Le chiazze nel contesto del giardino, il giorno del taglio</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/ch_overview.avif" type="image/avif">
         <source srcset="assets/img/ch_overview.webp" type="image/webp">
-        <img src="assets/img/ch_overview.jpg" alt="Più chiazze ravvicinate: tappeto sano e fitto tutt'intorno" loading="lazy" width="760" height="570">
+        <img src="assets/img/ch_overview.jpg" alt="Più chiazze ravvicinate: tappeto sano e fitto tutt'intorno" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Più chiazze ravvicinate: tappeto sano e fitto tutt'intorno</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/ch_isolata.avif" type="image/avif">
         <source srcset="assets/img/ch_isolata.webp" type="image/webp">
-        <img src="assets/img/ch_isolata.jpg" alt="Chiazza isolata, bordo netto verso l'erba integra" loading="lazy" width="760" height="570">
+        <img src="assets/img/ch_isolata.jpg" alt="Chiazza isolata, bordo netto verso l'erba integra" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Chiazza isolata, bordo netto verso l'erba integra</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/ch_macro.avif" type="image/avif">
         <source srcset="assets/img/ch_macro.webp" type="image/webp">
-        <img src="assets/img/ch_macro.jpg" alt="Macro: materiale secco, e già germogli verdi al centro" loading="lazy" width="760" height="570">
+        <img src="assets/img/ch_macro.jpg" alt="Macro: materiale secco, e già germogli verdi al centro" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Macro: materiale secco, e già germogli verdi al centro</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/ch_muschio.avif" type="image/avif">
         <source srcset="assets/img/ch_muschio.webp" type="image/webp">
-        <img src="assets/img/ch_muschio.jpg" alt="Muschio color ruggine nel cuore di una chiazza" loading="lazy" width="760" height="570">
+        <img src="assets/img/ch_muschio.jpg" alt="Muschio color ruggine nel cuore di una chiazza" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Muschio color ruggine nel cuore di una chiazza</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/ch_muschio_mano.avif" type="image/avif">
         <source srcset="assets/img/ch_muschio_mano.webp" type="image/webp">
-        <img src="assets/img/ch_muschio_mano.jpg" alt="Muschio prelevato a mano: segno di umidità superficiale persistente" loading="lazy" width="760" height="570">
+        <img src="assets/img/ch_muschio_mano.jpg" alt="Muschio prelevato a mano: segno di umidità superficiale persistente" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Muschio prelevato a mano: segno di umidità superficiale persistente</figcaption>
     </figure>
@@ -667,29 +699,33 @@
       <div class="gallery g2">
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/ch_bastoncini.avif" type="image/avif">
         <source srcset="assets/img/ch_bastoncini.webp" type="image/webp">
-        <img src="assets/img/ch_bastoncini.jpg" alt="Il perimetro delimitato: a settantadue ore il bordo è fermo" loading="lazy" width="760" height="570">
+        <img src="assets/img/ch_bastoncini.jpg" alt="Il perimetro delimitato: a settantadue ore il bordo è fermo" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Il perimetro delimitato: a settantadue ore il bordo è fermo</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d25_4.avif" type="image/avif">
         <source srcset="assets/img/d25_4.webp" type="image/webp">
-        <img src="assets/img/d25_4.jpg" alt="Tappeto pieno e uniforme dove la copertura irrigua è completa" loading="lazy" width="760" height="570">
+        <img src="assets/img/d25_4.jpg" alt="Tappeto pieno e uniforme dove la copertura irrigua è completa" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Tappeto pieno e uniforme dove la copertura irrigua è completa</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d25_1.avif" type="image/avif">
         <source srcset="assets/img/d25_1.webp" type="image/webp">
-        <img src="assets/img/d25_1.jpg" alt="Fascia più chiara sotto la chioma degli alberi, dove il sole arriva poco" loading="lazy" width="760" height="570">
+        <img src="assets/img/d25_1.jpg" alt="Fascia più chiara sotto la chioma degli alberi, dove il sole arriva poco" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Fascia più chiara sotto la chioma degli alberi, dove il sole arriva poco</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d25_2.avif" type="image/avif">
         <source srcset="assets/img/d25_2.webp" type="image/webp">
-        <img src="assets/img/d25_2.jpg" alt="Degrado graduale di colore: firma della carenza idrica, non della malattia" loading="lazy" width="760" height="570">
+        <img src="assets/img/d25_2.jpg" alt="Degrado graduale di colore: firma della carenza idrica, non della malattia" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Degrado graduale di colore: firma della carenza idrica, non della malattia</figcaption>
     </figure>
@@ -703,22 +739,25 @@
       <div class="gallery g3">
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d39_1.avif" type="image/avif">
         <source srcset="assets/img/d39_1.webp" type="image/webp">
-        <img src="assets/img/d39_1.jpg" alt="Vista d'insieme: prato, vialetto e bordure a regime" loading="lazy" width="760" height="570">
+        <img src="assets/img/d39_1.jpg" alt="Vista d'insieme: prato, vialetto e bordure a regime" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Vista d'insieme: prato, vialetto e bordure a regime</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d39_2.avif" type="image/avif">
         <source srcset="assets/img/d39_2.webp" type="image/webp">
-        <img src="assets/img/d39_2.jpg" alt="Densità e colore uniformi attorno all'orcio in cotto" loading="lazy" width="760" height="570">
+        <img src="assets/img/d39_2.jpg" alt="Densità e colore uniformi attorno all'orcio in cotto" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Densità e colore uniformi attorno all'orcio in cotto</figcaption>
     </figure>
         <figure class="shot">
       <div class="ph"><picture>
+        <source srcset="assets/img/d39_3.avif" type="image/avif">
         <source srcset="assets/img/d39_3.webp" type="image/webp">
-        <img src="assets/img/d39_3.jpg" alt="Il gioco d'ombra della chioma non lascia più segni di sofferenza" loading="lazy" width="760" height="570">
+        <img src="assets/img/d39_3.jpg" alt="Il gioco d'ombra della chioma non lascia più segni di sofferenza" loading="lazy" decoding="async" width="760" height="570">
       </picture></div>
       <figcaption>Il gioco d'ombra della chioma non lascia più segni di sofferenza</figcaption>
     </figure>
@@ -738,15 +777,17 @@
       <div class="ba-cell">
         <div class="ba-tag before">Giorno 0 · 16 luglio</div>
         <div class="ph"><picture>
-          <source srcset="assets/img/d0_1000042380.jpg.webp" type="image/webp">
-          <img src="assets/img/d0_1000042380.jpg.jpg" alt="Terreno nudo il giorno della semina" loading="lazy" width="760" height="570">
+          <source srcset="assets/img/d0_1000042380.jpg.avif" type="image/avif">
+        <source srcset="assets/img/d0_1000042380.jpg.webp" type="image/webp">
+          <img src="assets/img/d0_1000042380.jpg.jpg" alt="Terreno nudo il giorno della semina" loading="lazy" decoding="async" width="760" height="570">
         </picture></div>
       </div>
       <div class="ba-cell">
         <div class="ba-tag after">Giorno 22 · 7 agosto</div>
         <div class="ph"><picture>
-          <source srcset="assets/img/d23_1000043894.jpg.webp" type="image/webp">
-          <img src="assets/img/d23_1000043894.jpg.jpg" alt="Tappeto verde e uniforme ventidue giorni dopo" loading="lazy" width="760" height="570">
+          <source srcset="assets/img/d23_1000043894.jpg.avif" type="image/avif">
+        <source srcset="assets/img/d23_1000043894.jpg.webp" type="image/webp">
+          <img src="assets/img/d23_1000043894.jpg.jpg" alt="Tappeto verde e uniforme ventidue giorni dopo" loading="lazy" decoding="async" width="760" height="570">
         </picture></div>
       </div>
     </div>
