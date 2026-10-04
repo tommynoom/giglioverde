@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luci di Natale e illuminazione da esterno a Firenze | Il Giglio Verde</title>
-<meta name="description" content="Luci di Natale per case, ville e aziende e illuminazione da esterno per eventi: progetto con rendering, fornitura e installazione. Firenze Sud e Toscana.">
+<meta name="description" content="Luci di Natale per case, ville e aziende e illuminazione da esterno per eventi: progetto con rendering, fornitura, montaggio e smontaggio. Firenze Sud e Toscana.">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GYQ426DJKF"></script>
 <script>
@@ -19,7 +19,7 @@
 <meta property="og:locale" content="it_IT">
 <meta property="og:url" content="https://www.giglioverde.com/luci-natalizie-firenze.html">
 <meta property="og:title" content="Luci di Natale e illuminazione da esterno a Firenze | Il Giglio Verde">
-<meta property="og:description" content="Luci di Natale per case, ville e aziende e illuminazione da esterno per eventi: progetto con rendering, fornitura e installazione. Firenze Sud e Toscana.">
+<meta property="og:description" content="Luci di Natale per case, ville e aziende e illuminazione da esterno per eventi: progetto con rendering, fornitura, montaggio e smontaggio. Firenze Sud e Toscana.">
 <meta property="og:image" content="https://www.giglioverde.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -141,7 +141,7 @@
     "name": "Luci di Natale e da esterno",
     "serviceType": "Luci di Natale e illuminazione da esterno",
     "url": "https://www.giglioverde.com/luci-natalizie-firenze.html",
-    "description": "Luci di Natale per case, ville e aziende e illuminazione da esterno per eventi: progetto con rendering, fornitura e installazione. Firenze Sud e Toscana.",
+    "description": "Luci di Natale per case, ville e aziende e illuminazione da esterno per eventi: progetto con rendering, fornitura, montaggio e smontaggio. Firenze Sud e Toscana.",
     "provider": {
       "@type": "HomeAndConstructionBusiness",
       "@id": "https://www.giglioverde.com/#ditta",
@@ -212,14 +212,52 @@
 <header class="svc-hero">
   <div class="cat">Servizi · Luci da esterno</div>
   <h1>Luci di <i>Natale</i> e illuminazione da esterno</h1>
-  <p class="lead">Progettiamo con il rendering, forniamo e installiamo luci di Natale per case, ville e aziende, e illuminazione da esterno per eventi. Prima di cominciare vedi già come sarà il risultato, cosa serve e quanto costa.</p>
+  <p class="lead">Progettiamo con il rendering, forniamo, montiamo e smontiamo luci di Natale per case, ville e aziende, e illuminazione da esterno per eventi. Prima di cominciare vedi già come sarà il risultato, cosa serve e quanto costa.</p>
   <div class="azioni">
     <a class="btn btn-fill" href="tel:+393287217116">Chiama 328 7217116</a>
     <a class="btn btn-ghost" href="https://wa.me/393287217116?text=Buongiorno%2C%20vorrei%20informazioni%20per%20luci%20di%20Natale%20o%20da%20esterno." target="_blank" rel="noopener">Scrivici su WhatsApp</a>
   </div>
   <div class="fatti"><span>Dal 2011</span><span>Sopralluogo e preventivo gratuiti</span><span>Un solo referente</span></div>
 </header>
- 
+<div class="hero-img-wrap">
+  <div class="carosello" aria-label="Luci installate">
+    <div class="car-track">
+      <img src="/img/lavori/luci-negozio-facciata.webp" alt="Facciata di un negozio con tende luminose e decorazioni natalizie" width="853" height="640" loading="eager">
+      <img src="/img/lavori/luci-parete-verde.webp" alt="Parete verde illuminata con cascate di luci calde" width="480" height="640">
+      <img src="/img/lavori/luci-bancone-mercato.webp" alt="Tende luminose su un bancone in un mercato coperto" width="853" height="640">
+      <img src="/img/lavori/luci-albero-ristorante.webp" alt="Albero luminoso in un ristorante con volte in pietra e mattoni" width="480" height="640">
+      <img src="/img/lavori/luci-parete-colorata.webp" alt="Parete verde con luci colorate a cascata" width="480" height="640">
+      <img src="/img/lavori/luci-stelle-scalini.webp" alt="Stelle e alberelli luminosi su scalini in pietra" width="480" height="640">
+      <img src="/img/lavori/luci-stella-nicchia.webp" alt="Stella luminosa in una nicchia in pietra" width="480" height="640">
+      <img src="/img/lavori/luci-albero-ingresso.webp" alt="Albero luminoso all'ingresso di un locale" width="480" height="640">
+    </div>
+    <button class="car-btn prev" type="button" aria-label="Foto precedente">&#8249;</button>
+    <button class="car-btn next" type="button" aria-label="Foto successiva">&#8250;</button>
+  </div>
+  <script>
+  (function(){
+    var c=document.currentScript.previousElementSibling, t=c.querySelector('.car-track');
+    function passo(dir){
+      var imgs=t.querySelectorAll('img'), x=t.scrollLeft, fine=t.scrollWidth-t.clientWidth-4;
+      if(dir>0 && x>=fine){ t.scrollTo({left:0}); return; }
+      if(dir<0 && x<=4){ t.scrollTo({left:fine}); return; }
+      for(var i=0;i<imgs.length;i++){ var o=imgs[i].offsetLeft-t.offsetLeft;
+        if(dir>0 && o>x+4){ t.scrollTo({left:o}); return; } }
+      for(var j=imgs.length-1;j>=0;j--){ var o2=imgs[j].offsetLeft-t.offsetLeft;
+        if(dir<0 && o2<x-4){ t.scrollTo({left:o2}); return; } }
+    }
+    if(t.scrollWidth<=t.clientWidth+4){ c.querySelector('.next').style.display=c.querySelector('.prev').style.display='none'; }
+    c.querySelector('.next').onclick=function(){passo(1)};
+    c.querySelector('.prev').onclick=function(){passo(-1)};
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      var pausa=false; c.onmouseenter=function(){pausa=true}; c.onmouseleave=function(){pausa=false};
+      t.addEventListener('touchstart',function(){pausa=true},{passive:true});
+      setInterval(function(){ if(!pausa) passo(1); },3500);
+    }
+  })();
+  </script>
+</div>
+
 <main>
   <h2>Cosa <i>facciamo</i></h2>
   <div class="schede">
@@ -233,17 +271,18 @@
   <dl class="cal">
     <div><dt>1 · Sopralluogo</dt><dd>Vediamo insieme lo spazio, i punti da illuminare e le prese disponibili.</dd></div>
     <div><dt>2 · Progetto e rendering</dt><dd>Ti mostriamo come sarà il risultato, con le luci scelte e il preventivo dettagliato.</dd></div>
-    <div><dt>3 · Fornitura e installazione</dt><dd>Forniamo il materiale e lo installiamo con cura, nei tempi concordati.</dd></div>
+    <div><dt>3 · Fornitura e montaggio</dt><dd>Forniamo il materiale e lo montiamo con cura, nei tempi concordati.</dd></div>
+    <div><dt>4 · Smontaggio</dt><dd>Finite le feste o l'evento torniamo a smontare tutto, lasciando lo spazio in ordine.</dd></div>
   </dl>
 
   <h2>Quando <i>prenotare</i></h2>
-  <p>Per il Natale conviene muoversi in autunno: tra ottobre e novembre c'è il tempo per il sopralluogo, il progetto e l'installazione prima delle feste. Per gli eventi, contattaci appena hai la data.</p>
+  <p>Per il Natale conviene muoversi in autunno: tra ottobre e novembre c'è il tempo per il sopralluogo, il progetto e il montaggio prima delle feste. Per gli eventi, contattaci appena hai la data.</p>
 
   <h2>Dove <i>operiamo</i></h2>
   <p>Siamo basati a Bagno a Ripoli e lavoriamo principalmente su Firenze Sud, ma seguiamo clienti su tutto il territorio toscano. Ville, agriturismi, dimore storiche: se il progetto lo richiede, ci spostiamo.</p>
 
   <h2>Domande <i>frequenti</i></h2>
-  <details><summary>Fornite anche le luci?</summary><p>Sì, ci occupiamo noi della fornitura e dell'installazione. Al sopralluogo valutiamo insieme cosa serve.</p></details>
+  <details><summary>Fornite anche le luci?</summary><p>Sì: fornitura, montaggio e, finite le feste, smontaggio. Al sopralluogo valutiamo insieme cosa serve.</p></details>
   <details><summary>Lavorate anche per le aziende?</summary><p>Sì: sedi, negozi, ristoranti, agriturismi e strutture ricettive.</p></details>
   <details><summary>Fate anche luci per eventi?</summary><p>Sì, illuminazione da esterno per feste, cerimonie e ricevimenti, non solo a Natale.</p></details>
 
