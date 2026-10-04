@@ -168,6 +168,8 @@
   gtag('js', new Date());
   gtag('config', 'G-GYQ426DJKF');
 </script>
+<link rel="preload" as="image" href="/img/fiore/pc/f001.webp" type="image/webp" fetchpriority="high" media="(min-width: 901px)">
+<link rel="preload" as="image" href="/img/fiore/telefono/f001.webp" type="image/webp" fetchpriority="high" media="(max-width: 900px)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -231,7 +233,7 @@ figure { margin: 0; }
 
 /* il fiore vero: i fotogrammi di un time-lapse che avanzano con lo scorrimento.
    Sul PC occupa tutta la parte destra sotto la testata; niente gli passa sopra. */
-.fiore-vero { position: fixed; z-index: 1; top: var(--fiore-alto); bottom: 0; left: var(--fiore-sx); right: var(--margine); pointer-events: none; opacity: 0; transition: opacity .8s ease; }
+.fiore-vero { position: fixed; z-index: 1; top: var(--fiore-alto); bottom: 0; left: var(--fiore-sx); right: var(--margine); pointer-events: none; opacity: 0; transition: opacity .3s ease; }
 .fiore-vero.pronto { opacity: 1; }
 .fiore-vero canvas { display: block; width: 100%; height: 100%; }
 main > section { position: relative; }
@@ -992,8 +994,9 @@ main > section { position: relative; }
         var r = box.getBoundingClientRect(), vh = window.innerHeight;
         return Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.5 + r.height * 0.5)));
       }
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      return max > 0 ? Math.min(1, Math.max(0, window.scrollY / (max * 0.94))) : 0;
+      // sboccia del tutto entro le prime due schermate e mezzo, poi resta aperto
+      var max = Math.min((document.documentElement.scrollHeight - window.innerHeight) * 0.94, window.innerHeight * 2.5);
+      return max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
     }
     function aggiorna() { inCoda = false; disegna(ridotto ? tot - 1 : Math.round(avanzamento() * (tot - 1))); }
     function chiedi() { if (!inCoda) { inCoda = true; requestAnimationFrame(aggiorna); } }
@@ -1008,11 +1011,12 @@ main > section { position: relative; }
     if (ridotto) ordine = [tot - 1];
     var inVolo = 0, pos = 0;
     function prossima() {
-      while (inVolo < 6 && pos < ordine.length) {
+      while (inVolo < 8 && pos < ordine.length) {
         (function (i) {
           var im = new Image(); inVolo++;
           var fatto = function () { foto[i] = im; pronte[i] = true; inVolo--; if (!box.classList.contains('pronto')) box.classList.add('pronto'); chiedi(); prossima(); };
           var errore = function () { inVolo--; prossima(); };
+          if (pos === 1 && 'fetchPriority' in im) im.fetchPriority = 'high';
           im.src = nome(i);
           // la foto si decodifica prima di disegnarla, cosi' lo scorrimento resta fluido anche ad alta risoluzione
           if (im.decode) im.decode().then(fatto, errore); else { im.onload = fatto; im.onerror = errore; }
@@ -1023,7 +1027,7 @@ main > section { position: relative; }
     window.addEventListener('scroll', chiedi, { passive: true });
     window.addEventListener('resize', ridimensiona);
     if (stretto.addEventListener) stretto.addEventListener('change', ridimensiona);
-    if (document.readyState === 'complete') prossima(); else window.addEventListener('load', prossima);
+    prossima();
   }
 
   // modulo preventivo: invio a Netlify, WhatsApp come alternativa
