@@ -54,11 +54,11 @@
   .back-btn:hover { color: var(--gold); }
   .nav-call { font-size: 0.82rem; font-weight: 700; color: var(--bg); background: var(--gold); padding: 9px 18px; border-radius: 100px; text-decoration: none; white-space: nowrap; }
   .nav-call:hover { background: var(--gold-soft); }
-  .crumbs { max-width: 800px; margin: 0 auto; padding: 28px 6% 0; font-size: 0.78rem; color: var(--cream-dim); }
+  .crumbs { margin: 0 auto; padding: 28px 6% 0; font-size: 0.78rem; color: var(--cream-dim); }
   .crumbs a { color: var(--cream-dim); text-decoration: none; }
   .crumbs a:hover { color: var(--gold); }
   .crumbs .sep { opacity: 0.45; margin: 0 7px; }
-  .svc-hero { max-width: 800px; margin: 0 auto; padding: 36px 6% 0; }
+  .svc-hero { margin: 0 auto; padding: 36px 6% 0; }
   .cat { font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); margin-bottom: 18px; font-weight: 600; }
   h1 { font-family: 'Instrument Serif', serif; font-size: clamp(2.1rem, 5.4vw, 3.5rem); font-weight: 400; line-height: 1.08; margin-bottom: 22px; letter-spacing: -0.01em; }
   h1 i { font-style: italic; color: var(--gold); }
@@ -71,7 +71,7 @@
   .btn-ghost:hover { border-color: var(--cream); background: rgba(243,238,226,0.05); }
   .fatti { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 0.82rem; color: var(--sage); padding-bottom: 34px; border-bottom: 1px solid var(--line); }
   .fatti span::before { content: '✓'; color: var(--gold); margin-right: 7px; }
-  main { max-width: 800px; margin: 0 auto; padding: 10px 6% 90px; }
+  main { margin: 0 auto; padding: 10px 6% 90px; }
   main > p, .sez > p { font-size: 1.02rem; line-height: 1.8; color: var(--cream-dim); font-weight: 300; margin-bottom: 24px; }
   main h2 { font-family: 'Instrument Serif', serif; font-size: clamp(1.6rem, 3.6vw, 2.1rem); font-weight: 400; color: var(--cream); margin: 54px 0 20px; line-height: 1.15; }
   main h2 i { font-style: italic; color: var(--gold); }
@@ -113,6 +113,8 @@
   .foot-servizi { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin-bottom: 16px; }
   .foot-servizi a { color: var(--cream-dim); font-size: 0.84rem; }
   .foot-servizi a:hover { color: var(--gold); }
+  .hero-img-wrap { padding: 24px 6% 0; }
+  .hero-img { width: 100%; aspect-ratio: 16/7; object-fit: cover; border-radius: 16px; display: block; }
   .wa { position: fixed; bottom: 22px; right: 22px; z-index: 99; width: 56px; height: 56px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 22px rgba(37,211,102,0.4); transition: transform 0.25s; }
   .wa:hover { transform: scale(1.08); }
   .wa svg { width: 28px; height: 28px; fill: #fff; }
@@ -215,6 +217,9 @@
   </div>
   <div class="fatti"><span>Dal 2011</span><span>Sopralluogo e preventivo gratuiti</span><span>Un solo referente</span></div>
 </header>
+<div class="hero-img-wrap">
+  <img src="/img/lavori/cotto-dopo.webp" alt="Terrazzo in cotto pulito e trattato" width="800" height="1000" loading="eager" class="hero-img">
+</div>
 
 <main>
   <h2>Cosa <i>facciamo</i></h2>
@@ -240,10 +245,8 @@
   <h2>Un solo referente per <i>casa e giardino</i></h2>
   <p>Se ci segui già per il giardino, la casa la conosciamo: possiamo programmare insieme verde, cotto e facciate, con un unico preventivo e le stesse persone.</p>
 
-  <h2>Dove <i>interveniamo</i></h2>
-  <p>Siamo di Bagno a Ripoli: lavoriamo soprattutto tra Grassina, Antella, Ponte a Ema e Firenze Sud, e nei comuni vicini.</p>
-  <div class="pills"><span class="pill">Bagno a Ripoli</span><span class="pill">Grassina</span><span class="pill">Antella</span><span class="pill">Ponte a Ema</span><span class="pill">Firenze Sud</span><span class="pill">Firenze Centro</span><span class="pill">Fiesole</span><span class="pill">Impruneta</span><span class="pill">Pontassieve</span><span class="pill">Rignano sull'Arno</span><span class="pill">Greve in Chianti</span></div>
-  <p>Sei in un'altra zona dell'area fiorentina? Chiamaci e ne parliamo.</p>
+  <h2>Dove <i>operiamo</i></h2>
+  <p>Siamo basati a Bagno a Ripoli e lavoriamo principalmente su Firenze Sud, ma seguiamo clienti su tutto il territorio toscano. Se hai un lavoro fuori zona, chiamaci e vediamo insieme.</p>
 
   <h2>Domande <i>frequenti</i></h2>
   <details><summary>Il cotto annerito si può recuperare?</summary><p>Quasi sempre sì: con la pulizia giusta torna chiaro, poi va protetto perché resti così. Lo valutiamo insieme al sopralluogo.</p></details>
