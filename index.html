@@ -485,6 +485,43 @@ main > section { position: relative; }
   .zone-elenco li { font-size: 19px; }
 }
 
+/* offerta del mese — olio nuovo */
+.offerta-mese { background: linear-gradient(160deg, #17270d 0%, #0e1b09 100%); }
+.offerta-mese > .wrap { border-top: 1px solid var(--linea-oro); padding-block: clamp(48px, 6vw, 92px); }
+.offerta-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(224,189,116,0.11); border: 1px solid var(--linea-oro); border-radius: 100px; padding: 5px 16px 5px 11px; font-family: var(--serif); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--oro); }
+.offerta-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--oro); box-shadow: 0 0 0 3px rgba(224,189,116,0.22); flex-shrink: 0; animation: olio-pulsa 2.4s ease-in-out infinite; }
+@keyframes olio-pulsa { 0%,100%{box-shadow:0 0 0 3px rgba(224,189,116,0.22)} 50%{box-shadow:0 0 0 5px rgba(224,189,116,0.08)} }
+.offerta-titolo { margin-top: 14px; font-size: clamp(30px, 2.8vw, 44px); line-height: 1.06; letter-spacing: -0.01em; color: var(--crema); }
+.offerta-lead { margin-top: 14px; font-size: 16.5px; line-height: 1.68; color: var(--crema-2); }
+
+/* griglia foto olive */
+.olio-foto { margin-top: 32px; display: grid; gap: 10px; }
+.olio-foto-principale img { width: 100%; height: auto; border-radius: 2px; display: block; }
+.olio-foto-secondarie { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.olio-foto-secondarie img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; display: block; }
+.olio-foto figure { margin: 0; }
+.olio-foto figcaption { font-size: 12.5px; color: var(--crema-2); opacity: 0.6; margin-top: 5px; padding-left: 1px; }
+
+/* testo persuasivo */
+.offerta-corpo { margin-top: 32px; font-size: 16.5px; line-height: 1.72; color: var(--crema-2); }
+.offerta-corpo p + p { margin-top: 14px; }
+.offerta-corpo strong { color: var(--crema); font-weight: 600; }
+
+/* tabella analisi */
+.olio-analisi-titolo { margin-top: 36px; font-family: var(--serif); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--oro); }
+.olio-analisi { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 15px; }
+.olio-analisi tr { border-bottom: 1px solid var(--linea); }
+.olio-analisi tr:first-child { border-top: 1px solid var(--linea-oro); }
+.olio-analisi th { text-align: left; font-family: var(--serif); font-weight: 400; font-size: 14px; letter-spacing: 0.08em; color: var(--crema-2); padding: 14px 16px 14px 0; white-space: nowrap; vertical-align: top; width: 7em; }
+.olio-analisi .olio-val { font-family: var(--serif); font-size: clamp(22px, 2.2vw, 28px); color: var(--oro); font-weight: 400; padding: 14px 20px 14px 0; white-space: nowrap; vertical-align: top; }
+.olio-analisi td:last-child { color: var(--crema-2); font-size: 14.5px; line-height: 1.55; padding: 14px 0; vertical-align: top; }
+.olio-fonte { margin-top: 10px; font-size: 12px; color: var(--crema-2); opacity: 0.5; }
+
+/* CTA finale */
+.offerta-cta { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.offerta-nota-disponibilita { margin-top: 18px; font-size: 13.5px; color: var(--crema-2); display: flex; align-items: center; gap: 8px; }
+.offerta-nota-disponibilita::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--salvia); flex-shrink: 0; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
@@ -517,6 +554,7 @@ main > section { position: relative; }
     <nav aria-label="Principale">
       <ul class="menu">
         <li><a href="#contatti">Contatti</a></li>
+        <li id="menu-olio-desktop" hidden><a href="#offerta-mese" style="color:var(--oro)">🫒 Olio nuovo</a></li>
         <li><a href="#settori">Settori</a></li>
         <li><a href="#progettazione">Progettazione</a></li>
         <li><a href="#impresa">L'impresa</a></li>
@@ -537,6 +575,7 @@ main > section { position: relative; }
   <nav aria-label="Menu del telefono">
     <ul>
       <li><a href="#contatti">Contatti</a></li>
+      <li id="menu-olio-mobile" hidden><a href="#offerta-mese" style="color:var(--oro)">🫒 Olio nuovo</a></li>
       <li><a href="#settori">Settori</a></li>
       <li><a href="#impresa">L'impresa</a></li>
       <li><a href="#metodo">Il metodo</a></li>
@@ -563,6 +602,89 @@ main > section { position: relative; }
       </div>
     </div>
     <div class="fiore-vero" data-fotogrammi="120" data-fotogrammi-telefono="80" data-percorso="/img/fiore/" aria-hidden="true"><canvas></canvas></div>
+  </section>
+
+  <!-- OFFERTA DEL MESE: olio nuovo. Lo script in fondo alla pagina la mostra solo in nov-dic-gen -->
+  <section class="sez offerta-mese" id="offerta-mese" aria-labelledby="offerta-titolo" hidden>
+    <div class="wrap">
+
+      <span class="offerta-badge">Offerta del mese</span>
+      <h2 class="offerta-titolo" id="offerta-titolo">Olio nuovo <span id="offerta-anno"></span> — disponibile ora</h2>
+      <p class="offerta-lead">Extravergine toscano di produzione propria. Raccolto a mano, franto lo stesso giorno. I numeri parlano da soli.</p>
+
+      <div class="offerta-cta" style="margin-top:22px">
+        <a class="btn btn-oro" href="https://wa.me/393287217116?text=Ciao%20Tommaso%2C%20vorrei%20informazioni%20sull'olio%20nuovo%20del%20Giglio%20Verde." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.857L.057 23.882a.5.5 0 0 0 .613.613l6.054-1.479A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 0 1-5.014-1.376l-.359-.214-3.724.909.934-3.628-.234-.373A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+          Scrivi su WhatsApp
+        </a>
+        <a class="btn btn-linea" href="#contatti">Richiedi un preventivo</a>
+      </div>
+      <p class="offerta-nota-disponibilita" style="margin-top:14px">Consegna a domicilio solo su Firenze · Spedizioni possibili su richiesta</p>
+
+      <!-- Fotografie del processo -->
+      <div class="olio-foto" aria-label="Fotografie della raccolta olive">
+        <figure class="olio-foto-principale">
+          <img src="/img/olio/olive-verdi-frantoio.webp" alt="Cassetta di olive verdi appena arrivate al frantoio — Giglio Verde 2026" width="900" height="675" loading="lazy">
+          <figcaption>Al frantoio, poco dopo la raccolta</figcaption>
+        </figure>
+        <div class="olio-foto-secondarie">
+          <figure>
+            <img src="/img/olio/olive-nere-cassetta.webp" alt="Olive nere e verdi raccolte a mano — Il Giglio Verde" width="600" height="600" loading="lazy">
+            <figcaption>Misto di maturazione: il segreto del carattere</figcaption>
+          </figure>
+          <figure>
+            <img src="/img/olio/olive-macina-frantoio.webp" alt="Olive in lavorazione al frantoio — spremitura a freddo" width="600" height="450" loading="lazy">
+            <figcaption>Spremitura a freddo, stessa giornata della raccolta</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Testo persuasivo -->
+      <div class="offerta-corpo">
+        <p>Le olive vengono raccolte a mano e portate al frantoio lo stesso giorno. <strong>Nessun accumulo, nessuna attesa.</strong> La spremitura a freddo avviene entro poche ore, e questo fa tutta la differenza: l'olio mantiene intatti i suoi aromi, le sue proprietà e il suo carattere deciso.</p>
+        <p>Quest'anno il mix di maturazione — tante verdi, qualche nera — ha prodotto un olio con un profilo fenolico eccezionale. <strong>Amaro e piccante pronunciati</strong> (buon segno, non un difetto), fruttato intenso, e una stabilità che garantisce una conservazione ottima nel tempo.</p>
+        <p>Disponibile in quantità limitata, per privati, ristoranti e aziende. Consegna a domicilio solo su Firenze; spedizioni possibili su richiesta.</p>
+      </div>
+
+      <!-- Tabella analisi -->
+      <p class="olio-analisi-titolo">Analisi chimica certificata</p>
+      <table class="olio-analisi">
+        <caption class="olio-fonte">Cooperativa Agricola Primavera spa, Via di Compiobbi 1a — Bagno a Ripoli (FI) · ottobre 2026 · CDR OxiTester Jr</caption>
+        <tbody>
+          <tr>
+            <th scope="row">Acidità</th>
+            <td class="olio-val">0,09%</td>
+            <td>Il limite di legge per definirsi extravergine è 0,8%. Il nostro è quasi dieci volte sotto soglia — segno di olive sane, raccolte al momento giusto e lavorate in fretta.</td>
+          </tr>
+          <tr>
+            <th scope="row">Polifenoli</th>
+            <td class="olio-val">635 mg/Kg</td>
+            <td>La soglia europea per le dichiarazioni salutistiche è 250 mg/Kg. Il nostro olio ne contiene quasi il triplo, nella categoria "ultra-premium". I polifenoli danno il gusto amaro-piccante e proteggono la salute cardiovascolare.</td>
+          </tr>
+          <tr>
+            <th scope="row">Perossidi</th>
+            <td class="olio-val">7,61</td>
+            <td>Misura quanto l'olio si è già ossidato. Il massimo consentito è 20: il nostro è a 7,6, il che significa olio freschissimo, conservato bene dall'estrazione all'imbottigliamento.</td>
+          </tr>
+          <tr>
+            <th scope="row">Stabilità</th>
+            <td class="olio-val">20,2 h</td>
+            <td>Tempo prima che l'olio cominci a irrancidire (metodo Rancimat). Oltre 10 ore è già considerato buono: i nostri 20,2 ore garantiscono una conservazione eccellente nel tempo, anche dopo l'apertura.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- CTA -->
+      <div class="offerta-cta">
+        <a class="btn btn-oro" href="https://wa.me/393287217116?text=Ciao%20Tommaso%2C%20vorrei%20informazioni%20sull'olio%20nuovo%20del%20Giglio%20Verde." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.857L.057 23.882a.5.5 0 0 0 .613.613l6.054-1.479A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 0 1-5.014-1.376l-.359-.214-3.724.909.934-3.628-.234-.373A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+          Scrivi su WhatsApp
+        </a>
+        <a class="btn btn-linea" href="#contatti">Richiedi un preventivo</a>
+      </div>
+      <p class="offerta-nota-disponibilita">Consegna a domicilio solo su Firenze · Spedizioni possibili su richiesta</p>
+
+    </div>
   </section>
 
   <section class="sez" id="settori" aria-labelledby="settori-titolo">
@@ -1108,6 +1230,28 @@ main > section { position: relative; }
     else if (h.indexOf('wa.me') > -1) gtag('event', 'clic_whatsapp');
     else if (h.indexOf('mailto:') === 0) gtag('event', 'clic_email');
   });
+})();
+</script>
+<script>
+/* Offerta del mese: olio nuovo — visibile ogni anno in novembre (11), dicembre (12) e gennaio (1) */
+(function () {
+  var oggi = new Date();
+  var mese = oggi.getMonth() + 1; // 1=gen ... 12=dic
+  if (mese === 11 || mese === 12 || mese === 1) {
+    var sez = document.getElementById('offerta-mese');
+    if (sez) {
+      sez.removeAttribute('hidden');
+      /* anno raccolta: se siamo a gen mostriamo l'anno precedente, altrimenti l'anno corrente */
+      var annoRaccolta = (mese === 1) ? oggi.getFullYear() - 1 : oggi.getFullYear();
+      var spanAnno = document.getElementById('offerta-anno');
+      if (spanAnno) spanAnno.textContent = annoRaccolta;
+    }
+    /* mostra la voce "Olio nuovo" anche nei menu desktop e mobile */
+    var vDesktop = document.getElementById('menu-olio-desktop');
+    var vMobile  = document.getElementById('menu-olio-mobile');
+    if (vDesktop) vDesktop.removeAttribute('hidden');
+    if (vMobile)  vMobile.removeAttribute('hidden');
+  }
 })();
 </script>
 </body>
